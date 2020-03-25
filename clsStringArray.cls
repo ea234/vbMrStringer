@@ -13,8 +13,25 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 
+'
+' Vektor fuer die Speicherung der Strings
+'
 Private m_array_strings()          As String
+
+'
+' Zaehler fuer die Anzahl der gespeicherten Strings. Die Vektorausdehnung
+' kann groesser als die Anzahl der gespeicherten Strings sein.
+'
 Private m_anzahl_daten_strings     As Long
+
+'
+' Speichert die Anzahl von neuen Speicherplaetzen beim Redim
+'
+Private m_vektor_anzahl_erweiterung  As Long
+
+'
+' Kennzeichen fuer die Sortierung bei Spezial-Funktionen
+'
 Private m_knz_benutze_markierung   As Boolean
 Private m_knz_umstellung_datum_machen As Boolean
 Private m_ab_position              As Long
@@ -48,17 +65,38 @@ On Error Resume Next
     
     m_knz_benutze_markierung = False
     
+    m_vektor_anzahl_erweiterung = 40
+    
 End Sub
 
 '################################################################################
 '
+' Fuegt den String dem Vektor hinzu. Der Vektor wird gegebenenfalls erweitert,
+' um den neuen String speichern zu koennen.
+'
+' PARAMETER: pString der zu speichernde String
+'
 Public Sub addString(ByVal pString As String)
+
+    '
+    ' Vektorvergroesserung und Speicheranzahl
+    '
+    ' Im Vektor soll eine neuer String gespeichert werden.
+    '
+    ' Die Anzahl der gespeicherten Strings wird um 1 erhoeht.
+    '
+    ' Hat der Vektor nicht mehr genug Speicherplaetze, wird der
+    ' Vektor eventuell vergroessert.
+    '
+    ' Da die Speicherung im Vektor bei Indexposition 0 beginnt, ist
+    ' der Speicherindex des neuen Elementes gleich der Anzahl - 1.
+    '
 
     m_anzahl_daten_strings = m_anzahl_daten_strings + 1
 
     If UBound(m_array_strings, 1) < m_anzahl_daten_strings Then
         
-        ReDim Preserve m_array_strings(m_anzahl_daten_strings + 3)
+        ReDim Preserve m_array_strings(m_anzahl_daten_strings + m_vektor_anzahl_erweiterung)
     
     End If
     
@@ -68,6 +106,10 @@ End Sub
 
 '################################################################################
 '
+' Gibt die Anzahl der gespeicherten Strings zurueck.
+'
+' RETURN : die Anzahl der Strings
+'
 Public Function getAnzahlStrings() As Long
 
     getAnzahlStrings = m_anzahl_daten_strings
@@ -76,8 +118,25 @@ End Function
 
 '################################################################################
 '
+' Liefert den String an dem uebergebenen Index zurueck.
+' Liegt der Index ausserhalb der Vektoranzahl wird ein Leerstring zurueck gegeben.
+'
+' PARAMETER: pIndex = der Index im Vektor
+'
+' RETURN  : der String am am Index, oder ein Leerstring wenn der Index nicht existiert
+'
 Public Function getString(pIndex As Long) As String
 
+    '
+    ' Pruefung: pIndex gueltig ?
+    '
+    ' Der Index aus dem Parameter "pIndex" muss im Bereich
+    ' von 0 bis zur aktuellen Vektoranzahl liegen.
+    '
+    ' Existiert der Index, wird der dort gespeicherte String zurueck gegeben
+    '
+    ' Existiert der Index nicht, wird ein Leerstring zurueck gegeben.
+    '
     If ((pIndex > 0) And (pIndex <= m_anzahl_daten_strings)) Then
         
         getString = m_array_strings(pIndex)
@@ -94,8 +153,14 @@ End Function
 '
 Public Sub setString(pIndex As Long, pString As String)
 
+    '
+    ' Pruefung: pIndex gueltig ?
+    '
     If ((pIndex > 0) And (pIndex <= m_anzahl_daten_strings)) Then
-        
+    
+        '
+        ' Ist der Index gueltig, wird der String an der Indexposition gesetzt.
+        '
         m_array_strings(pIndex) = pString
     
     End If
@@ -104,36 +169,40 @@ End Sub
 
 '################################################################################
 '
+' Liefert einen String der gespeicherten Strings zurueck.
+'
+' Mit dem Parameter "pKnzLeerzeilenEntfernen" koenen Leerzeilen uberlesen werden.
+'
 Public Function toString(pZeichenZeilenumbruch As String, Optional pKnzLeerzeilenEntfernen As Boolean = False) As String
 
-Dim ergebnis_str   As String
-Dim zeilen_zaehler As Long
+Dim str_fkt_ergebnis As String ' Speichert den Rueckgabestring
+Dim akt_index        As Long   ' der Index fuer die While-Schleife
 
-    ergebnis_str = ""
+    str_fkt_ergebnis = ""
     
-    zeilen_zaehler = 1
+    akt_index = 1
     
-    While (zeilen_zaehler <= m_anzahl_daten_strings)
+    While (akt_index <= m_anzahl_daten_strings)
         
         If (pKnzLeerzeilenEntfernen) Then
             
-            If (Trim(m_array_strings(zeilen_zaehler)) <> "") Then
+            If (Trim(m_array_strings(akt_index)) <> LEER_STRING) Then
                 
-                ergebnis_str = ergebnis_str & m_array_strings(zeilen_zaehler) & pZeichenZeilenumbruch
+                str_fkt_ergebnis = str_fkt_ergebnis & m_array_strings(akt_index) & pZeichenZeilenumbruch
             
             End If
         
         Else
             
-            ergebnis_str = ergebnis_str & m_array_strings(zeilen_zaehler) & pZeichenZeilenumbruch
+            str_fkt_ergebnis = str_fkt_ergebnis & m_array_strings(akt_index) & pZeichenZeilenumbruch
         
         End If
         
-        zeilen_zaehler = zeilen_zaehler + 1
+        akt_index = akt_index + 1
             
     Wend
 
-    toString = ergebnis_str
+    toString = str_fkt_ergebnis
     
 End Function
 
@@ -220,21 +289,29 @@ Dim index_ende              As Long
         If (pKnzAufsteigend) Then
 
             While (getStringSortierung(index_start, pSortierkriterium) < vergleichs_string_mitte)
+                
                 index_start = index_start + 1
+            
             Wend
 
             While (getStringSortierung(index_ende, pSortierkriterium) > vergleichs_string_mitte)
+                
                 index_ende = index_ende - 1
+            
             Wend
 
         Else
 
             While (getStringSortierung(index_start, pSortierkriterium) > vergleichs_string_mitte)
+                
                 index_start = index_start + 1
+            
             Wend
 
             While (getStringSortierung(index_ende, pSortierkriterium) < vergleichs_string_mitte)
+                
                 index_ende = index_ende - 1
+            
             Wend
             
         End If
@@ -242,19 +319,30 @@ Dim index_ende              As Long
         If (index_start <= index_ende) Then
             
             temp_string = m_array_strings(index_start)
+            
             m_array_strings(index_start) = m_array_strings(index_ende)
+            
             m_array_strings(index_ende) = temp_string
 
             index_start = index_start + 1
+            
             index_ende = index_ende - 1
 
         End If
 
     Loop Until (index_start > index_ende)
 
-    If (pIndexStart < index_ende) Then Call QuickSort(pIndexStart, index_ende, pSortierkriterium, pKnzAufsteigend)
+    If (pIndexStart < index_ende) Then
     
-    If (index_start < pIndexEnde) Then Call QuickSort(index_start, pIndexEnde, pSortierkriterium, pKnzAufsteigend)
+        Call QuickSort(pIndexStart, index_ende, pSortierkriterium, pKnzAufsteigend)
+        
+    End If
+    
+    If (index_start < pIndexEnde) Then
+    
+        Call QuickSort(index_start, pIndexEnde, pSortierkriterium, pKnzAufsteigend)
+        
+    End If
 
 End Sub
 
@@ -288,11 +376,13 @@ End Sub
 
 '################################################################################
 '
+' Vertauscht die gespeicherten Strings zufaellig.
+'
 Public Sub startZufallsUmsortierung()
 
-Dim temp_string   As String
-Dim index_aktuell As Long
-Dim index_zufall  As Long
+Dim temp_string   As String ' temporaerer String fuer die Vertauschung
+Dim index_aktuell As Long   ' der Index der While-Schleife
+Dim index_zufall  As Long   ' der zufaellige Index, fuer die neue Position
 
 On Error Resume Next
 
@@ -300,13 +390,31 @@ On Error Resume Next
     
     Randomize
 
+    '
+    ' Ueber eine While-Schleife werden alle gesetzten Vektor-Strings einmal vertauscht
+    '
     While (index_aktuell < m_anzahl_daten_strings)
     
+        '
+        ' Der Index der While-Schleife wird erhoeht
+        '
         index_aktuell = index_aktuell + 1
-            
+           
+        '
+        ' Der zweite Index wird per Zufall bestimmt.
+        ' Die Anzahl der gespeicherten Strings bestimmt dabei
+        ' die Obergrenze des Zufallswertes.
+        '
         index_zufall = Int(1 + m_anzahl_daten_strings * Rnd)
         
-        If (index_zufall <> index_aktuell) And (index_zufall <= m_anzahl_daten_strings) Then
+        '
+        ' Pruefungen:
+        ' Die beiden Indexwerte muessen sich unterscheiden.
+        ' Der Zufallsindex darf nicht groesser als die anzahl der gespeicherten Strings sein.
+        '
+        ' Sind die beiden Bedingungen erfuellt, werden die Array-Inhalte an den Positionen getauscht.
+        '
+        If ((index_zufall <> index_aktuell) And (index_zufall <= m_anzahl_daten_strings)) Then
             
             temp_string = m_array_strings(index_aktuell)
             
@@ -319,39 +427,3 @@ On Error Resume Next
     Wend
 
 End Sub
-
-'    Dim zeilen_anzahl  As Long
-'    Dim zeilen_zaehler As Long
-'    Dim aktuelle_zeile As String
-'
-'    '
-'    ' Anzahl der insgesamt vorhandenen Zeilen aus dem String-Array ermitteln
-'    '
-'    zeilen_anzahl = pStringArray.getAnzahlStrings
-'
-'    '
-'    ' Zeilenzaehler auf 1 stellen.
-'    '
-'    zeilen_zaehler = 1
-'
-'    '
-'    ' Schleifendurchlauf von 1 bis zu der Anzahl der vorhandenen Zeilen.
-'    ' Es ist kein Endlossschleifen-Verhinderungszaehler vorhanden.
-'    '
-'    While (zeilen_zaehler <= zeilen_anzahl)
-'        '
-'        ' Aktuelle Zeile
-'        ' Die aktuelle Zeile wird per Index aus dem Zeilenobjekt gelesen
-'        ' und in der Variablen "aktuelle_zeile" gespeichert.
-'        '
-'        aktuelle_zeile = cls_string_array.getString(zeilen_zaehler)
-'
-'
-'        '
-'        ' Zeilenzaehler erhoehen
-'        ' Am Ende der IF-Kaskade wird der Zeilenzaehler fuer den naechsten Durchgang um 1 erhoeht.
-'        '
-'        zeilen_zaehler = zeilen_zaehler + 1
-'
-'    Wend
-

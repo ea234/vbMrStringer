@@ -13,13 +13,13 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 
-Private BOOLEAN_TRUE As Integer
-Private BOOLEAN_FALSE As Integer
+Private BOOLEAN_TRUE    As Integer
+Private BOOLEAN_FALSE   As Integer
 Private BOOLEAN_UNKNOWN As Integer
-Private m_excel_objekt As Object
 
-Private m_max_zeile As Integer
-Private m_max_spalte As Integer
+Private m_excel_objekt  As Object
+Private m_max_zeile     As Integer
+Private m_max_spalte    As Integer
 
 '################################################################################
 '
@@ -84,14 +84,13 @@ On Error GoTo errInitExcelObjekt
 
 errInitExcelObjekt:
 
-    '##sssExcel("Fehler: errInitExcelObjekt: " & Err & " " & Error$ & " " & Erl)
+    'writeLogExcel("Fehler: errInitExcelObjekt: " & Err & " " & Error$ & " " & Erl)
 
     initExcelObjekt = False
 
     Exit Function
 
 End Function
-
 
 '################################################################################
 '
@@ -124,7 +123,7 @@ labelRetry:
 
 errOpenWorkbook:
 
-    '##sssExcel("Fehler: errOpenWorkbook: " & Err & " " & Error$ & " " & Erl)
+    'writeLogExcel("Fehler: errOpenWorkbook: " & Err & " " & Error$ & " " & Erl)
 
     If (pKnzMessageboxAnzeigen) Then
         '
@@ -151,11 +150,6 @@ End Function
 Public Function closeWorkbook(ByVal pDateiName As String) As Boolean
 
 On Error Resume Next
-
-'xl.DisplayAlerts = false
-'>xl.ActiveWorkbook.Saved = true
-'>xl.ActiveWorkbook.Close 'SaveChanges:=False
-'>xl.Quit
 
     Dim knz_save_display_alerts As Boolean
 
@@ -187,7 +181,7 @@ On Error GoTo errAddWorkbook
 
 errAddWorkbook:
 
-    '##sssExcel("Fehler: errAddWorkbook: " & Err & " " & Error$ & " " & Erl)
+    'writeLogExcel("Fehler: errAddWorkbook: " & Err & " " & Error$ & " " & Erl)
 
     addWorkbook = False
 
@@ -209,7 +203,7 @@ On Error GoTo errSelectWorksheet
 
 errSelectWorksheet:
 
-    '##sssExcel("Fehler: errSelectWorksheet: " & Err & " " & Error$ & " " & Erl)
+    'writeLogExcel("Fehler: errSelectWorksheet: " & Err & " " & Error$ & " " & Erl)
 
     selectWorksheet = False
 
@@ -243,7 +237,7 @@ errAddSheet:
 
 On Error Resume Next
 
-    '##sssExcel("Fehler: errAddSheet: " & Err & " " & Error$ & " " & Erl)
+    'writeLogExcel("Fehler: errAddSheet: " & Err & " " & Error$ & " " & Erl)
 
     If (Err.Number > 0) Then
 
@@ -279,7 +273,7 @@ On Error GoTo errSelectSheet
 
 errSelectSheet:
 
-    '##sssExcel("Fehler: errSelectSheet1: " & Err & " " & Error$ & " " & Erl)
+    'writeLogExcel("Fehler: errSelectSheet1: " & Err & " " & Error$ & " " & Erl)
 
     selectSheet = False
 
@@ -319,14 +313,14 @@ On Error GoTo errSetRangeByString
 
     End If
 
-Dim akt_position As Long
-Dim akt_zeile As String
-Dim ergebnis As String
-Dim knz_erste_zeile As Boolean
-Dim knz_umbruch_vorhanden As Boolean
-Dim letzte_position As Long
+Dim akt_position          As Long
+Dim akt_zeile             As String
 Dim zeichen_zeilenumbruch As String
-Dim zeilen_zaehler As Long
+Dim ergebnis              As String
+Dim letzte_position       As Long
+Dim zeilen_zaehler        As Long
+Dim knz_erste_zeile       As Boolean
+Dim knz_umbruch_vorhanden As Boolean
 
     knz_erste_zeile = True
 
@@ -334,7 +328,7 @@ Dim zeilen_zaehler As Long
     '
     ' Ermittlung welches Zeilenumbruchzeichen verwendet in der Eingabe verwendet wird
     '
-    If (pZeilenTrennzeichen <> "") Then
+    If (pZeilenTrennzeichen <> LEER_STRING) Then
 
         zeichen_zeilenumbruch = pZeilenTrennzeichen
 
@@ -342,7 +336,7 @@ Dim zeilen_zaehler As Long
 
     Else
 
-        zeichen_zeilenumbruch = Chr(13) & Chr(10)
+        zeichen_zeilenumbruch = MY_CHR_13_10
 
         knz_umbruch_vorhanden = (InStr(1, pEingabe, zeichen_zeilenumbruch) > 0)
 
@@ -387,7 +381,7 @@ Dim zeilen_zaehler As Long
 
             akt_zeile = Mid(pEingabe, letzte_position, (Len(pEingabe) - letzte_position) + 1)
 
-            If (Trim(akt_zeile) <> "") Then
+            If (Trim(akt_zeile) <> LEER_STRING) Then
 
                 ergebnis = ergebnis & akt_zeile & zeichen_zeilenumbruch
 
@@ -413,7 +407,7 @@ Dim zeilen_zaehler As Long
 
 errSetRangeByString:
 
-    '##sssExcel("Fehler: errSetRangeByString: " & Err & " " & Error$ & " " & Erl)
+    'writeLogExcel("Fehler: errSetRangeByString: " & Err & " " & Error$ & " " & Erl)
 
     setRangeByString = -1
 
@@ -429,10 +423,10 @@ On Error GoTo errSetZeileByString
 
  'Call pExcelObjekt.setZeileByString(start_zeile + akt_zeile, "a,b,b,d,e,f,,e", ",")
 
-    Dim aktueller_string As String
-    Dim index_end_position As Integer
-    Dim index_start_position As Integer
-    Dim zaehler As Integer
+Dim aktueller_string     As String
+Dim index_end_position   As Integer
+Dim index_start_position As Integer
+Dim zaehler              As Integer
 
     zaehler = 0
 
@@ -471,7 +465,7 @@ On Error GoTo errSetZeileByString
         '
         'If IsNumeric(aktueller_string) Then
 
-         '   m_excel_objekt.Cells(pZeile, zaehler).Value = CDbl(aktueller_string)
+        '    m_excel_objekt.Cells(pZeile, zaehler).Value = CDbl(aktueller_string)
 
         'Else
           
@@ -479,15 +473,14 @@ On Error GoTo errSetZeileByString
           
             m_excel_objekt.Cells(pZeile, zaehler).Value = aktueller_string
 
- '       End If
-        
-        
+        'End If
 
         Call checkMaxZeileSpalte(pZeile, zaehler)
         '
         ' Trennzeichen ueberlesen
         '
         index_start_position = index_end_position
+        
         '
         ' naechstes Trennzeichen in der Eingabe suchen
         '
@@ -509,7 +502,7 @@ On Error GoTo errSetZeileByString
 
 errSetZeileByString:
 
-    '##sssExcel("Fehler: errSetZeileByString: " & Err & " " & Error$ & " " & Erl)
+    'writeLogExcel("Fehler: errSetZeileByString: " & Err & " " & Error$ & " " & Erl)
 
     setZeileByString = False
 

@@ -6,10 +6,65 @@ Begin VB.Form frmMrStringer
    ClientTop       =   345
    ClientWidth     =   27420
    LinkTopic       =   "Form1"
+   LockControls    =   -1  'True
    ScaleHeight     =   726
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   1828
    StartUpPosition =   3  'Windows-Standard
+   Begin VB.CommandButton m_btnGeneratorJavaVbComment 
+      Caption         =   "// cmnt"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   143
+      ToolTipText     =   "Generator Java VB Kommentar"
+      Top             =   3675
+      Width           =   1065
+   End
+   Begin VB.CommandButton m_btnErstelleKonstantenUeberSplit 
+      Caption         =   "SplKo"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   20700
+      TabIndex        =   142
+      ToolTipText     =   "Konstanten ueber Split-Funktion erstellen"
+      Top             =   600
+      Width           =   990
+   End
+   Begin VB.CommandButton m_btnStartStrLen 
+      Caption         =   "StrLen"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   141
+      ToolTipText     =   "Url-Decoded"
+      Top             =   3150
+      Width           =   1065
+   End
    Begin VB.CommandButton m_startHtmlUrlDecoder 
       Caption         =   "URLD"
       BeginProperty Font 
@@ -23,7 +78,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   141
+      TabIndex        =   140
       ToolTipText     =   "Url-Decoded"
       Top             =   2625
       Width           =   1065
@@ -41,7 +96,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   140
+      TabIndex        =   139
       ToolTipText     =   "Format Java Leerzeilen"
       Top             =   2100
       Width           =   1065
@@ -59,7 +114,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   23700
-      TabIndex        =   139
+      TabIndex        =   138
       ToolTipText     =   "Setzt das aktuelle CSV-Zeichen vorne oder hinten"
       Top             =   60
       Width           =   465
@@ -77,7 +132,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   138
+      TabIndex        =   137
       ToolTipText     =   "Anfuehrungszeichen maskieren"
       Top             =   9975
       Width           =   1140
@@ -95,7 +150,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   137
+      TabIndex        =   136
       ToolTipText     =   "JSP nach Java Funktion"
       Top             =   9450
       Width           =   1140
@@ -113,7 +168,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   136
+      TabIndex        =   135
       ToolTipText     =   "Java-Properties setzen. Trennung bei Markierung"
       Top             =   8925
       Width           =   1140
@@ -131,7 +186,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   135
+      TabIndex        =   134
       ToolTipText     =   "Debugausgabe als HTML-Tabelle "
       Top             =   6300
       Width           =   1140
@@ -149,7 +204,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   134
+      TabIndex        =   133
       ToolTipText     =   "Url-Encoding"
       Top             =   8400
       Width           =   1140
@@ -167,7 +222,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   133
+      TabIndex        =   132
       ToolTipText     =   "Erstellt eine HTML-Tabelle mit Selektion als Trennzeichen"
       Top             =   5775
       Width           =   1140
@@ -185,7 +240,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   132
+      TabIndex        =   131
       ToolTipText     =   "Join als HTML-Tabelle"
       Top             =   5250
       Width           =   1140
@@ -203,13 +258,13 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   131
+      TabIndex        =   130
       ToolTipText     =   "Zufallswerte auf Grundlage des Textes"
       Top             =   7875
       Width           =   1140
    End
    Begin VB.CommandButton m_btnStartGroup 
-      Caption         =   "GRP"
+      Caption         =   "GROUP"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   12
@@ -221,7 +276,8 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   130
+      TabIndex        =   129
+      ToolTipText     =   "Leerzeile einfuegen, wenn sich der Text aendert"
       Top             =   7350
       Width           =   1140
    End
@@ -238,7 +294,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   129
+      TabIndex        =   128
       Top             =   6825
       Width           =   1140
    End
@@ -255,7 +311,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   128
+      TabIndex        =   127
       ToolTipText     =   "Erstellt einen Hex-Dump"
       Top             =   1575
       Width           =   1065
@@ -273,7 +329,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   127
+      TabIndex        =   126
       ToolTipText     =   "Erstellt HTML-Link Elemente"
       Top             =   4200
       Width           =   1140
@@ -291,7 +347,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   126
+      TabIndex        =   125
       ToolTipText     =   "Eingabe in ein Excel-Sheet schreiben"
       Top             =   3675
       Width           =   1140
@@ -309,7 +365,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   17775
-      TabIndex        =   125
+      TabIndex        =   124
       Top             =   1095
       Width           =   945
    End
@@ -326,7 +382,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   124
+      TabIndex        =   123
       ToolTipText     =   "http-Parameter auslesen und in bean setzen"
       Top             =   3150
       Width           =   1140
@@ -344,7 +400,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   123
+      TabIndex        =   122
       Top             =   2625
       Width           =   1140
    End
@@ -361,7 +417,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   122
+      TabIndex        =   121
       Top             =   2100
       Width           =   1140
    End
@@ -378,7 +434,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   23325
-      TabIndex        =   121
+      TabIndex        =   120
       Top             =   1095
       Width           =   615
    End
@@ -395,7 +451,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   22650
-      TabIndex        =   120
+      TabIndex        =   119
       ToolTipText     =   "CSV-Trennzeichen an Cursorpos setzen"
       Top             =   60
       Width           =   1035
@@ -413,7 +469,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   4800
-      TabIndex        =   119
+      TabIndex        =   118
       Top             =   1095
       Width           =   585
    End
@@ -430,7 +486,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   4125
-      TabIndex        =   118
+      TabIndex        =   117
       Top             =   1095
       Width           =   615
    End
@@ -447,7 +503,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   117
+      TabIndex        =   116
       Top             =   1575
       Width           =   1140
    End
@@ -464,7 +520,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25050
-      TabIndex        =   116
+      TabIndex        =   115
       Top             =   600
       Width           =   1140
    End
@@ -481,7 +537,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   23400
-      TabIndex        =   115
+      TabIndex        =   114
       ToolTipText     =   "Ersetzt deutsche Umlaute"
       Top             =   1575
       Width           =   1260
@@ -499,7 +555,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   21450
-      TabIndex        =   114
+      TabIndex        =   113
       ToolTipText     =   "CSV-Trennzeichen an Cursorpos setzen"
       Top             =   60
       Width           =   1110
@@ -517,7 +573,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24150
-      TabIndex        =   113
+      TabIndex        =   112
       ToolTipText     =   "Konstanten in Properties "
       Top             =   600
       Width           =   795
@@ -535,7 +591,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   8250
-      TabIndex        =   112
+      TabIndex        =   111
       ToolTipText     =   "Leerzeilen einfuegen"
       Top             =   1095
       Width           =   765
@@ -553,7 +609,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   111
+      TabIndex        =   110
       ToolTipText     =   "Html-Quotes"
       Top             =   4725
       Width           =   1140
@@ -571,7 +627,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   14130
-      TabIndex        =   110
+      TabIndex        =   109
       Top             =   1575
       Width           =   1080
    End
@@ -588,7 +644,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2190
-      TabIndex        =   107
+      TabIndex        =   106
       Top             =   1095
       Width           =   555
    End
@@ -605,7 +661,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   15255
-      TabIndex        =   106
+      TabIndex        =   105
       Top             =   1575
       Width           =   1080
    End
@@ -622,7 +678,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24990
-      TabIndex        =   105
+      TabIndex        =   104
       ToolTipText     =   "Debug NotesFelder"
       Top             =   1095
       Width           =   1215
@@ -640,7 +696,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   11430
-      TabIndex        =   104
+      TabIndex        =   103
       Top             =   1575
       Width           =   1380
    End
@@ -657,7 +713,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   1395
-      TabIndex        =   103
+      TabIndex        =   102
       Top             =   1095
       Width           =   735
    End
@@ -674,7 +730,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   16380
-      TabIndex        =   102
+      TabIndex        =   101
       ToolTipText     =   "Startet Calc.exe"
       Top             =   1575
       Width           =   1230
@@ -692,7 +748,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   17655
-      TabIndex        =   101
+      TabIndex        =   100
       Top             =   1575
       Width           =   1230
    End
@@ -709,7 +765,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   18930
-      TabIndex        =   100
+      TabIndex        =   99
       Top             =   1575
       Width           =   1155
    End
@@ -726,7 +782,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   12855
-      TabIndex        =   99
+      TabIndex        =   98
       Top             =   1575
       Width           =   1230
    End
@@ -743,7 +799,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   21675
-      TabIndex        =   98
+      TabIndex        =   97
       Top             =   1575
       Width           =   1605
    End
@@ -760,7 +816,8 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   20130
-      TabIndex        =   97
+      TabIndex        =   96
+      ToolTipText     =   "Zusammenfassung von Eingabezeilen zu einer"
       Top             =   1575
       Width           =   1455
    End
@@ -777,7 +834,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   3675
-      TabIndex        =   96
+      TabIndex        =   95
       Top             =   600
       Width           =   615
    End
@@ -794,7 +851,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   26250
-      TabIndex        =   95
+      TabIndex        =   94
       Top             =   600
       Width           =   795
    End
@@ -811,7 +868,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   9105
-      TabIndex        =   94
+      TabIndex        =   93
       Top             =   1095
       Width           =   795
    End
@@ -828,7 +885,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   75
-      TabIndex        =   93
+      TabIndex        =   92
       Top             =   1095
       Width           =   615
    End
@@ -845,7 +902,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   735
-      TabIndex        =   92
+      TabIndex        =   91
       Top             =   1095
       Width           =   615
    End
@@ -862,7 +919,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   26865
-      TabIndex        =   91
+      TabIndex        =   90
       Top             =   60
       Width           =   315
    End
@@ -879,7 +936,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   7290
-      TabIndex        =   90
+      TabIndex        =   89
       Top             =   1095
       Width           =   915
    End
@@ -896,7 +953,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   22455
-      TabIndex        =   89
+      TabIndex        =   88
       ToolTipText     =   "Long Datum erstellen"
       Top             =   600
       Width           =   870
@@ -914,7 +971,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   9945
-      TabIndex        =   88
+      TabIndex        =   87
       Top             =   1095
       Width           =   675
    End
@@ -931,7 +988,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   10665
-      TabIndex        =   87
+      TabIndex        =   86
       Top             =   1095
       Width           =   615
    End
@@ -948,7 +1005,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   11340
-      TabIndex        =   86
+      TabIndex        =   85
       Top             =   1095
       Width           =   615
    End
@@ -965,7 +1022,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   12030
-      TabIndex        =   85
+      TabIndex        =   84
       Top             =   1095
       Width           =   915
    End
@@ -982,11 +1039,11 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   9195
-      TabIndex        =   84
+      TabIndex        =   83
       Top             =   60
       Width           =   915
    End
-   Begin VB.CommandButton m_btnCopyEingabe 
+   Begin VB.CommandButton m_btnCopyEingabe2Clipboard 
       Caption         =   "Copy &Eing."
       BeginProperty Font 
          Name            =   "Arial"
@@ -999,7 +1056,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   7695
-      TabIndex        =   83
+      TabIndex        =   82
       Top             =   1575
       Width           =   1755
    End
@@ -1016,7 +1073,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   11775
-      TabIndex        =   82
+      TabIndex        =   81
       Top             =   60
       Width           =   615
    End
@@ -1033,7 +1090,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   11115
-      TabIndex        =   81
+      TabIndex        =   80
       Top             =   60
       Width           =   615
    End
@@ -1050,7 +1107,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   18810
-      TabIndex        =   80
+      TabIndex        =   79
       Top             =   1095
       Width           =   1080
    End
@@ -1067,7 +1124,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   13095
-      TabIndex        =   79
+      TabIndex        =   78
       Top             =   60
       Width           =   795
    End
@@ -1084,7 +1141,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   3435
-      TabIndex        =   78
+      TabIndex        =   77
       Top             =   1095
       Width           =   615
    End
@@ -1101,7 +1158,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   19995
-      TabIndex        =   77
+      TabIndex        =   76
       Top             =   60
       Width           =   1335
    End
@@ -1118,7 +1175,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2175
-      TabIndex        =   76
+      TabIndex        =   75
       Top             =   600
       Width           =   735
    End
@@ -1135,7 +1192,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   26250
-      TabIndex        =   75
+      TabIndex        =   74
       Top             =   1095
       Width           =   795
    End
@@ -1152,7 +1209,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   19980
-      TabIndex        =   74
+      TabIndex        =   73
       Top             =   1095
       Width           =   1230
    End
@@ -1169,7 +1226,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   8235
-      TabIndex        =   73
+      TabIndex        =   72
       Top             =   60
       Width           =   915
    End
@@ -1186,7 +1243,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   8430
-      TabIndex        =   72
+      TabIndex        =   71
       ToolTipText     =   "Text 2 an Cursor"
       Top             =   600
       Width           =   1035
@@ -1204,7 +1261,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   9525
-      TabIndex        =   71
+      TabIndex        =   70
       ToolTipText     =   "Replace Suchworte"
       Top             =   600
       Width           =   1035
@@ -1222,7 +1279,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   6285
-      TabIndex        =   70
+      TabIndex        =   69
       Top             =   1095
       Width           =   915
    End
@@ -1239,7 +1296,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   3135
-      TabIndex        =   69
+      TabIndex        =   68
       ToolTipText     =   "Setzt ein Suchbegriff am Wortende"
       Top             =   60
       Width           =   375
@@ -1257,7 +1314,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2055
-      TabIndex        =   68
+      TabIndex        =   67
       ToolTipText     =   "Setzt am Wortanfang den Suchbegriff"
       Top             =   60
       Width           =   375
@@ -1274,8 +1331,8 @@ Begin VB.Form frmMrStringer
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   20775
-      TabIndex        =   67
+      Left            =   19650
+      TabIndex        =   66
       Top             =   600
       Width           =   975
    End
@@ -1292,7 +1349,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   7275
-      TabIndex        =   66
+      TabIndex        =   65
       ToolTipText     =   "Sortieren nach Laenge"
       Top             =   60
       Width           =   915
@@ -1310,7 +1367,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24030
-      TabIndex        =   65
+      TabIndex        =   64
       Top             =   1095
       Width           =   915
    End
@@ -1327,7 +1384,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   7470
-      TabIndex        =   64
+      TabIndex        =   63
       Top             =   600
       Width           =   915
    End
@@ -1344,7 +1401,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   12915
-      TabIndex        =   63
+      TabIndex        =   62
       Top             =   600
       Width           =   915
    End
@@ -1361,7 +1418,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   23400
-      TabIndex        =   62
+      TabIndex        =   61
       Top             =   600
       Width           =   615
    End
@@ -1378,7 +1435,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   5700
-      TabIndex        =   61
+      TabIndex        =   60
       Top             =   600
       Width           =   915
    End
@@ -1395,7 +1452,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   16935
-      TabIndex        =   60
+      TabIndex        =   59
       Top             =   600
       Width           =   615
    End
@@ -1412,7 +1469,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   4395
-      TabIndex        =   59
+      TabIndex        =   58
       ToolTipText     =   "Ausrichtung mit der Markierung"
       Top             =   600
       Width           =   1275
@@ -1430,7 +1487,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   10155
-      TabIndex        =   58
+      TabIndex        =   57
       Top             =   60
       Width           =   915
    End
@@ -1447,7 +1504,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25785
-      TabIndex        =   57
+      TabIndex        =   56
       Top             =   60
       Width           =   315
    End
@@ -1464,7 +1521,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   26145
-      TabIndex        =   56
+      TabIndex        =   55
       Top             =   60
       Width           =   315
    End
@@ -1481,7 +1538,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   18555
-      TabIndex        =   55
+      TabIndex        =   54
       Top             =   600
       Width           =   1035
    End
@@ -1498,7 +1555,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   22620
-      TabIndex        =   54
+      TabIndex        =   53
       Top             =   1095
       Width           =   615
    End
@@ -1515,7 +1572,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2955
-      TabIndex        =   53
+      TabIndex        =   52
       Top             =   600
       Width           =   615
    End
@@ -1532,27 +1589,10 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   3615
-      TabIndex        =   52
+      TabIndex        =   51
       ToolTipText     =   "Teilt den Text am Cursor oder an der Markierung"
       Top             =   60
       Width           =   735
-   End
-   Begin VB.CommandButton m_btnStartToZeile 
-      Caption         =   "toZeile"
-      BeginProperty Font 
-         Name            =   "Arial"
-         Size            =   12
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   435
-      Left            =   19635
-      TabIndex        =   51
-      Top             =   600
-      Width           =   1095
    End
    Begin VB.CommandButton m_btnStartDebugAusgabe 
       Caption         =   "Debug"
@@ -2150,7 +2190,7 @@ Begin VB.Form frmMrStringer
       Top             =   600
       Width           =   1155
    End
-   Begin VB.CommandButton m_btnCopyAusgabe2Eiingabe 
+   Begin VB.CommandButton m_btnCopyAusgabe2Eingabe 
       Caption         =   "Ausgabe als Eingabe"
       BeginProperty Font 
          Name            =   "Arial"
@@ -2218,7 +2258,7 @@ Begin VB.Form frmMrStringer
       Top             =   600
       Width           =   1275
    End
-   Begin VB.CommandButton m_btnCopy 
+   Begin VB.CommandButton m_btnCopyAusgabe2Clipboard 
       Caption         =   "Copy &Ausg."
       BeginProperty Font 
          Name            =   "Arial"
@@ -2274,7 +2314,7 @@ Begin VB.Form frmMrStringer
          EndProperty
          Height          =   375
          Left            =   1830
-         TabIndex        =   108
+         TabIndex        =   107
          Text            =   "#0"
          Top             =   1575
          Width           =   1455
@@ -2343,7 +2383,7 @@ Begin VB.Form frmMrStringer
          EndProperty
          Height          =   375
          Left            =   150
-         TabIndex        =   109
+         TabIndex        =   108
          Top             =   1575
          Width           =   1695
       End
@@ -2469,79 +2509,11 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private knz_togle_form_gen      As Boolean
-
-Private knz_generator_vb        As Boolean
-Private knz_pfad                As Boolean
 Private knz_eingabe_volle_hoehe As Boolean
 Private knz_resize_laeuft       As Boolean
-Private m_knz_tz_anfang         As Boolean
 Private m_zaehler_chr13         As Integer
 
-Private Sub m_btnFormatJavaLeerzeilen_Click()
-
-
-Dim ergebnis_fkt   As String
-Dim my_cr          As String
-Dim text_clip      As String
-Dim replace_text_1 As String
-Dim replace_text_2 As String
-
-    my_cr = vbCrLf
-    
-    knz_togle_form_gen = Not knz_togle_form_gen
-
-    replace_text_1 = "FkString.getFeldLinksMin("
-    
-    replace_text_2 = ", breite_temp" & IIf(knz_togle_form_gen, "_02", "_01") & " )"
-
-    '
-    ' Anweisungen fuer den Ausrichter erstellen
-    '
-    
-    ergebnis_fkt = startMrStringer(FKT_ENTFERNE_LEERZEILEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-    
-    ergebnis_fkt = startMrStringer(FKT_LEERZEILEN_EINFUEGEN, ergebnis_fkt, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-
-    ergebnis_fkt = Replace(ergebnis_fkt, vbCrLf, TRENN_STRING_8)
-    ergebnis_fkt = Replace(ergebnis_fkt, vbCr, TRENN_STRING_8)
-    
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, vbCrLf)
-    
-    ergebnis_fkt = Replace(ergebnis_fkt, "{", vbCrLf & "{")
-    
-    ergebnis_fkt = Replace(ergebnis_fkt, "{" & vbCrLf, "{")
-    
-    Dim tab_zaehler As Integer
-
-    While (tab_zaehler < 50)
-    
-        ergebnis_fkt = Replace(ergebnis_fkt, vbCrLf & text_clip & "{", text_clip & "{")
-        
-        ergebnis_fkt = Replace(ergebnis_fkt, vbCrLf & text_clip & vbCrLf & "{", vbCrLf & text_clip & "{")
-    
-        ergebnis_fkt = Replace(ergebnis_fkt, vbCrLf & text_clip & "}", text_clip & "}")
-        
-        text_clip = text_clip & " "
-        
-        tab_zaehler = tab_zaehler + 1
-    Wend
-    
-    m_txtAusgabe.Text = ergebnis_fkt
-
-End Sub
-
-Private Sub m_btnSetCsvZeichen_Click()
-
-'    m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_VORNE_ODER_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-    m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_CSV_VORNE_ODER_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
-
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnStartJsp2Java_Click()
-
-    m_txtAusgabe.Text = startJsp2Java(m_txtEingabe.Text)
+Private Sub Command1_Click()
 
 End Sub
 
@@ -2549,7 +2521,7 @@ End Sub
 '
 Private Sub Form_Load()
 
-m_lineResize.X1 = 4
+    m_lineResize.X1 = 4
 
     scrollTeiler.Top = m_lineResize.Y1
 
@@ -2583,14 +2555,28 @@ m_lineResize.X1 = 4
 
     m_knz_aktiv = False
     
+'Dim vb_str  As String
+'
+'vb_str = vb_str & vbCrLf & "Finanzierungsantrag eingelesen #6// -- :'In'"
+'vb_str = vb_str & vbCrLf & "Fin.ant. mit Dublettenprüfung #6// -- :'Dublet'"
+'vb_str = vb_str & vbCrLf & "Fin.ant. mit ADIS Daten #6// -- :'ADIS'"
+'vb_str = vb_str & vbCrLf & "Fin.ant. in Bearbeitung aber fehlerhaft#6// -- :'Fehler'"
+'vb_str = vb_str & vbCrLf & "Fin.ant. in Bearbeitung und Fehlerfrei #6// -- :'OK'"
+'vb_str = vb_str & vbCrLf & "Fin.ant. ins ARIBA oder Ablehnung #6// -- :'Ende '"
+'vb_str = vb_str & vbCrLf & "Fin.ant. storniert #6// -- :'Storno'"
+'vb_str = vb_str & vbCrLf & "Fortschritt der BSK-Bearbeitung #6// -- :'Fortschritt'"
+'vb_str = vb_str & vbCrLf & ""
+'
+'m_txtEingabe.Text = vb_str
+    
 End Sub
 
 '################################################################################
 '
 Private Sub Form_Resize()
 
-    Dim breite_fenster_gesamt As Double
-    Dim breite_scroll_prozent As Double
+Dim breite_fenster_gesamt As Double
+Dim breite_scroll_prozent As Double
     
     If (knz_resize_laeuft) Then
         
@@ -2652,12 +2638,6 @@ Private Sub Form_Resize()
 
 End Sub
 
-Private Sub m_btnStartMaskiereAnfuehrungszeichen_Click()
-
-    m_txtAusgabe.Text = startMrStringer(FKT_MASKIERE_ANFZEICHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
-
-End Sub
-
 '################################################################################
 '
 Private Sub m_btnStartTestUmdrehen_Click()
@@ -2670,8 +2650,8 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """#2""         = Suchzeichen vorne und hinten"
     vb_str = vb_str & vbCrLf & """#3""         = Stringzeile gedoppelt mit Suchzeichen"
     vb_str = vb_str & vbCrLf & """#0""         = Suchzeichen an Cursorposition"
-    vb_str = vb_str & vbCrLf & """>""          = Suchzeichen an Wortanfang ab Cursorposition"
-    vb_str = vb_str & vbCrLf & """<""          = Suchzeichen an Wortende ab Cursorposition"
+    vb_str = vb_str & vbCrLf & """>""          = Suchzeichen vor Wortanfang einfügen (ab Cursorposition)"
+    vb_str = vb_str & vbCrLf & """<""          = Suchzeichen hinter Wortende einfügen (ab Cursorposition)"
     vb_str = vb_str & vbCrLf & """G +""        = Grep+ Zeilen mit markiertem Wort finden"
     vb_str = vb_str & vbCrLf & """G -""        = Grep- Zeilen ohne markiertes Wort finden"
     vb_str = vb_str & vbCrLf & """M +""        = Mark+ Suchzeichen vorne oder hinten, bei Zeilen mit markiertem Wort"
@@ -2692,14 +2672,13 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """Lz""         = Entfernt Leerzeilen"
     vb_str = vb_str & vbCrLf & """UL""         = Uppercase / Lowercase (Zeile oder nach Markierung)"
     vb_str = vb_str & vbCrLf & """unique""     = Löscht doppelte Zeilen"
-    vb_str = vb_str & vbCrLf & """Dir""        = Verzeichniseinlesen (Mit und Ohne Pfad)"
     vb_str = vb_str & vbCrLf & """NR""         = Zeilen zählen"
     vb_str = vb_str & vbCrLf & """MV""         = Verschiebt den Markierten Text nach vorne oder hinten"
     vb_str = vb_str & vbCrLf & """MW""         = Markiere das ausgewaehlte Wort"
     vb_str = vb_str & vbCrLf & """G2 +""       = Multigrep + mit der Eingabebox 2"
     vb_str = vb_str & vbCrLf & """G2 -""       = Multigrep - mit der Eingabebox 2"
     vb_str = vb_str & vbCrLf & """GW""         = Liefert alle Wörter welche mit der Makierung anfangen"
-    vb_str = vb_str & vbCrLf & "                 Ist keine Makierung vorhanden, werden alle Wörter aufgelistet"
+    vb_str = vb_str & vbCrLf & "                 - Ist keine Makierung vorhanden, werden alle Wörter aufgelistet"
     vb_str = vb_str & vbCrLf & """GZ""         = Grep Zahlen"
     vb_str = vb_str & vbCrLf & """,""          = Trennzeichen Komma setzen"
     vb_str = vb_str & vbCrLf & """.""          = Trennzeichen Punkt setzen"
@@ -2708,6 +2687,9 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """=""          = Trennzeichen Gleichheitszeichen setzen"
     vb_str = vb_str & vbCrLf & """KO""         = Konstanten in Java / VB "
     vb_str = vb_str & vbCrLf & """KOP""        = Konstanten in Properties (Java)"
+    vb_str = vb_str & vbCrLf & """SplKo""      = Konstanten über Split-Funktion erstellen (Java)"
+    vb_str = vb_str & vbCrLf & "                 - Trennung wie bei der Split-Funktion"
+    vb_str = vb_str & vbCrLf & "                 - Eine Seite ist Konstantenname, die andere Konstantenwert"
     vb_str = vb_str & vbCrLf & """StrLitKo""   = Stringliterale im Text in Konstanten umwandeln"
     vb_str = vb_str & vbCrLf & """StrLit""     = Stringliterale im Text raussuchen"
     vb_str = vb_str & vbCrLf & """CHR13""      = Ersetzt den Zeilenumbruch mit chr(13)"
@@ -2716,18 +2698,12 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """CSV SWAP""   = Vertauscht die CSV-Daten"
     vb_str = vb_str & vbCrLf & """Notes""      = Generator fuer Lotus-Notes set und Get-Anweisungen"
     vb_str = vb_str & vbCrLf & """Join""       = Fügt die beiden Textinhalte A und B zusammen"
+    vb_str = vb_str & vbCrLf & """Join X""     = Fügt die beiden Textinhalte A und B zusammen"
+    vb_str = vb_str & vbCrLf & "                 - Wiederholt Text B solange wie es Zeilen in Text A gibt"
     vb_str = vb_str & vbCrLf & """Plce. X""    = Join mit einer Platzierung des zweiten Textes an der Cursorposition"
-    vb_str = vb_str & vbCrLf & """Frmt TXT""   = Formatiert TXT auf eine Breite von 80 Zeichen"
-    vb_str = vb_str & vbCrLf & """Pfad""       = Dreht Slasches in Pfadangaben um"
-    vb_str = vb_str & vbCrLf & """Rename""     = Erstellt DOS-Rename-Anweisungen"
     vb_str = vb_str & vbCrLf & """Debug""      = Generator fuer Debug-Ausgaben"
     vb_str = vb_str & vbCrLf & """RVSE""       = Umdrehen des Textes"
-    vb_str = vb_str & vbCrLf & """XML 2""      = XML-Darstellung 2"
-    vb_str = vb_str & vbCrLf & """XML 1""      = XML-Darstellung 1"
-    vb_str = vb_str & vbCrLf & """XMLnr""      = XML Schreiber/Parser mit Nummern"
     vb_str = vb_str & vbCrLf & """ROT13""      = Rot13-Algorithmus"
-    vb_str = vb_str & vbCrLf & """Frmt JSON""  = Formatiert JSON"
-    vb_str = vb_str & vbCrLf & """Format XML"" = Formatiert XML"
     vb_str = vb_str & vbCrLf & """Gen. Java""  = Kapselt jede Zeile in ein ""pBuffer.append()"" ein (Konvertierung in Java-String) "
     vb_str = vb_str & vbCrLf & """Erst. CSV""  = Erstellt eine Zeile aus den Eingabedaten (Verwendung in Funktionsaufrufen)"
     vb_str = vb_str & vbCrLf & """CamelCase""  = Erstellt aus jeder Zeile einen CamelCase-String"
@@ -2737,21 +2713,49 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """ToString""   = jede Zeile einem String hinzufügen"
     vb_str = vb_str & vbCrLf & """D. Notes""   = NotesDokument set und get Feldwert"
     vb_str = vb_str & vbCrLf & """Umlaute""    = Konvertiert Umlaute von z.B. Ä nach Ae"
-    vb_str = vb_str & vbCrLf & """Repl. X""    ="
-    vb_str = vb_str & vbCrLf & """Zeilen Add"" ="
+    vb_str = vb_str & vbCrLf & ""
+    vb_str = vb_str & vbCrLf & """Zeilen Add"" = Zusammenfassung Eingabezeilen "
+    vb_str = vb_str & vbCrLf & "                 - Eine Markierung gibt dabei die Anzahl der zusammzufassenden Zeilen vor"
+    vb_str = vb_str & vbCrLf & "                 - Ist keine Markierung vorhanden, werden alle Zeilen in eine Zeile gepackt"
+    vb_str = vb_str & vbCrLf & "                 - Abwechselnd wird das CSV-Trennzeichen oder ein Leerstring am Ende angefügt"
+    vb_str = vb_str & vbCrLf & "                 - Leerzeilen werden überlesen"
+    vb_str = vb_str & vbCrLf & ""
+    vb_str = vb_str & vbCrLf & """GROUP""      = Gruppenbildung nach String-Aenderung "
+    vb_str = vb_str & vbCrLf & "                 - Die Markierung gibt den Ort der Stringpruefung vor"
+    vb_str = vb_str & vbCrLf & "                 - Aendert sich die Zeichenfolge am Ort der Markierung, wird "
+    vb_str = vb_str & vbCrLf & "                   eine Leerzeile eingefügt."
+    vb_str = vb_str & vbCrLf & ""
+    vb_str = vb_str & vbCrLf & """BZUF""       = Zufallsgenerator auf Grundlage des aktuellen Zeichens"
+    vb_str = vb_str & vbCrLf & "                 - Dient dazu, um Texte oder um Klarnamen verfremden zu koennen."
+    vb_str = vb_str & vbCrLf & "                 - Bei einer Markierung, wird nur in den Grenzen der"
+    vb_str = vb_str & vbCrLf & "                   Markierung die Zufallsfunktion ausgefuehrt."
+    vb_str = vb_str & vbCrLf & ""
+    vb_str = vb_str & vbCrLf & """HTML Q""     = setzt Html-Qoute-Zeichen"
+    vb_str = vb_str & vbCrLf & """HTML L""     = HTML-Link: Erstellt aus Eingabe 1 jeweils einen HTML-Link"
+    vb_str = vb_str & vbCrLf & """HTML J""     = HTML-Join: Erstellt aus Eingabe 1 und Eingabe 2 eine HTML-Tabelle"
+    vb_str = vb_str & vbCrLf & """TABL D""     = HTML-Table-Debugausgabe: Variablen toString als HTML-Tabelle"
+    vb_str = vb_str & vbCrLf & ""
+    vb_str = vb_str & vbCrLf & """XML 2""      = XML-Darstellung 2"
+    vb_str = vb_str & vbCrLf & """XML 1""      = XML-Darstellung 1"
+    vb_str = vb_str & vbCrLf & """XMLnr""      = XML Schreiber/Parser mit Nummern"
+    vb_str = vb_str & vbCrLf & """XMLwr""      = Generator XML-Writer"
+    vb_str = vb_str & vbCrLf & ""
+    vb_str = vb_str & vbCrLf & """Frmt TXT""   = Formatiert TXT auf eine Breite von 80 Zeichen"
+    vb_str = vb_str & vbCrLf & """Frmt JSON""  = Formatiert JSON"
+    vb_str = vb_str & vbCrLf & """Format XML"" = Formatiert XML"
+    vb_str = vb_str & vbCrLf & """Ibm Log""    = Konvertierung Zeilenumbruch IBM-Log"
+    vb_str = vb_str & vbCrLf & ""
+    vb_str = vb_str & vbCrLf & """Dir""        = Verzeichnis einlesen (Mit und Ohne Pfad)"
+    vb_str = vb_str & vbCrLf & """Pfad""       = Dreht Slasches in Pfadangaben um"
+    vb_str = vb_str & vbCrLf & """Rename""     = Erstellt DOS-Rename-Anweisungen"
+    vb_str = vb_str & vbCrLf & ""
     vb_str = vb_str & vbCrLf & """EXCL""       = Eingabe als CSV-Export nach Excel "
     vb_str = vb_str & vbCrLf & """BLK""        = Blockgenerierung"
-    vb_str = vb_str & vbCrLf & """Ibm Log""    = Konvertierung Zeilenumbruch IBM-Log"
-    vb_str = vb_str & vbCrLf & """XMLwr""      = Generator XML-Writer"
     vb_str = vb_str & vbCrLf & """IF-VB""      = Generator IF fuer Visual-Basic"
     vb_str = vb_str & vbCrLf & """IF2""        = Genarator IF (Version 2)"
     vb_str = vb_str & vbCrLf & """MD +""       ="
     vb_str = vb_str & vbCrLf & """VD""         = Vorkommen von doppelten Strings suchen"
     vb_str = vb_str & vbCrLf & """V1""         = Vorkommen von einmal vorkommenden Strings suchen "
-    vb_str = vb_str & vbCrLf & """HTML Q""     = setzt Html-Qoute-Zeichen"
-    vb_str = vb_str & vbCrLf & """HTML L""     = HTML-Link: Erstellt aus Eingabe 1 jeweils einen HTML-Link"
-    vb_str = vb_str & vbCrLf & """HTML J""     = HTML-Join: Erstellt aus Eingabe 1 und Eingabe 2 eine HTML-Tabelle"
-    vb_str = vb_str & vbCrLf & """TABL D""     = HTML-Table-Debugausgabe: Variablen toString als HTML-Tabelle"
     vb_str = vb_str & vbCrLf & """HEX D""      = erstellt einen Hex-Dump"
     vb_str = vb_str & vbCrLf & """D1""         = Dupliziert die Zeile oder Markierung"
     vb_str = vb_str & vbCrLf & """ZB""         = Zeilen Boolean / Markierung 0 und 1 abwechselnd je Zeile"
@@ -2761,9 +2765,10 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """DIM""        = Variablendeklaration in Visual-Basic"
     vb_str = vb_str & vbCrLf & """SUM""        = grobe Aufsummierung von Werten"
     vb_str = vb_str & vbCrLf & """GRP""        = setzt eine Leerzeile, wenn sich der Text der Markierung aendert"
-    vb_str = vb_str & vbCrLf & """BZUF""       = Zufallsgenerator auf Grundlage des aktuellen Zeichens"
     vb_str = vb_str & vbCrLf & """JPROP""      = Java-Properties setzen. Trennung bei Markierung"
     vb_str = vb_str & vbCrLf & """MANF""       = Anfuehrungszeichen maskieren Java und VB"
+    vb_str = vb_str & vbCrLf & """StrLen""     = gibt die Zeilenlängen aus"
+    vb_str = vb_str & vbCrLf & """// cmnt""    = Eingabe als Java oder VB Kommentar"
     vb_str = vb_str & vbCrLf & ""
     vb_str = vb_str & vbCrLf & """?""          = Zeigt den Hilfetext an"
     vb_str = vb_str & vbCrLf & ""
@@ -2802,9 +2807,9 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnCopyEingabe_Click()
+Private Sub m_btnCopyEingabe2Clipboard_Click()
 
-On Error GoTo errCopy
+On Error GoTo errCopyEingabe2Clipboard
 
     Clipboard.Clear
     
@@ -2812,9 +2817,9 @@ On Error GoTo errCopy
     
     Exit Sub
 
-errCopy:
+errCopyEingabe2Clipboard:
     
-    MsgBox Error
+    MsgBox "Fehler: errCopyEingabe2Clipboard: " & Err & " " & Error & " " & Erl
     
     Exit Sub
 
@@ -2822,9 +2827,9 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnCopy_Click()
+Private Sub m_btnCopyAusgabe2Clipboard_Click()
 
-On Error GoTo errCopy
+On Error GoTo errCopyAusgabe2Clipboard
 
     Clipboard.Clear
     
@@ -2832,9 +2837,9 @@ On Error GoTo errCopy
     
     Exit Sub
 
-errCopy:
+errCopyAusgabe2Clipboard:
     
-    MsgBox Error
+    MsgBox "Fehler: errCopyAusgabe2Clipboard: " & Err & " " & Error & " " & Erl
     
     Exit Sub
     
@@ -2842,7 +2847,7 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnCopyAusgabe2Eiingabe_Click()
+Private Sub m_btnCopyAusgabe2Eingabe_Click()
 
     If (m_txtAusgabe.SelStart > 0) Then
     
@@ -2858,147 +2863,15 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnStartHtmlJoinTabelle_Click()
+Private Sub m_btnFormatJavaLeerzeilen_Click()
 
-Dim ergebnis_fkt   As String
-Dim my_cr          As String
-Dim replace_text_1 As String
-Dim replace_text_2 As String
-Dim replace_text_3 As String
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+Dim text_clip        As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
 
-    my_cr = vbCrLf
-
-    replace_text_1 = "<tr><td>"
-    replace_text_2 = "</td><td>"
-    replace_text_3 = "</td></tr>"
-    
-    '
-    ' Anweisungen fuer den Ausrichter erstellen
-    '
-    ergebnis_fkt = startJoin(m_txtEingabe.Text, m_txtEingabe2.Text, TRENN_STRING_6)
-
-    ergebnis_fkt = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, ergebnis_fkt, -1, -1, False, "")
-
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, replace_text_1)
-
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , TRENN_STRING_6)
-
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6, replace_text_2)
-
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , TRENN_STRING_8)
-
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, replace_text_3)
-
-    m_txtAusgabe.Text = "<table>" & my_cr & ergebnis_fkt & my_cr & "</table>"
-
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnStartHtmlTabelleVar_Click()
-
-Dim ergebnis_fkt   As String
-Dim my_cr          As String
-Dim replace_text_1 As String
-Dim replace_text_2 As String
-Dim replace_text_3 As String
-Dim str_vorlauf    As String
-Dim str_nachlauf   As String
-
-    knz_togle_form_gen = Not knz_togle_form_gen
-
-    my_cr = vbCrLf
-
-    If (knz_togle_form_gen) Then
-    
-        replace_text_1 = "str_html_tabelle += my_cr + ""<tr><td>"" + """
-        
-        replace_text_2 = " " & AUSRICHT_STRING_TEMP_1 & """ + ""</td><td>"" + "
-        
-        replace_text_3 = " " & AUSRICHT_STRING_TEMP_2 & "+ ""</td></tr>"";"
-    
-        str_vorlauf = "String str_html_tabelle = """";" & my_cr & "String my_cr            = ""\n"";" & my_cr & my_cr & "str_html_tabelle += ""<table>"";" & my_cr & my_cr
-                      
-        str_nachlauf = my_cr & my_cr & "str_html_tabelle += ""</table>""; "
-        
-        str_nachlauf = str_nachlauf & my_cr & my_cr & "//" & replace_text_1 & replace_text_2 & """&nbsp;""" & replace_text_3
-        
-    
-    Else
-    
-        str_vorlauf = "Dim str_html_tabelle As String" & my_cr & "Dim my_cr            As String" & my_cr & my_cr & "str_html_tabelle = ""<table>"" " & my_cr & my_cr
-        
-        str_nachlauf = my_cr & my_cr & "str_html_tabelle = str_html_tabelle & my_cr & ""</table>"" "
-    
-        replace_text_1 = "str_html_tabelle = str_html_tabelle & my_cr & ""<tr><td>"" & """
-        
-        replace_text_2 = " " & AUSRICHT_STRING_TEMP_1 & """ & ""</td><td>"" & "
-        
-        replace_text_3 = " " & AUSRICHT_STRING_TEMP_2 & "& ""</td></tr>"""
-    
-        str_nachlauf = str_nachlauf & my_cr & my_cr & "'" & replace_text_1 & replace_text_2 & """&nbsp;""" & replace_text_3
-    
-    End If
-        
-    ergebnis_fkt = m_txtEingabe.Text
-    
-    ergebnis_fkt = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, ergebnis_fkt, -1, -1)
-    
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
-
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6, replace_text_1)
-    
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, replace_text_2)
-    
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, replace_text_3)
-    
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , AUSRICHT_STRING_TEMP_1)
-    
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , AUSRICHT_STRING_TEMP_2)
-    
-    m_txtAusgabe.Text = Replace(Replace(str_vorlauf & ergebnis_fkt & str_nachlauf, AUSRICHT_STRING_TEMP_1, ""), AUSRICHT_STRING_TEMP_2, "")
-
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnStartJavaProperties_Click()
-
-    checkCsvSelektion
-
-Dim ergebnis_fkt   As String
-Dim my_cr          As String
-Dim replace_text_1 As String
-Dim replace_text_2 As String
-Dim replace_text_3 As String
-Dim str_vorlauf    As String
-Dim str_nachlauf   As String
-
-    my_cr = vbCrLf
-    
-    str_vorlauf = "Properties " & STR_VAR_NAME_PROPERTIES_LOKAL & " = new Properties();" & my_cr & my_cr
-    
-    ergebnis_fkt = startMrStringer(FKT_CSV_JAVA_PROP, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
-    
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , AUSRICHT_STRING_TEMP_1)
-    
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , AUSRICHT_STRING_TEMP_2)
-    
-    m_txtAusgabe.Text = Replace(Replace(str_vorlauf & ergebnis_fkt, AUSRICHT_STRING_TEMP_1, ""), AUSRICHT_STRING_TEMP_2, "")
-
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnStartReplace2_Click()
-
-Dim ergebnis_fkt   As String
-Dim my_cr          As String
-Dim text_clip      As String
-Dim replace_text_1 As String
-Dim replace_text_2 As String
-
-    my_cr = vbCrLf
+    str_my_cr = vbCrLf
     
     knz_togle_form_gen = Not knz_togle_form_gen
 
@@ -3009,13 +2882,286 @@ Dim replace_text_2 As String
     '
     ' Anweisungen fuer den Ausrichter erstellen
     '
-    ergebnis_fkt = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, replace_text_1)
+    str_fkt_ergebnis = startMrStringer(FKT_LEERZEILEN_LOESCHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
     
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, replace_text_2)
+    str_fkt_ergebnis = startMrStringer(FKT_LEERZEILEN_EINFUEGEN, str_fkt_ergebnis, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
-    ergebnis_fkt = Replace(ergebnis_fkt, replace_text_1 + replace_text_2, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCrLf, TRENN_STRING_8)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCr, TRENN_STRING_8)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, vbCrLf)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "{", vbCrLf & "{")
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "{" & vbCrLf, "{")
+    
+    Dim tab_zaehler As Integer
+
+    While (tab_zaehler < 50)
+    
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCrLf & text_clip & "{", text_clip & "{")
+        
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCrLf & text_clip & vbCrLf & "{", vbCrLf & text_clip & "{")
+    
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCrLf & text_clip & "}", text_clip & "}")
+        
+        text_clip = text_clip & " "
+        
+        tab_zaehler = tab_zaehler + 1
+        
+    Wend
+    
+    m_txtAusgabe.Text = str_fkt_ergebnis
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartHtmlJoinTabelle_Click()
+
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+Dim text_clip        As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+Dim replace_text_3   As String
+
+    str_my_cr = vbCrLf
+
+    replace_text_1 = "<tr><td>"
+    replace_text_2 = "</td><td>"
+    replace_text_3 = "</td></tr>"
+    
+    '
+    ' 1. Beide Eingaben mit einem Trennstring fuer den Ausrichter zusammenfuegen
+    '
+    ' Anstatt des Trennzeichesn koennte hier auch gleich mit dem "replace_text_2"
+    ' gearbeitet werden. Die Trennzeichen sind so gewaehlt, dass diese so gut wie
+    ' nie in den Ausgangstexten vorkommen. Wuerde man Text 2 nehmen, kann dieses
+    ' nicht sichergestellt werden.
+    '
+    str_fkt_ergebnis = startJoin(m_txtEingabe.Text, m_txtEingabe2.Text, TRENN_STRING_6)
+    
+    '
+    ' 2. Nach dem Trennzeichen den Text ausrichten
+    '
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_6)
+    
+    '
+    ' 3. Das Trennzeichen mit der HTML-Anweisung ersetzen
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_2)
+    
+    '
+    ' 4. Vorne und Hinten eine Markierung anbringen
+    '
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, str_fkt_ergebnis, -1, -1, False, "")
+
+    '
+    ' 5. Nach dem Trennsting 8 den Text ausrichten
+    '
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_8)
+    
+    '
+    ' 6. Vorne die HTML-Row starten lassen
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_1)
+
+    '
+    ' 7. Hinten die HTML-Row beenden
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
+    
+    '
+    ' 8. Die erstellten Tabellenzeilen in Tabellen-Tags
+    '
+    str_fkt_ergebnis = "<table>" & str_my_cr & str_fkt_ergebnis & str_my_cr & "</table>"
+    
+    '
+    ' 9. Korrektur Zeilenumbruch beim Tabellen-End-Tag
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, str_my_cr & str_my_cr & "</table>", str_my_cr & "</table>")
+    
+    m_txtAusgabe.Text = str_fkt_ergebnis
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartHtmlTabelleVar_Click()
+
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+Dim text_clip        As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+Dim replace_text_3   As String
+Dim str_vorlauf      As String
+Dim str_nachlauf     As String
+
+    knz_togle_form_gen = Not knz_togle_form_gen
+
+    str_my_cr = vbCrLf
+
+    If (knz_togle_form_gen) Then
+    
+        replace_text_1 = "str_html_tabelle += str_my_cr + ""<tr><td>"" + """
+        
+        replace_text_2 = " " & AUSRICHT_STRING_TEMP_1 & """ + ""</td><td>"" + "
+        
+        replace_text_3 = " " & AUSRICHT_STRING_TEMP_2 & "+ ""</td></tr>"";"
+    
+        str_vorlauf = "String str_html_tabelle = """";" & str_my_cr & "String str_my_cr           = ""\n"";" & str_my_cr & str_my_cr & "str_html_tabelle += ""<table>"";" & str_my_cr & str_my_cr
+                      
+        str_nachlauf = str_my_cr & str_my_cr & "str_html_tabelle += ""</table>""; "
+        
+        str_nachlauf = str_nachlauf & str_my_cr & str_my_cr & "//" & replace_text_1 & replace_text_2 & """&nbsp;""" & replace_text_3
+        
+    
+    Else
+    
+        str_vorlauf = "Dim str_html_tabelle As String" & str_my_cr & "Dim str_my_cr           As String" & str_my_cr & str_my_cr & "str_html_tabelle = ""<table>"" " & str_my_cr & str_my_cr
+        
+        str_nachlauf = str_my_cr & str_my_cr & "str_html_tabelle = str_html_tabelle & str_my_cr & ""</table>"" "
+    
+        replace_text_1 = "str_html_tabelle = str_html_tabelle & str_my_cr & ""<tr><td>"" & """
+        
+        replace_text_2 = " " & AUSRICHT_STRING_TEMP_1 & """ & ""</td><td>"" & "
+        
+        replace_text_3 = " " & AUSRICHT_STRING_TEMP_2 & "& ""</td></tr>"""
+    
+        str_nachlauf = str_nachlauf & str_my_cr & str_my_cr & "'" & replace_text_1 & replace_text_2 & """&nbsp;""" & replace_text_3
+    
+    End If
+        
+    str_fkt_ergebnis = m_txtEingabe.Text
+    
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis, -1, -1)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
+
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_2)
+    
+    m_txtAusgabe.Text = Replace(Replace(str_vorlauf & str_fkt_ergebnis & str_nachlauf, AUSRICHT_STRING_TEMP_1, ""), AUSRICHT_STRING_TEMP_2, "")
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnGeneratorJavaVbComment_Click()
+
+Dim str_my_cr        As String
+
+    str_my_cr = vbCrLf
+    
+    knz_togle_form_gen = Not knz_togle_form_gen
+
+    If (knz_togle_form_gen) Then
+    
+        m_txtAusgabe.Text = "/*" & str_my_cr & startMrStringer(FKT_MARKIERE_VORNE_FIX, m_txtEingabe.Text, -1, -1, , " * ") & str_my_cr & " */"
+        
+    Else
+    
+        m_txtAusgabe.Text = "'" & str_my_cr & startMrStringer(FKT_MARKIERE_VORNE_FIX, m_txtEingabe.Text, -1, -1, , "' ") & str_my_cr & "'"
+    
+    End If
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartChr13Konvertierung_Click()
+
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+
+    knz_togle_form_gen = Not knz_togle_form_gen
+    
+    str_my_cr = vbCrLf
+        
+    str_fkt_ergebnis = Replace(m_txtEingabe.Text, Chr(13), AUSRICHT_STRING_TEMP_1)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, Chr(10), "")
+    
+    If (knz_togle_form_gen) Then
+    
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1 & AUSRICHT_STRING_TEMP_1, AUSRICHT_STRING_TEMP_1)
+        
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1 & AUSRICHT_STRING_TEMP_1, AUSRICHT_STRING_TEMP_1)
+        
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1 & AUSRICHT_STRING_TEMP_1, AUSRICHT_STRING_TEMP_1)
+    
+    End If
+    
+    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, str_my_cr)
+    
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartJavaProperties_Click()
+
+    checkCsvSelektion
+
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+Dim text_clip        As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+Dim str_vorlauf      As String
+Dim str_nachlauf     As String
+
+    str_my_cr = vbCrLf
+    
+    str_vorlauf = "Properties " & STR_VAR_NAME_PROPERTIES_LOKAL & " = new Properties();" & str_my_cr & str_my_cr
+    
+    str_fkt_ergebnis = startMrStringer(FKT_CSV_JAVA_PROP, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_2)
+    
+    m_txtAusgabe.Text = Replace(Replace(str_vorlauf & str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, ""), AUSRICHT_STRING_TEMP_2, "")
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartReplace2_Click()
+
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+Dim text_clip        As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+
+    str_my_cr = vbCrLf
+    
+    knz_togle_form_gen = Not knz_togle_form_gen
+
+    replace_text_1 = "FkString.getFeldLinksMin("
+    
+    replace_text_2 = ", breite_temp" & IIf(knz_togle_form_gen, "_02", "_01") & " )"
+
+    '
+    ' Anweisungen fuer den Ausrichter erstellen
+    '
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_1)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_2)
+
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, replace_text_1 + replace_text_2, "")
 
     '
     ' Anweisungen um die Breite zu ermitteln
@@ -3041,7 +3187,7 @@ Dim replace_text_2 As String
     '
     text_clip = Replace(text_clip, TRENN_STRING_7 + TRENN_STRING_8, "")
     
-    text_clip = startMrStringer(FKT_ENTFERNE_LEERZEILEN, text_clip, -1, -1) + TRENN_STRING_8
+    text_clip = startMrStringer(FKT_LEERZEILEN_LOESCHEN, text_clip, -1, -1) + TRENN_STRING_8
     
     '
     ' Entferne alle Stellen, an welchen sich der Trennstring 3
@@ -3061,9 +3207,9 @@ Dim replace_text_2 As String
     '
     ' Ergebnis
     '
-    ergebnis_fkt = " breite_temp" & IIf(knz_togle_form_gen, "_02", "_01") & " = FkString.getMaxLen( " & text_clip & " ); " & my_cr & my_cr & ergebnis_fkt
+    str_fkt_ergebnis = IIf(knz_togle_form_gen, "int", "") & " breite_temp" & IIf(knz_togle_form_gen, "_02", "_01") & " = FkString.getMaxLen( " & text_clip & " ); " & str_my_cr & str_my_cr & str_fkt_ergebnis
     
-    m_txtAusgabe.Text = ergebnis_fkt
+    m_txtAusgabe.Text = str_fkt_ergebnis
 
 End Sub
 
@@ -3071,14 +3217,15 @@ End Sub
 '
 Private Sub m_btnStartHtmlTabelleCsv_Click()
 
-Dim ergebnis_fkt   As String
-Dim my_cr          As String
-Dim replace_text_1 As String
-Dim replace_text_2 As String
-Dim replace_text_3 As String
-Dim str_markierung As String
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+Dim text_clip        As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+Dim replace_text_3   As String
+Dim str_markierung   As String
 
-    my_cr = vbCrLf
+    str_my_cr = vbCrLf
 
     replace_text_1 = "<tr><td>"
     
@@ -3090,23 +3237,23 @@ Dim str_markierung As String
         
         str_markierung = Mid(m_txtEingabe.Text, m_txtEingabe.SelStart + 1, m_txtEingabe.SelLength)
         
-        ergebnis_fkt = m_txtEingabe.Text
+        str_fkt_ergebnis = m_txtEingabe.Text
         
-        ergebnis_fkt = Replace(ergebnis_fkt, str_markierung, replace_text_2)
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, str_markierung, replace_text_2)
     
-        ergebnis_fkt = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, ergebnis_fkt, -1, -1)
+        str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, str_fkt_ergebnis, -1, -1)
     
-        ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, replace_text_1)
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_1)
     
-        ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, replace_text_3)
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
         
     Else
     
-        ergebnis_fkt = "Keine Markierung vorhanden"
+        str_fkt_ergebnis = "Keine Markierung vorhanden"
     
     End If
     
-    m_txtAusgabe.Text = "<table>" & my_cr & ergebnis_fkt & my_cr & "</table>"
+    m_txtAusgabe.Text = "<table>" & str_my_cr & str_fkt_ergebnis & str_my_cr & "</table>"
 
 End Sub
 
@@ -3114,36 +3261,36 @@ End Sub
 '
 Private Sub m_btnStartHtmlGeneratorLink_Click()
 
-Dim ergebnis_fkt   As String
-Dim my_cr          As String
-Dim replace_text_1 As String
-Dim replace_text_2 As String
-Dim replace_text_3 As String
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+Dim replace_text_3   As String
 
-    my_cr = vbCrLf
+    str_my_cr = vbCrLf
 
     replace_text_1 = "<A href="""
     
-    replace_text_2 = """ " & AUSRICHT_STRING_TEMP_1 & "target=""_blank"">"
+    replace_text_2 = """ " & AUSRICHT_STRING_TEMP_1 & "target=""_blank"" >"
     
-    replace_text_3 = "</A><BR>"
+    replace_text_3 = "</A><BR />"
     
     '
     ' Anweisungen fuer den Ausrichter erstellen
     '
-    ergebnis_fkt = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6 + TRENN_STRING_7 + TRENN_STRING_8, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6 + TRENN_STRING_7 + TRENN_STRING_8, "")
 
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
     
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
     
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
 
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , AUSRICHT_STRING_TEMP_1)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
 
-    m_txtAusgabe.Text = Replace(ergebnis_fkt, AUSRICHT_STRING_TEMP_1, "")
+    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, "")
 
 End Sub
 
@@ -3151,23 +3298,23 @@ End Sub
 '
 Private Sub m_btnStartGeneriereHtmlTabelle_Click()
 
-Dim ergebnis_fkt    As String
-Dim my_cr           As String
-Dim replace_text_1  As String
-Dim replace_text_2  As String
-Dim replace_text_3  As String
-Dim str_table_start As String
-Dim str_table_end   As String
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+Dim replace_text_3   As String
+Dim str_table_start  As String
+Dim str_table_end    As String
 
-    my_cr = vbCrLf
+    str_my_cr = vbCrLf
     
     knz_togle_form_gen = Not knz_togle_form_gen
     
     If (knz_togle_form_gen) Then
     
-        str_table_start = "Dim html_table As String" & my_cr & my_cr & "html_table = html_table & ""<table>""" & my_cr & my_cr
+        str_table_start = "Dim html_table As String" & str_my_cr & str_my_cr & "html_table = html_table & ""<table>""" & str_my_cr & str_my_cr
         
-        str_table_end = my_cr & "html_table = html_table & ""</table>"""
+        str_table_end = str_my_cr & "html_table = html_table & ""</table>"""
     
         replace_text_1 = "html_table = html_table & ""<tr><td>"" & """
         
@@ -3177,9 +3324,9 @@ Dim str_table_end   As String
 
     Else
 
-        str_table_start = "String html_table = """";" & my_cr & my_cr & "html_table += ""<table>"";" & my_cr & my_cr
+        str_table_start = "String html_table = """";" & str_my_cr & str_my_cr & "html_table += ""<table>"";" & str_my_cr & str_my_cr
         
-        str_table_end = my_cr & "html_table += ""</table>"";"
+        str_table_end = str_my_cr & "html_table += ""</table>"";"
 
         replace_text_1 = "html_table += ""<tr><td>"" + """
         
@@ -3192,45 +3339,45 @@ Dim str_table_end   As String
     '
     ' Trim auf die Eingabe ausfuehren
     '
-    ergebnis_fkt = startMrStringer(FKT_TRIM_X, m_txtEingabe.Text, -1, -1)
+    str_fkt_ergebnis = startMrStringer(FKT_TRIM_AUFEINANDERFOLGENDE_LEERZEICHEN, m_txtEingabe.Text, -1, -1)
 
     '
     ' Spalten verdoppeln und markieren
     '
-    ergebnis_fkt = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, ergebnis_fkt, -1, -1)
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis, -1, -1)
 
     '
     ' Leerzeilen korrigieren (Leerzeile bleibt Leerzeile)
     '
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
 
     '
     ' Ersetzungen fuer die Erstellung der HTML-Tabelle machen
     '
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
     
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
     
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
     
     '
     ' Ausrichtung der Spalten
     '
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , TRENN_STRING_6)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_6)
     
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , TRENN_STRING_7)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_7)
     
     '
     ' Hilfsmarkierungen des Ausrichters entfernen
     '
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, "")
     
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, "")
 
     '
     ' Ergebnis ins Ausgabefeld setzen
     '
-    m_txtAusgabe.Text = str_table_start & ergebnis_fkt & str_table_end
+    m_txtAusgabe.Text = str_table_start & str_fkt_ergebnis & str_table_end
 
 End Sub
 
@@ -3238,10 +3385,10 @@ End Sub
 '
 Private Sub m_btnStartReplace3_Click()
 
-Dim ergebnis_fkt   As String
-Dim replace_text_1 As String
-Dim replace_text_2 As String
-Dim replace_text_3 As String
+Dim str_fkt_ergebnis As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+Dim replace_text_3   As String
 
     replace_text_1 = "prop_instanz.setProperty( ModulKonfiguration."
     replace_text_2 = ", """
@@ -3250,19 +3397,19 @@ Dim replace_text_3 As String
     '
     ' Anweisungen fuer den Ausrichter erstellen
     '
-    ergebnis_fkt = startMrStringer(FKT_TRIM_X, m_txtEingabe.Text, -1, -1)
+    str_fkt_ergebnis = startMrStringer(FKT_TRIM_AUFEINANDERFOLGENDE_LEERZEICHEN, m_txtEingabe.Text, -1, -1)
 
-    ergebnis_fkt = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, ergebnis_fkt, -1, -1)
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis, -1, -1)
 
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
 
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
     
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
     
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
     
-    m_txtAusgabe.Text = ergebnis_fkt
+    m_txtAusgabe.Text = str_fkt_ergebnis
 
 End Sub
 
@@ -3270,21 +3417,21 @@ End Sub
 '
 Private Sub m_btnStartReplace4_Click()
 
-Dim ergebnis_str_1 As String
-Dim ergebnis_fkt   As String
-Dim replace_text_1 As String
-Dim replace_text_2 As String
-Dim replace_text_3 As String
+Dim str_fkt_ergebnis_1 As String
+Dim str_fkt_ergebnis   As String
+Dim replace_text_1     As String
+Dim replace_text_2     As String
+Dim replace_text_3     As String
 
     '
     '#####################################################################################
     '
     
-    ergebnis_str_1 = startMrStringer(FKT_TRIM_X, m_txtEingabe.Text, -1, -1)
+    str_fkt_ergebnis_1 = startMrStringer(FKT_TRIM_AUFEINANDERFOLGENDE_LEERZEICHEN, m_txtEingabe.Text, -1, -1)
 
-    ergebnis_str_1 = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, ergebnis_str_1, -1, -1)
+    str_fkt_ergebnis_1 = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis_1, -1, -1)
 
-    ergebnis_str_1 = Replace(ergebnis_str_1, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
+    str_fkt_ergebnis_1 = Replace(str_fkt_ergebnis_1, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
     
     '
     '#####################################################################################
@@ -3294,11 +3441,11 @@ Dim replace_text_3 As String
     replace_text_2 = " = FkHttpServlet.getParameter( pRequest, """
     replace_text_3 = """, null, 15 );"
      
-    ergebnis_fkt = ergebnis_str_1
+    str_fkt_ergebnis = str_fkt_ergebnis_1
 
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6, replace_text_1)
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, replace_text_2)
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
     
     '
     '#####################################################################################
@@ -3308,27 +3455,27 @@ Dim replace_text_3 As String
     replace_text_2 = " != null ) { anw_instanz.set( "
     replace_text_3 = " TRENN_STRING_9); }"
     
-    ergebnis_fkt = ergebnis_fkt & vbCrLf & ergebnis_str_1
+    str_fkt_ergebnis = str_fkt_ergebnis & vbCrLf & str_fkt_ergebnis_1
 
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_6, replace_text_1)
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_7, replace_text_2)
-    ergebnis_fkt = Replace(ergebnis_fkt, TRENN_STRING_8, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
     
     '
     '#####################################################################################
     '
     
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , " = FkHttpServlet.getPa")
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , " = FkHttpServlet.getPa")
     
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , ", null, 15 );")
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , ", null, 15 );")
     
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , "!= null ) { anw_inst")
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , "!= null ) { anw_inst")
     
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , "TRENN_STRING_9); }")
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , "TRENN_STRING_9); }")
     
-    ergebnis_fkt = Replace(ergebnis_fkt, "TRENN_STRING_9); }", "); }")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "TRENN_STRING_9); }", "); }")
     
-    m_txtAusgabe.Text = ergebnis_fkt
+    m_txtAusgabe.Text = str_fkt_ergebnis
 
 End Sub
 
@@ -3338,13 +3485,50 @@ Private Sub m_btnErstelleKonstantenEinfach_Click()
 
     Call fkAppMrStringer.setToggleMrStringerFkt(Not fkAppMrStringer.getToggleMrStringerFkt())
 
-Dim ergebnis_fkt As String
+Dim str_fkt_ergebnis As String
     
-    ergebnis_fkt = startErstelleKonstantenEinfach(m_txtEingabe.Text, m_txtTrennzeichen1.Text, m_txtTrennzeichen2.Text, m_txtTrennzeichen3.Text, IIf(fkAppMrStringer.getToggleMrStringerFkt(), 1, 2), m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    str_fkt_ergebnis = startErstelleKonstantenEinfach(m_txtEingabe.Text, m_txtTrennzeichen1.Text, m_txtTrennzeichen2.Text, m_txtTrennzeichen3.Text, IIf(fkAppMrStringer.getToggleMrStringerFkt(), 1, 2), m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , AUSRICHT_STRING_TEMP_1)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
 
-    m_txtAusgabe.Text = startMrStringer(FKT_AUSRICHTER_STRING, Replace(ergebnis_fkt, AUSRICHT_STRING_TEMP_1, ""), -1, -1, , " );")
+    m_txtAusgabe.Text = startMrStringer(FKT_AUSRICHTER_STRING, Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, ""), -1, -1, , " );")
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnErstelleKonstantenUeberSplit_Click()
+
+Dim str_fkt_ergebnis As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+Dim replace_text_3   As String
+
+    replace_text_1 = "private static final String "
+    replace_text_2 = " = """
+    replace_text_3 = """;"
+
+    knz_togle_form_gen = Not knz_togle_form_gen
+
+    Call fkAppMrStringer.setToggleMrStringerFkt(knz_togle_form_gen)
+    
+    str_fkt_ergebnis = m_txtEingabe.Text
+   
+    str_fkt_ergebnis = startMrStringer(FKT_KONSTANTEN_UEBER_SPLIT, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
+     
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, "")
+     
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, "")
+     
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_2)
+
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_9, replace_text_3)
+
+    m_txtAusgabe.Text = str_fkt_ergebnis
 
 End Sub
 
@@ -3352,37 +3536,13 @@ End Sub
 '
 Private Sub m_btnErstelleKonstantenToProp_Click()
 
-Dim ergebnis_fkt As String
+Dim str_fkt_ergebnis As String
     
-    ergebnis_fkt = startErstelleKonstantenEinfach(m_txtEingabe.Text, m_txtTrennzeichen1.Text, m_txtTrennzeichen2.Text, m_txtTrennzeichen3.Text, 3, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    str_fkt_ergebnis = startErstelleKonstantenEinfach(m_txtEingabe.Text, m_txtTrennzeichen1.Text, m_txtTrennzeichen2.Text, m_txtTrennzeichen3.Text, 3, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , AUSRICHT_STRING_TEMP_1)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
 
-    m_txtAusgabe.Text = startMrStringer(FKT_AUSRICHTER_STRING, Replace(ergebnis_fkt, AUSRICHT_STRING_TEMP_1, ""), -1, -1, , " );")
-
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnStartGetAscii_Click()
-
-    m_txtAusgabe.Text = startGetAsciiPrint(m_txtEingabe.Text)
-
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnStartGetHexDump_Click()
-
-    m_txtAusgabe.Text = startGetHexDump(m_txtEingabe.Text, 14)
-
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnStartGroup_Click()
-
-    m_txtAusgabe.Text = startMrStringer(FKT_GROUP_NACH_STRING, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_AUSRICHTER_STRING, Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, ""), -1, -1, , " );")
 
 End Sub
 
@@ -3392,11 +3552,11 @@ Private Sub m_btnStartStrLitKonstanten_Click()
 
 Dim cls_string_array      As clsStringArray
 
-Dim akt_konst_name        As String
+Dim akt_konstanten_name   As String
 Dim aktuelle_zeile        As String
-Dim ergebnis_fkt          As String
-Dim my_cr                 As String
-Dim str_lit               As String
+Dim str_fkt_ergebnis      As String
+Dim str_my_cr             As String
+Dim str_liteale           As String
 Dim text_eingabe          As String
 Dim zeichen_zeilenumbruch As String
 Dim zeilen_anzahl         As Long
@@ -3408,23 +3568,23 @@ Dim zeilen_zaehler        As Long
         '
         ' 1. Stringliterale finden
         '
-        str_lit = startMrStringer(FKT_STRING_LIT, text_eingabe, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+        str_liteale = startMrStringer(FKT_STRING_LIT, text_eingabe, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
         
         '
         ' 2. Doppelte Strings entfernen
         '
-        str_lit = startMrStringer(FKT_GET_UNIQUE, str_lit, -1, 0)
+        str_liteale = startMrStringer(FKT_GET_UNIQUE, str_liteale, -1, 0)
     
-        my_cr = vbCrLf
+        str_my_cr = vbCrLf
         
         '
         ' 3. Die Strings in einem Stringarray verpacken
         '
-        Set cls_string_array = startMultiline(str_lit)
+        Set cls_string_array = startMultiline(str_liteale)
         
         If (cls_string_array Is Nothing) Then
         
-            ergebnis_fkt = "Fehler bei Erstellung ClsStringArray"
+            str_fkt_ergebnis = "Fehler bei Erstellung ClsStringArray"
         
         Else
     
@@ -3458,18 +3618,18 @@ Dim zeilen_zaehler        As Long
                     '
                     ' Konstantennamen aus der aktuellen Zeile erstellen
                     '
-                    akt_konst_name = "STR_KO_" & UCase(getKlartext(aktuelle_zeile, "_"))
+                    akt_konstanten_name = "STR_KO_" & UCase(getKlartext(aktuelle_zeile, "_"))
                 
                     '
                     ' Konstantendeklaration dem Ergebnisstring hinzufuegen
                     '
-                    ergebnis_fkt = ergebnis_fkt & my_cr & "private static final String " & akt_konst_name & " = """ & aktuelle_zeile & """;"
+                    str_fkt_ergebnis = str_fkt_ergebnis & str_my_cr & "private static final String " & akt_konstanten_name & " = """ & aktuelle_zeile & """;"
                 
                     '
                     ' Im Ausgangstext alle Vorkommen des Strings mit dem
                     ' Konstantennamen ersetzen.
                     '
-                    text_eingabe = Replace(text_eingabe, """" & aktuelle_zeile & """", akt_konst_name)
+                    text_eingabe = Replace(text_eingabe, """" & aktuelle_zeile & """", akt_konstanten_name)
                 
                 End If
                 
@@ -3484,7 +3644,7 @@ Dim zeilen_zaehler        As Long
             ' Dem bisherigen Ergebnisstring, wird der Ausgangsstring mit den
             ' gemachten Ersetzungen hinzhugefuegt.
             '
-            ergebnis_fkt = ergebnis_fkt & my_cr & my_cr & text_eingabe
+            str_fkt_ergebnis = str_fkt_ergebnis & str_my_cr & str_my_cr & text_eingabe
             
             '
             ' Instanz von Stringarray auf "nothing" setzen.
@@ -3495,33 +3655,15 @@ Dim zeilen_zaehler        As Long
     
     End If
     
-    m_txtAusgabe.Text = ergebnis_fkt
+    m_txtAusgabe.Text = str_fkt_ergebnis
 
 End Sub
 
 '################################################################################
 '
 Private Sub m_btnStartFormatJson_Click()
-
-Dim ergebnis_fkt As String
-Dim my_cr As String
-
-    my_cr = vbCrLf
     
-    ergebnis_fkt = AUSRICHT_STRING_TEMP_1 & m_txtEingabe.Text
-    ergebnis_fkt = Replace(ergebnis_fkt, "[", my_cr & "[" & my_cr)
-    ergebnis_fkt = Replace(ergebnis_fkt, "]", my_cr & "]" & my_cr)
-    ergebnis_fkt = Replace(ergebnis_fkt, "{", my_cr & "{" & my_cr)
-    ergebnis_fkt = Replace(ergebnis_fkt, "}", my_cr & "}" & my_cr)
-    ergebnis_fkt = Replace(ergebnis_fkt, ",", "," & my_cr)
-    ergebnis_fkt = Replace(ergebnis_fkt, "]" & my_cr & ",", "],")
-    ergebnis_fkt = Replace(ergebnis_fkt, "}" & my_cr & ",", "},")
-    ergebnis_fkt = Replace(ergebnis_fkt, my_cr & my_cr, my_cr)
-    ergebnis_fkt = Replace(ergebnis_fkt, my_cr & my_cr, my_cr)
-    ergebnis_fkt = Replace(ergebnis_fkt, AUSRICHT_STRING_TEMP_1 & my_cr, "")
-    ergebnis_fkt = Replace(ergebnis_fkt, AUSRICHT_STRING_TEMP_1, "")
- 
-    m_txtAusgabe.Text = ergebnis_fkt
+    m_txtAusgabe.Text = formatJsonString(m_txtEingabe.Text)
 
 End Sub
 
@@ -3558,7 +3700,7 @@ End Sub
 '
 Private Sub cpy_IBM_Click()
 
-    m_txtEingabe.Text = Replace(Clipboard.GetText, Chr(9), Chr(13) & Chr(10))
+    m_txtEingabe.Text = Replace(Clipboard.GetText, Chr(9), MY_CHR_13_10)
     
 End Sub
 
@@ -3606,7 +3748,7 @@ End Sub
 '
 Private Sub m_btnMarkiereDoppeltePlus_Click()
     
-    m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_DOPPELTE_PLUS, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, True)
+    m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_DOPPELT_PLUS_1_ZEILE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, True)
 
 End Sub
 
@@ -3614,7 +3756,7 @@ End Sub
 '
 Private Sub m_btnMarkiereDoppeltePlusMinus_Click()
     
-    m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_DOPPELTE_PLUS_MINUS, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, True)
+    m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_DOPPELT_PLUS_1_ZEILE_MINUS, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, True)
 
 End Sub
 
@@ -3628,14 +3770,6 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnSetCsvTrennzeichen_Click()
-
-    m_txtAusgabe.Text = startMrStringer(FKT_SET_TRENNZEICHEN_STR, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, , m_txtCsvZeichen.Text)
-    
-End Sub
-
-'################################################################################
-'
 Private Sub m_btnStartCalcExe_Click()
 
     Shell "calc.exe", vbNormalFocus
@@ -3644,9 +3778,9 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnStartCheckLeerstring_Click()
+Private Sub m_btnStartCheckLEER_STRING_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_CHECK_LEERSTRING, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_GENERATOR_VB_CHECK_LEER_STRING, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -3724,9 +3858,16 @@ End Sub
 
 '################################################################################
 '
+Private Sub m_btnStartTrimLeerzeilen_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_LEERZEILEN_LOESCHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+
+End Sub
+
+'################################################################################
+'
 Private Sub m_btnStartNotesDebugFeldWerte_Click()
 
-   ' m_txtAusgabe.Text = startMrStringer(FKT_NOTES_LESEN_SCHREIBEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
     m_txtAusgabe.Text = startMrStringer(FKT_NOTES_DEBUG_FELD_WERTE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
@@ -3741,26 +3882,18 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnStartTrimLeerzeilen_Click()
-
-    m_txtAusgabe.Text = startMrStringer(FKT_ENTFERNE_LEERZEILEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-
-End Sub
-
-'################################################################################
-'
 Private Sub m_btnStartXmlNrJava_Click()
 
-Dim ergebnis_fkt As String
+Dim str_fkt_ergebnis As String
 Dim temp_toggle As Boolean
 
-    ergebnis_fkt = startMrStringer(FKT_JAVA_XML_WRITER_NUMMER, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    str_fkt_ergebnis = startMrStringer(FKT_JAVA_XML_WRITER_NUMMER, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
     
     temp_toggle = getToggleMrStringerFkt()
     
-    ergebnis_fkt = startMrStringer(FKT_AUSRICHTER_STRING, ergebnis_fkt, -1, -1, , AUSRICHT_STRING_TEMP_1)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
 
-    m_txtAusgabe.Text = Replace(ergebnis_fkt, AUSRICHT_STRING_TEMP_1, "")
+    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, "")
 
     Call setToggleMrStringerFkt(temp_toggle)
 
@@ -3778,35 +3911,15 @@ End Sub
 '
 Private Sub m_btnSwitchPfad_Click()
 
-    knz_pfad = Not knz_pfad
+    knz_togle_form_gen = Not knz_togle_form_gen
 
-    If (knz_pfad) Then
+    If (knz_togle_form_gen) Then
         
         m_txtAusgabe.Text = Replace(m_txtEingabe.Text, "\", "/")
     
     Else
         
         m_txtAusgabe.Text = Replace(m_txtEingabe.Text, "/", "\")
-    
-    End If
-
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnStartChr13Konvertierung_Click()
-
-    m_zaehler_chr13 = m_zaehler_chr13 + 1
-    
-    If (m_zaehler_chr13 = 1) Then
-        
-        m_txtAusgabe.Text = Replace(m_txtEingabe.Text, Chr(13), Chr(13) & Chr(10))
-    
-    Else
-        
-        m_zaehler_chr13 = 0
-        
-        m_txtAusgabe.Text = Replace(m_txtEingabe.Text, Chr(10), Chr(13) & Chr(10))
     
     End If
 
@@ -3867,14 +3980,6 @@ Private Sub m_btnTestDivers_Click()
 
     m_txtAusgabe.Text = startMrStringer(FKT_SINGLETON_JAVA, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
  
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnZeilenAdd_Click()
-
-    m_txtAusgabe.Text = startMrStringer(FKT_ZEILEN_ADD, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-
 End Sub
 
 '################################################################################
@@ -4021,6 +4126,14 @@ End Sub
 
 '################################################################################
 '
+Private Sub m_btnSetCsvTrennzeichen_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_SET_TRENNZEICHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, , m_txtCsvZeichen.Text)
+    
+End Sub
+
+'################################################################################
+'
 Private Sub m_btnSetGatter0_Click()
 
     m_txtAusgabe.Text = startMrStringer(FKT_SET_TRENNZEICHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
@@ -4045,9 +4158,9 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnStartToZeile_Click()
+Private Sub m_btnZeilenAdd_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_TO_ZEILE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, , m_txtCsvZeichen.Text)
+    m_txtAusgabe.Text = startMrStringer(FKT_ZEILEN_ADD, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, , m_txtCsvZeichen.Text)
 
 End Sub
 
@@ -4143,7 +4256,7 @@ End Sub
 '
 Private Sub m_btnStartZaehler_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_ZAEHLER, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_ZEILEN_ZAEHLER, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4169,7 +4282,7 @@ End Sub
 '
 Private Sub m_btnStartDebugAusgabe_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_DEBUG_AUSGABE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_GENERATOR_DEBUG_AUSGABE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4177,7 +4290,7 @@ End Sub
 '
 Private Sub m_btnStartFallunterscheidungVB_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_GENERATOR_IF, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_GENERATOR_IF_JAVA_VB, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4201,7 +4314,7 @@ End Sub
 '
 Private Sub m_btnStartSortierung_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_SORTIEREN_ABC, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_SORTIEREN_ALPHABETH, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4233,7 +4346,7 @@ End Sub
 '
 Private Sub m_btnStartReverse_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_UMDREHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_STRING_UMDREHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4265,7 +4378,7 @@ End Sub
 '
 Private Sub m_btnDeklaration_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_DEKLARATION, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_GENERATOR_VARIABLEN_DEKLARATION, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4273,7 +4386,7 @@ End Sub
 '
 Private Sub m_btnStartTrim_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_TRIM, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_TRIM_STRING_VORNE_UND_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4281,7 +4394,7 @@ End Sub
 '
 Private Sub m_btnTrimX_Click()
     
-    m_txtAusgabe.Text = startMrStringer(FKT_TRIM_X, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_TRIM_AUFEINANDERFOLGENDE_LEERZEICHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4317,7 +4430,7 @@ End Sub
 '
 Private Sub m_btnStartSplit_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_SPLIT, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_STRING_SPLIT, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4325,7 +4438,7 @@ End Sub
 '
 Private Sub m_btnStringVb_Click()
     
-    m_txtAusgabe.Text = startMrStringer(FKT_STRING_IT, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_GENERATOR_STRING_IT, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4333,7 +4446,7 @@ End Sub
 '
 Private Sub m_btnStartUmdrehen_Click()
     
-    m_txtAusgabe.Text = startMrStringer(FKT_UMDREHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_STRING_UMDREHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4375,7 +4488,7 @@ Private Sub m_startCsvCase_Click()
 
     checkCsvSelektion
     
-    m_txtAusgabe.Text = startMrStringer(FKT_CSV_CASE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
+    m_txtAusgabe.Text = startMrStringer(FKT_CSV_JAVA_CASE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
 
 End Sub
 
@@ -4383,7 +4496,7 @@ End Sub
 '
 Private Sub m_btnStartPlaceX_Click()
 
-    m_txtAusgabe.Text = placeStringX(m_txtEingabe.Text, m_txtEingabe2.Text, FKT_GENERATOR_IF_2, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = placeStringX(m_txtEingabe.Text, m_txtEingabe2.Text, FKT_GENERATOR_IF_JAVA_SCRIPT, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4391,7 +4504,7 @@ End Sub
 '
 Private Sub m_btnStartMove_Click()
     
-    m_txtAusgabe.Text = startMrStringer(FKT_VERSCHIEBEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_STRING_VERSCHIEBEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4462,7 +4575,7 @@ End Sub
 '
 Private Sub m_btnStartSetNull_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_SET_NULL, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    m_txtAusgabe.Text = startMrStringer(FKT_GENERATOR_SET_NULL, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -4503,6 +4616,62 @@ End Sub
 Private Sub m_btnStartBlockZufall_Click()
 
     m_txtAusgabe.Text = startMrStringer(FKT_BLOCK_ZUFALL, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnSetCsvZeichen_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_CSV_VORNE_ODER_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartJsp2Java_Click()
+
+    m_txtAusgabe.Text = startJsp2Java(m_txtEingabe.Text)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartMaskiereAnfuehrungszeichen_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_MASKIERE_ANFZEICHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartStrLen_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_STRING_LAENGE_AUSGEBEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartGetAscii_Click()
+
+    m_txtAusgabe.Text = startGetAsciiPrint(m_txtEingabe.Text)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartGetHexDump_Click()
+
+    m_txtAusgabe.Text = startGetHexDump(m_txtEingabe.Text, 14)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartGroup_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_GROUP_NACH_STRING, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 

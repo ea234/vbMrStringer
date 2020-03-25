@@ -45,7 +45,7 @@ Dim vb_str As String
 
 End Sub
 
-'####################################################################################################
+'########################################################################################
 '
 Public Function startJsp2Java(pEingabe As String) As String
 
@@ -70,7 +70,7 @@ Dim zeichenfolge_start    As String
     '
     ' Ermittlung welches Zeilenumbruchzeichen verwendet in der Eingabe verwendet wird
     '
-    zeichen_zeilenumbruch = Chr(13) & Chr(10)
+    zeichen_zeilenumbruch = MY_CHR_13_10
 
     knz_umbruch_vorhanden = (InStr(1, pEingabe, zeichen_zeilenumbruch, vbBinaryCompare) > 0)
 
@@ -163,7 +163,7 @@ Dim zeichenfolge_start    As String
         '
         ' Pruefung: String fuer Verarbeitung vorhanden?
         '
-        If (akt_teil_string <> "") Then
+        If (akt_teil_string <> LEER_STRING) Then
         
             If (akt_csv_string = zeichenfolge_start) Then
             
@@ -197,7 +197,7 @@ Dim zeichenfolge_start    As String
                 '
                 art_string = ART_JSP_JAVA
                 
-                If (akt_teil_string <> "") Then
+                If (akt_teil_string <> LEER_STRING) Then
                 
                     If (Left(akt_teil_string, 1) = "=") Then
                     
@@ -230,7 +230,7 @@ Dim zeichenfolge_start    As String
                 '
                 ' Generierung der Anweisungen fuer eingebettete Java-Anweisungen
                 '
-                If (Trim(akt_teil_string) <> "") Then
+                If (Trim(akt_teil_string) <> LEER_STRING) Then
                 
                     fkt_ergebnis = fkt_ergebnis & zeichen_zeilenumbruch & zeichen_zeilenumbruch & getGeneratorXString(akt_teil_string, zeichen_zeilenumbruch & "ART_JSP_JAVA         ", "") & zeichen_zeilenumbruch
                 
@@ -308,7 +308,7 @@ errStartJsp2Java:
 
 End Function
 
-'####################################################################################################
+'########################################################################################
 '
 Private Function getGeneratorXString(pString As String, pZeilenPraefix As String, pZeilenSuffix As String) As String
 
@@ -333,7 +333,7 @@ Dim ergebnis                   As String
     '
     ' Ermittlung welches Zeilenumbruchzeichen verwendet in der Eingabe verwendet wird
     '
-    zeichen_zeilenumbruch = Chr(13) & Chr(10)
+    zeichen_zeilenumbruch = MY_CHR_13_10
 
     knz_umbruch_vorhanden = (InStr(1, pString, zeichen_zeilenumbruch, vbBinaryCompare) > 0)
 

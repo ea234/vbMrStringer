@@ -14,7 +14,7 @@ Dim pExcelObjekt      As clsExcel  ' Instanz mit den Excel-Funktionen
 Dim excel_sheet_name  As String    ' Name des zu erstellenden Tabellenblattes
 Dim knz_fehlerfrei    As Boolean   ' Kennzeichen, ob die Erstellung fehlerfrei gemacht wurde
 
-Dim cls_string_array As clsStringArray
+Dim cls_string_array  As clsStringArray ' Stringarray fuer die zu exportierenden Daten
 
     startCsv2Excel = False
     
@@ -45,7 +45,10 @@ Dim cls_string_array As clsStringArray
         knz_fehlerfrei = True
     
         excel_sheet_name = "Export" & Format(Now, "dd.mm.yyyy")
-    
+        
+        '
+        ' Excel-Objekt initialisieren
+        '
         If ((knz_fehlerfrei) And (istAbbruchVerarbeitung() = False)) Then
     
             Set pExcelObjekt = New clsExcel
@@ -54,24 +57,36 @@ Dim cls_string_array As clsStringArray
     
         End If
     
+        '
+        ' Workbook anlegen
+        '
         If ((knz_fehlerfrei) And (istAbbruchVerarbeitung() = False)) Then
             
             knz_fehlerfrei = pExcelObjekt.addWorkbook("ExcelExport")
     
         End If
-
+        
+        '
+        ' Ein Sheet im Workbook anlegen
+        '
         If ((knz_fehlerfrei) And (istAbbruchVerarbeitung() = False)) Then
 
             knz_fehlerfrei = pExcelObjekt.addSheet(excel_sheet_name)
 
         End If
-
+        
+        '
+        ' Das Sheet auswaehlen ... als aktuelles Sheet makrieren
+        '
         If ((knz_fehlerfrei) And (istAbbruchVerarbeitung() = False)) Then
 
             knz_fehlerfrei = pExcelObjekt.selectSheet(excel_sheet_name)
         
         End If
-
+        
+        '
+        ' Eintragung der Daten starten
+        '
         If ((knz_fehlerfrei) And (istAbbruchVerarbeitung() = False)) Then
 
             Dim start_zeile As Long
@@ -124,8 +139,12 @@ Dim cls_string_array As clsStringArray
 EndFunktion:
 
     On Error Resume Next
-
+    
+    '
+    ' Benutzte Objekte auf Nothing setzen
+    '
     Set pExcelObjekt = Nothing
+    
     Set cls_string_array = Nothing
 
     '
