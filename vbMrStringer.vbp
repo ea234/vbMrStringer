@@ -6,6 +6,7 @@ Module=fkAppMrStringer; fkAppMrStringer.bas
 Class=clsExcel; clsExcel.cls
 Module=fkCsvExport2Excel; fkCsvExport2Excel.bas
 Module=fkJsp2Java; fkJsp2Java.bas
+Module=Module1; ..\fkCheckVertragsnummer.bas
 IconForm="frmMrStringer"
 Startup="frmMrStringer"
 HelpFile=""

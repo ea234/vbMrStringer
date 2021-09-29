@@ -1,6 +1,7 @@
-frmMrStringer = 63, 33, 1808, 1035, , 9, 128, 1889, 1016, C
+frmMrStringer = 44, 5, 1789, 1007, , 9, 128, 1889, 1016, C
 clsStringArray = 140, 0, 1903, 1070, C
-fkAppMrStringer = 149, 47, 1874, 943, C
+fkAppMrStringer = 149, 47, 1874, 943, 
 clsExcel = 29, 16, 1798, 1049, C
 fkCsvExport2Excel = 126, 22, 1807, 1035, C
 fkJsp2Java = 250, -15, 1876, 1077, C
+Module1 = 26, 26, 1916, 972, 

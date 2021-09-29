@@ -6,11 +6,100 @@ Begin VB.Form frmMrStringer
    ClientTop       =   345
    ClientWidth     =   27420
    LinkTopic       =   "Form1"
-   LockControls    =   -1  'True
    ScaleHeight     =   726
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   1828
    StartUpPosition =   3  'Windows-Standard
+   Begin VB.CommandButton m_btnStartJavaPropertieSet 
+      Caption         =   "PROP"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   148
+      ToolTipText     =   "Java Properties Set"
+      Top             =   6300
+      Width           =   1065
+   End
+   Begin VB.CommandButton m_btnStartString 
+      Caption         =   "STRNG"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   147
+      ToolTipText     =   "Erstellt einen Hex-Dump"
+      Top             =   5775
+      Width           =   1065
+   End
+   Begin VB.CommandButton m_btnDoHexDumpJ 
+      Caption         =   "HEX J"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   146
+      ToolTipText     =   "Erstellt einen Hex-Dump"
+      Top             =   5250
+      Width           =   1065
+   End
+   Begin VB.CommandButton m_btnStartCsvCr 
+      Caption         =   "CSV cr"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   145
+      ToolTipText     =   "Zeilenumbruch vor oder nach CSV-Trennzeichen setzen"
+      Top             =   4725
+      Width           =   1035
+   End
+   Begin VB.CommandButton m_btnStartConverterVB 
+      Caption         =   "CNV VB"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   144
+      ToolTipText     =   "Generator Konverter VB"
+      Top             =   4200
+      Width           =   1065
+   End
    Begin VB.CommandButton m_btnGeneratorJavaVbComment 
       Caption         =   "// cmnt"
       BeginProperty Font 
@@ -435,6 +524,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   23325
       TabIndex        =   120
+      ToolTipText     =   "Setzt eine Zeilenmarkierung (0 und 1)"
       Top             =   1095
       Width           =   615
    End
@@ -487,6 +577,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   4125
       TabIndex        =   117
+      ToolTipText     =   "Marktiert im Text das ausgewählte Wort (vorne oder hinten)"
       Top             =   1095
       Width           =   615
    End
@@ -628,6 +719,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   14130
       TabIndex        =   109
+      ToolTipText     =   "Eingabebereinigung - es bleiben nur ASCII-Zeichen erhalten"
       Top             =   1575
       Width           =   1080
    End
@@ -697,6 +789,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   11430
       TabIndex        =   103
+      ToolTipText     =   "Pretty-Print auf einen JSON-String"
       Top             =   1575
       Width           =   1380
    End
@@ -1057,6 +1150,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   7695
       TabIndex        =   82
+      ToolTipText     =   "Kopiert den Text der Eingabebox in die Zwisschenablage"
       Top             =   1575
       Width           =   1755
    End
@@ -1108,6 +1202,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   18810
       TabIndex        =   79
+      ToolTipText     =   "Macht eine Rot13-Umstellung auf die Eingabe"
       Top             =   1095
       Width           =   1080
    End
@@ -1368,6 +1463,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   24030
       TabIndex        =   64
+      ToolTipText     =   "Erstellt Notes setString- und getString-Anweisungen"
       Top             =   1095
       Width           =   915
    End
@@ -1402,6 +1498,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   12915
       TabIndex        =   62
+      ToolTipText     =   "Erstellt die Anweisungen für die Erstellung eines Json-Strings"
       Top             =   600
       Width           =   915
    End
@@ -1436,6 +1533,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   5700
       TabIndex        =   60
+      ToolTipText     =   "Dreht die Eingabe oder Markierung um"
       Top             =   600
       Width           =   915
    End
@@ -1556,6 +1654,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   22620
       TabIndex        =   53
+      ToolTipText     =   "Zählt die Zeilen"
       Top             =   1095
       Width           =   615
    End
@@ -1608,6 +1707,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   10590
       TabIndex        =   50
+      ToolTipText     =   "Erstellt eine Debugausgabe für Java und VB"
       Top             =   600
       Width           =   1095
    End
@@ -1865,6 +1965,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   4575
       TabIndex        =   35
+      ToolTipText     =   "Eingaben der beiden Eingabeboxen tauschen"
       Top             =   1575
       Width           =   1995
    End
@@ -1909,6 +2010,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   6675
       TabIndex        =   33
+      ToolTipText     =   "Toggle um die 2te Eingabebox sichtbar zu machen"
       Top             =   1575
       Width           =   915
    End
@@ -2066,7 +2168,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   5355
       TabIndex        =   24
-      ToolTipText     =   "Entfernt das markierte Wort"
+      ToolTipText     =   "Entfernt das markierte Wort im gesamten Text"
       Top             =   60
       Width           =   915
    End
@@ -2119,6 +2221,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   60
       TabIndex        =   21
+      ToolTipText     =   "Setzt den Text aus der Zwischenablage in die Eingabebox"
       Top             =   1575
       Width           =   1755
    End
@@ -2187,6 +2290,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   11730
       TabIndex        =   17
+      ToolTipText     =   "Erstellt aus der Eingabe einen Java- oder VB-String"
       Top             =   600
       Width           =   1155
    End
@@ -2272,6 +2376,7 @@ Begin VB.Form frmMrStringer
       Height          =   435
       Left            =   9555
       TabIndex        =   12
+      ToolTipText     =   "Kopiert den Text der Ausgabebox in die Zwischenablage"
       Top             =   1575
       Width           =   1755
    End
@@ -2513,10 +2618,6 @@ Private knz_eingabe_volle_hoehe As Boolean
 Private knz_resize_laeuft       As Boolean
 Private m_zaehler_chr13         As Integer
 
-Private Sub Command1_Click()
-
-End Sub
-
 '################################################################################
 '
 Private Sub Form_Load()
@@ -2554,20 +2655,6 @@ Private Sub Form_Load()
     m_txtEingabe2.Visible = Not knz_eingabe_volle_hoehe
 
     m_knz_aktiv = False
-    
-'Dim vb_str  As String
-'
-'vb_str = vb_str & vbCrLf & "Finanzierungsantrag eingelesen #6// -- :'In'"
-'vb_str = vb_str & vbCrLf & "Fin.ant. mit Dublettenprüfung #6// -- :'Dublet'"
-'vb_str = vb_str & vbCrLf & "Fin.ant. mit ADIS Daten #6// -- :'ADIS'"
-'vb_str = vb_str & vbCrLf & "Fin.ant. in Bearbeitung aber fehlerhaft#6// -- :'Fehler'"
-'vb_str = vb_str & vbCrLf & "Fin.ant. in Bearbeitung und Fehlerfrei #6// -- :'OK'"
-'vb_str = vb_str & vbCrLf & "Fin.ant. ins ARIBA oder Ablehnung #6// -- :'Ende '"
-'vb_str = vb_str & vbCrLf & "Fin.ant. storniert #6// -- :'Storno'"
-'vb_str = vb_str & vbCrLf & "Fortschritt der BSK-Bearbeitung #6// -- :'Fortschritt'"
-'vb_str = vb_str & vbCrLf & ""
-'
-'m_txtEingabe.Text = vb_str
     
 End Sub
 
@@ -2635,6 +2722,76 @@ Dim breite_scroll_prozent As Double
     End If
 
     knz_resize_laeuft = False
+
+End Sub
+
+
+'################################################################################
+'
+Private Sub m_btnStartConverterVB_Click()
+
+    checkCsvSelektion
+    
+Dim vb_str As String
+Dim my_cr  As String
+
+    my_cr = vbCrLf
+    
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "'################################################################################"
+    vb_str = vb_str & my_cr & "'"
+    vb_str = vb_str & my_cr & "Private Function startKonverterString( pParameterStr1 as String ) As String"
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "On Error Goto errStartKonverterString"
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "    Dim fkt_ergebnis As String"
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "    " & startMrStringer(FKT_CSV_VB_KONVERTER, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text, "pParameterStr1", "fkt_ergebnis")
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "EndFunktion:"
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "    On Error Resume Next"
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "    '"
+    vb_str = vb_str & my_cr & "    ' DoEvents aufrufen"
+    vb_str = vb_str & my_cr & "    '"
+    vb_str = vb_str & my_cr & "    DoEvents"
+    vb_str = vb_str & my_cr & "    "
+    vb_str = vb_str & my_cr & "    '"
+    vb_str = vb_str & my_cr & "    ' Funktionsergebnis setzen"
+    vb_str = vb_str & my_cr & "    '"
+    vb_str = vb_str & my_cr & "    startKonverterString = fkt_ergebnis"
+    vb_str = vb_str & my_cr & "    "
+    vb_str = vb_str & my_cr & "    '"
+    vb_str = vb_str & my_cr & "    ' Funktion verlassen"
+    vb_str = vb_str & my_cr & "    '"
+    vb_str = vb_str & my_cr & "    Exit Function"
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "errStartKonverterString:"
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "    Call wl( ""Fehler: errStartKonverterString: "" & Err & "" "" & Error & "" "" & Erl )"
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "    Resume EndFunktion"
+    vb_str = vb_str & my_cr & ""
+    vb_str = vb_str & my_cr & "End Function"
+
+    m_txtAusgabe.Text = vb_str
+
+End Sub
+
+Private Sub m_btnStartCsvCr_Click()
+    
+    checkCsvSelektion
+
+    m_txtAusgabe.Text = startMrStringer(FKT_CSV_CR, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
+
+End Sub
+
+
+
+Private Sub m_btnStartString_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_STRING_ERST, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -2708,10 +2865,12 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """Erst. CSV""  = Erstellt eine Zeile aus den Eingabedaten (Verwendung in Funktionsaufrufen)"
     vb_str = vb_str & vbCrLf & """CamelCase""  = Erstellt aus jeder Zeile einen CamelCase-String"
     vb_str = vb_str & vbCrLf & """JSON""       = Eingabe als JSON-String"
-    vb_str = vb_str & vbCrLf & """CSV Zeile""  ="
+    vb_str = vb_str & vbCrLf & """CSV Zeile""  = Setzt vor dem CSV-String einen Zeilenumbruch. Abwechseld wird der CSV-String mit ins Ergebnis aufgenommen"
+    vb_str = vb_str & vbCrLf & """CSV CR""     = Setzt vor oder nach dem CSV-String einen Zeilenumbruch"
     vb_str = vb_str & vbCrLf & """VB->Java""   = Sehr grobe Konvertierung von Visual-Basic nach Java-Quelltext"
     vb_str = vb_str & vbCrLf & """ToString""   = jede Zeile einem String hinzufügen"
-    vb_str = vb_str & vbCrLf & """D. Notes""   = NotesDokument set und get Feldwert"
+    vb_str = vb_str & vbCrLf & """Notes""      = NotesDokument set und get Feldwert"
+    vb_str = vb_str & vbCrLf & """D. Notes""   = Debug auf Notesfelder"
     vb_str = vb_str & vbCrLf & """Umlaute""    = Konvertiert Umlaute von z.B. Ä nach Ae"
     vb_str = vb_str & vbCrLf & ""
     vb_str = vb_str & vbCrLf & """Zeilen Add"" = Zusammenfassung Eingabezeilen "
@@ -2769,6 +2928,8 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """MANF""       = Anfuehrungszeichen maskieren Java und VB"
     vb_str = vb_str & vbCrLf & """StrLen""     = gibt die Zeilenlängen aus"
     vb_str = vb_str & vbCrLf & """// cmnt""    = Eingabe als Java oder VB Kommentar"
+    vb_str = vb_str & vbCrLf & """CNV VB""     = CSV-Generator fuer einen Konverter fuer VB"
+    
     vb_str = vb_str & vbCrLf & ""
     vb_str = vb_str & vbCrLf & """?""          = Zeigt den Hilfetext an"
     vb_str = vb_str & vbCrLf & ""
@@ -2911,6 +3072,46 @@ Dim replace_text_2   As String
         tab_zaehler = tab_zaehler + 1
         
     Wend
+    
+    m_txtAusgabe.Text = str_fkt_ergebnis
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartJavaPropertieSet_Click()
+
+Dim str_fkt_ergebnis As String
+Dim replace_text_1   As String
+Dim replace_text_2   As String
+Dim replace_text_3   As String
+
+    replace_text_1 = "propertie_instanz.setProperty( "
+    
+    replace_text_2 = ", "
+
+    replace_text_3 = " );"
+
+    '
+    ' Eingabe doppeln und dazwischen Trennzeichen setzen
+    '
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    
+    '
+    ' Nach den Trennzeichen 7 und 8 die eingabe ausrichten lassen
+    '
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_7)
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_8)
+    
+    '
+    ' Textersetzungen fuer die Propertie-Set-Anweisungen machen
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
     
     m_txtAusgabe.Text = str_fkt_ergebnis
 
@@ -3192,6 +3393,7 @@ Dim replace_text_2   As String
     '
     ' Entferne alle Stellen, an welchen sich der Trennstring 3
     ' zweimal nacheinander kommt.
+    '
     text_clip = Replace(text_clip, TRENN_STRING_8 + TRENN_STRING_8, "")
 
     '
@@ -3682,6 +3884,8 @@ Private Sub m_btnUmlaute_Click()
     str_text = Replace(str_text, "ö", "oe")
     str_text = Replace(str_text, "Ö", "Oe")
     str_text = Replace(str_text, "ß", "ss")
+    str_text = Replace(str_text, "è", "e")
+    str_text = Replace(str_text, "é", "e")
     str_text = Replace(str_text, "€", "EUR")
     
     m_txtAusgabe.Text = str_text
@@ -3885,17 +4089,17 @@ End Sub
 Private Sub m_btnStartXmlNrJava_Click()
 
 Dim str_fkt_ergebnis As String
-Dim temp_toggle As Boolean
+Dim save_toggle      As Boolean
 
     str_fkt_ergebnis = startMrStringer(FKT_JAVA_XML_WRITER_NUMMER, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
     
-    temp_toggle = getToggleMrStringerFkt()
+    save_toggle = getToggleMrStringerFkt()
     
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
 
     m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, "")
 
-    Call setToggleMrStringerFkt(temp_toggle)
+    Call setToggleMrStringerFkt(save_toggle)
 
 End Sub
 
@@ -4559,6 +4763,17 @@ End Sub
 '
 Private Sub m_btnStartReplaceX_Click()
 
+    '
+    ' Suchwort ersetzen
+    ' Die Suche wird ueber die Funktion "startReplaceSuchWorte" gemacht.
+    ' Die Such/Ersatzstring werden in der Form "suchwort=ersatzwort"
+    ' uebergeben. Es gibt hier nur ein solches Such/Ersatzpaar, daher
+    ' muss kein Zeilenumbruch in den Parameter eingebaut werden.
+    '
+    ' ? startReplaceSuchWorte( "A=r" & chr(13) & "B=d", "AABB" ) = rrdd
+    '
+    ' str_fkt_ergebnis = startReplaceSuchWorte(temp_string_1 & "=" & IIf(m_toggle_mr_stringer_fkt, TRENN_STRING_8, TRENN_STRING_9) & inhalt_markierung, pString)
+    '
     m_txtAusgabe.Text = startReplaceSuchWorte(m_txtEingabe.Text, m_txtEingabe2.Text)
 
 End Sub
@@ -4663,7 +4878,13 @@ End Sub
 '
 Private Sub m_btnStartGetHexDump_Click()
 
-    m_txtAusgabe.Text = startGetHexDump(m_txtEingabe.Text, 14)
+    m_txtAusgabe.Text = startGetHexDump(m_txtEingabe.Text, 14, 1)
+
+End Sub
+
+Private Sub m_btnDoHexDumpJ_Click()
+
+    m_txtAusgabe.Text = startGetHexJDump2(m_txtEingabe.Text, 14, 2)
 
 End Sub
 

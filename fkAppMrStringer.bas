@@ -6,10 +6,20 @@ Option Explicit
 '       Speichern alle den "temp_string_3" im Stringarray
 '
 
+'a# 3000001
+'b# 3000002
+'c# 3000003
+'d# 3000004
+'e# 3000005
+'f# 3000006
+'g# 3000007
+
 Public m_knz_aktiv               As Boolean ' public wegen initialisierung
 Private m_toggle_mr_stringer_fkt As Boolean ' Umschalter fuer die Doppelbelegung bei Funktionen
 Private m_zaehler_debug_print    As Integer ' Zaehler fuer fuer die Funktion "Debug-String-Ausgabe"
 Private m_zaehler_string_it      As Integer ' Zaehler fuer fuer die Funktion "String-It"
+
+Public Const FKT_CSV_VB_KONVERTER = 125
 
 Public Const FKT_AUSRICHTER_POSITION = 1
 Public Const FKT_AUSRICHTER_STRING = 2
@@ -21,6 +31,7 @@ Public Const FKT_CLIP_GET_TEXT = 7
 Public Const FKT_CLIP_POSITION = 8
 Public Const FKT_CMD_RENAME = 9
 Public Const FKT_CSV_2_ZEILE = 10
+Public Const FKT_CSV_CR = 201
 Public Const FKT_CSV_JAVA_CASE = 11
 Public Const FKT_CSV_ERSTELLE_CSV = 12
 Public Const FKT_CSV_JAVA_PROP = 13
@@ -94,6 +105,7 @@ Public Const FKT_UCASE_LCASE = 80
 Public Const FKT_ZEILEN_ADD = 81
 Public Const FKT_ZEILEN_BOOLEAN = 82
 Public Const FKT_ZEILEN_ZAEHLER = 83
+Public Const FKT_STRING_ERST = 84
 
 Public Const LEER_STRING = ""
 Public Const UNTER_STRICH = "_"
@@ -241,11 +253,35 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
             
             If (m_toggle_mr_stringer_fkt) Then
                 
-                str_fkt_ergebnis = Replace(pString, pOptString1, pOptString1 & MY_CHR_13_10)
+                'str_fkt_ergebnis = Replace(pString, pOptString1, pOptString1 & MY_CHR_13_10)
+                str_fkt_ergebnis = Replace(pString, pOptString1, MY_CHR_13_10 & pOptString1)
             
             Else
                 
                 str_fkt_ergebnis = Replace(pString, pOptString1, MY_CHR_13_10)
+            
+            End If
+            
+        End If
+    
+    ElseIf (pFunktion = FKT_CSV_CR) Then
+        '
+        ' Funktion "CSV CR"
+        ' Vor oder Nach jedem Trennzeichen wird ein Zeilenumbruch eingefuegt.
+        ' Eigentlich aehnlich der Funktion "FKT_CSV_2_ZEILE", welche aber das
+        ' Trennzeichen selber einmal mit ins Ergebnis aufnimmt oder nicht.
+        '
+        If (pOptString1 = LEER_STRING) Then
+        
+        Else
+            
+            If (m_toggle_mr_stringer_fkt) Then
+                
+                str_fkt_ergebnis = Replace(pString, pOptString1, pOptString1 & MY_CHR_13_10)
+            
+            Else
+                
+                str_fkt_ergebnis = Replace(pString, pOptString1, MY_CHR_13_10 & pOptString1)
             
             End If
             
@@ -397,7 +433,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 ' Das Kennzeichen ist TRUE, wenn die Ab-Position groesser gleich 0
                 ' ist und die Bis-Position gleich oder groesser ist.
                 '
-                knz_benutze_markierung = (ab_position >= 0) And (bis_position >= ab_position)
+                knz_benutze_markierung = (ab_position >= POSITION_0) And (bis_position >= ab_position)
             
             Else
                 
@@ -492,15 +528,18 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 inhalt_markierung = getStringAbBis(pString, pSelStart + 1, pSelStart + pSelLength)
                 
                 '
-                ' Suchwort ersetzen
-                ' Die Suche wird ueber die Funktion "startReplaceSuchWorte" gemacht.
-                ' Die Such/Ersatzstring werden in der Form "suchwort=ersatzwort"
-                ' uebergeben. Es gibt hier nur ein solches Such/Ersatzpaar, daher
-                ' muss kein Zeilenumbruch in den Parameter eingebaut werden.
+                ' Das Suchwort wird mit dem Trennstring 8 vor oder hinter
+                ' dem Suchwort versehen und im Eingabetext ersetzt.
                 '
-                ' ? startReplaceSuchWorte( "A=r" & chr(13) & "B=d", "AABB" ) = rrdd
-                '
-                str_fkt_ergebnis = startReplaceSuchWorte(temp_string_1 & "=" & IIf(m_toggle_mr_stringer_fkt, TRENN_STRING_8, TRENN_STRING_9) & inhalt_markierung, pString)
+                If (m_toggle_mr_stringer_fkt) Then
+                
+                    str_fkt_ergebnis = Replace(pString, inhalt_markierung, inhalt_markierung & TRENN_STRING_8)
+                    
+                Else
+                
+                    str_fkt_ergebnis = Replace(pString, inhalt_markierung, TRENN_STRING_8 & inhalt_markierung)
+
+                End If
                 
                 '
                 ' Es muss bei der Funktion "FKT_MARKIERE_WORT" kein weiterer
@@ -549,9 +588,24 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
             ElseIf (pFunktion = FKT_LEERZEILEN_EINFUEGEN) Then
             
                 '
-                ' Vermeidet bei der ersten Zeile, dass ein Zeilenumbruch hinzugefuegt wird.
+                ' Vermeidet dass bei der ersten Zeile ein Zeilenumbruch hinzugefuegt wird.
                 '
                 temp_long_1 = 0
+                
+            ElseIf (pFunktion = FKT_CSV_VB_KONVERTER) Then
+            
+                temp_string_3 = "    If"
+            
+            ElseIf (pFunktion = FKT_STRING_ERST) Then
+            
+                If (m_toggle_mr_stringer_fkt) Then
+                    
+                    temp_string_1 = "\"""
+    
+                Else
+                    temp_string_1 = """"""
+                
+                End If
             
             ElseIf (pFunktion = FKT_GENERATOR_STRING_IT) Then
             
@@ -593,8 +647,8 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 '
                 ' Funktion "Maskiere Anfuehrungszeichen"
                 '
-                ' Alle Anfuehrungszeichen werden einmal fuer Java und einmal fuer VB maskiert.
-                ' Es wird nicht global ein replace gemacht, da dann die Markierungsfunktion
+                ' Die Anfuehrungszeichen werden abwechselnd einmal fuer Java und einmal fuer VB maskiert.
+                ' Es wird nicht global ein replace gemacht, da in diesem Fall die Markierungsfunktion
                 ' nicht funktionieren wuerde.
                 '
                 temp_string_1 = """"
@@ -800,6 +854,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 ' Vorbereitung Funktion Zeilen ADD
                 '
                 ' Zusammenfassung von Zeilen bis eine Anzahl von Zeilenzusammenfuehrungen erreicht ist.
+                ' (10 Zeilen Eingabe ergeben 1 Zeile Ausgabe)
                 '
                 ' Die Variable "temp_long_1" gibt die Anzahl der zusammenzufassenden Zeilen vor.
                 ' Die Variable "temp_long_2" zaehlt die zusammengefassten Zeilen.
@@ -1289,6 +1344,29 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                         
                         Call cls_string_array.setString(zeilen_zaehler, temp_string_3)
                         
+                    
+                    ElseIf (pFunktion = FKT_STRING_ERST) Then 'ISXF
+                        
+                        '
+                        ' Funktion "String Erstellung"
+                        ' Generator fuer die Stringerzeugung in Programmiersprachen.
+                        '
+                        ' Beruecksichtigt die Markierung.
+                        '
+                        If (akt_zeile_mark <> LEER_STRING) Then
+                            
+                            temp_string_3 = Replace(Trim(akt_zeile_mark), """", temp_string_1)
+                            
+                        End If
+                        
+                        If (knz_benutze_markierung) Then
+                        
+                            temp_string_3 = replaceSubstringAbBis(aktuelle_zeile, ab_position, bis_position, temp_string_3)
+                            
+                        End If
+                        
+                        Call cls_string_array.setString(zeilen_zaehler, """" & temp_string_3 & """")
+                        
                     ElseIf (pFunktion = FKT_MARKIERE_VORNE_ODER_HINTEN) Then 'ISXF
                     
                         '
@@ -1422,7 +1500,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                     ElseIf (pFunktion = FKT_MASKIERE_ANFZEICHEN) Then 'ISXF
                         
                         '
-                        ' Funktion "Maskierte Anfuerhungszeichen"
+                        ' Funktion "Maskiere Anfuerhungszeichen"
                         '
                         ' Der Suchstring ist in "temp_string_1" gespeichert.
                         ' Der Ersatzstring ist in "temp_string_2" gespeichert.
@@ -1963,15 +2041,15 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                             ElseIf (m_zaehler_debug_print = 5) Then
                             
                                 Call cls_string_array.setString(zeilen_zaehler, " =>"" & " & Replace(akt_zeile_mark, """", "") & " & ""< ")
-                                
+
                             ElseIf (m_zaehler_debug_print = 6) Then
-                            
+
                                 Call cls_string_array.setString(zeilen_zaehler, " =>"" + " & Replace(akt_zeile_mark, """", LEER_STRING) & " + ""< ")
-                                
+
                             Else
-                            
+
                                 Call cls_string_array.setString(zeilen_zaehler, "FkLogger.wl( """ & Replace(akt_zeile_mark, """", "\""") & " =>"" + " & Replace(akt_zeile_mark, """", LEER_STRING) & " + ""<"" );")
-                            
+
                             End If
                             
                         End If
@@ -2012,7 +2090,6 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                     ElseIf ((pFunktion = FKT_SINGLETON_JAVA) Or (pFunktion = FKT_GETTER_SETTER_JAVA) Or (pFunktion = FKT_GETTER_SETTER_VB) Or (pFunktion = FKT_GETTER_SETTER_JAVA_SCRIPT)) Then
                         '
                         ' Funktion "Getter Setter Java" oder "Getter Setter VB"
-                        
                         '
                         ' Es wird ein Trim auf die aktuelle Zeile/Markierung gemacht.
                         '
@@ -2097,9 +2174,11 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                                 
                                 temp_long_1 = 0
                                 
-                                If (LCase(str_var_typ) = "boolean") Then
+                                If ((LCase(str_var_typ) = "boolean") Or (LCase(str_var_typ) = "bool")) Then
                                 
                                     temp_string_3 = temp_string_3 & "false; // true;"
+                                    
+                                    str_var_typ = "boolean"
                                     
                                 ElseIf (LCase(str_var_typ) = "long") Then
                                 
@@ -2133,9 +2212,11 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                             
                                 temp_string_3 = temp_string_3 & zeichen_zeilenumbruch & IIf(m_toggle_mr_stringer_fkt, "Private ", "Dim ") & temp_string_1 & " As " & str_var_typ & " ' = "
                                 
-                                If (LCase(str_var_typ) = "boolean") Then
+                                If ((LCase(str_var_typ) = "boolean") Or (LCase(str_var_typ) = "bool")) Then
                                 
                                     temp_string_3 = temp_string_3 & "false ' true"
+                                    
+                                    str_var_typ = "boolean"
                                     
                                 ElseIf (LCase(str_var_typ) = "bigdecimal") Then
                                 
@@ -2610,19 +2691,19 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
 
                         End If
     
-                    ElseIf ((pFunktion = FKT_CSV_SWAP) Or (pFunktion = FKT_CSV_JAVA_CASE) Or (pFunktion = FKT_CSV_JAVA_PROP)) Then
-                    
+                    ElseIf ((pFunktion = FKT_CSV_SWAP) Or (pFunktion = FKT_CSV_JAVA_CASE) Or (pFunktion = FKT_CSV_VB_KONVERTER) Or (pFunktion = FKT_CSV_JAVA_PROP)) Then
+
                         '
                         ' Es wird die Position des CSV-Strings innerhalb der aktuellen Zeile gesucht.
                         ' Die Position wird in "temp_long_1" gespeichert.
                         '
                         temp_long_1 = InStr(aktuelle_zeile, pOptString1)
-                    
+
                         '
                         ' Pruefung: CSV-String in der aktuellen Zeile gefunden ?
                         '
                         If (temp_long_1 > POSITION_0) Then
-                             
+
                             '
                             ' Bestimmung bis zu welcher Position das CSV-Zeichen geht.
                             '
@@ -2662,7 +2743,19 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                                 temp_string_2 = Trim(temp_string_2)
                                 
                                 Call cls_string_array.setString(zeilen_zaehler, LEER_STRING & STR_VAR_NAME_PROPERTIES_LOKAL & ".setProperty( " & temp_string_1 & ", " & AUSRICHT_STRING_TEMP_1 & temp_string_2 & AUSRICHT_STRING_TEMP_2 & " );")
+                                
+                            ElseIf (pFunktion = FKT_CSV_VB_KONVERTER) Then
                             
+                                temp_string_1 = Trim(temp_string_1)
+                                temp_string_2 = Trim(temp_string_2)
+                            
+                                str_fkt_ergebnis = str_fkt_ergebnis & zeichen_zeilenumbruch & "    " & temp_string_3 & " ( " & pOptString2 & " = """ & temp_string_1 & """ ) Then "
+                                str_fkt_ergebnis = str_fkt_ergebnis & zeichen_zeilenumbruch & ""
+                                str_fkt_ergebnis = str_fkt_ergebnis & zeichen_zeilenumbruch & "        " & pOptString3 & " = """ & temp_string_2 & """ "
+                                str_fkt_ergebnis = str_fkt_ergebnis & zeichen_zeilenumbruch & ""
+                                    
+                                temp_string_3 = "ElseIf"
+                                
                             Else
                             
                                 Call cls_string_array.setString(zeilen_zaehler, temp_string_2 & pOptString1 & temp_string_1)
@@ -3126,6 +3219,10 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 ElseIf ((pFunktion = FKT_GETTER_SETTER_JAVA) Or (pFunktion = FKT_GETTER_SETTER_VB) Or (pFunktion = FKT_SINGLETON_JAVA)) Then
                             
                     str_fkt_ergebnis = temp_string_3 & zeichen_zeilenumbruch & str_fkt_ergebnis & zeichen_zeilenumbruch
+                
+                ElseIf ((pFunktion = FKT_CSV_VB_KONVERTER)) Then
+                            
+                    str_fkt_ergebnis = zeichen_zeilenumbruch & str_fkt_ergebnis & zeichen_zeilenumbruch & "    EndIf" & zeichen_zeilenumbruch
 
                 ElseIf (Len(str_fkt_ergebnis) = 0) Then
                     '
@@ -4093,7 +4190,7 @@ End Function
 
 '################################################################################
 '
-Public Function startGetHexDump(pString As String, pZahlenJeZeile As Integer) As String
+Public Function startGetHexDump(pString As String, pZahlenJeZeile As Integer, pModus As Integer) As String
 
 On Error GoTo errStartGetHexDump
 
@@ -4127,6 +4224,10 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
     
     knz_ausgabe_hexadezimal = m_toggle_mr_stringer_fkt
     
+    Dim knz_vorlaufende_nullen As Boolean
+    
+    knz_vorlaufende_nullen = pModus = 1
+    
     '
     ' Die While-Schleife laeuft ueber die Laenge des Eingabestrings.
     '
@@ -4148,12 +4249,28 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
         ' damit die Breite mit der dezimalen Version identisch ist.
         '
         If (knz_ausgabe_hexadezimal) Then
+            
+            If (knz_vorlaufende_nullen) Then
         
-            str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & " " & Right(str_vorlaufende_nullen & Hex(Asc(akt_zeichen)), 2) & " "
+                str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & " " & Right(str_vorlaufende_nullen & Hex(Asc(akt_zeichen)), 2) & " "
+                
+            Else
+        
+                str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & " " & Right("  " & Hex(Asc(akt_zeichen)), 2) & " "
+                
+            End If
             
         Else
         
-            str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & Right(str_vorlaufende_nullen & Asc(akt_zeichen), 3) & " "
+            If (knz_vorlaufende_nullen) Then
+        
+                str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & Right(str_vorlaufende_nullen & Asc(akt_zeichen), 3) & " "
+                
+            Else
+        
+                str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & Right("   " & Asc(akt_zeichen), 3) & " "
+                
+            End If
             
         End If
         
@@ -4257,6 +4374,181 @@ EndFunktion:
 errStartGetHexDump:
 
     str_fkt_ergebnis = str_fkt_ergebnis & "Fehler: errStartGetHexDump: " & Err & " " & Error & " " & Erl
+
+    Resume EndFunktion
+
+End Function
+
+'################################################################################
+'
+Public Function startGetHexJDump2(pString As String, pZahlenJeZeile As Integer, pModus As Integer) As String
+
+On Error GoTo errStartGetHexJDump2
+
+    m_toggle_mr_stringer_fkt = Not m_toggle_mr_stringer_fkt
+
+Dim akt_position            As Integer ' aktuelle Leseposition der While-Schleife
+Dim akt_zeichen             As String  ' aktuelle Zeichen in der While-Schleife
+Dim str_my_cr               As String  ' Das in dieser Funktion verwendete Zeilenumbruchszeichen
+Dim str_fkt_ergebnis        As String  ' Ergebnisstring fuer die Rueckgabe
+Dim str_ausgabe_position    As String  ' String fuer die Zeilen-Nummernausgabe
+Dim str_ausgabe_ascii_werte As String  ' String fuer die Hex- bzw. Dezimalangabe der einzelnen Zeichen
+Dim str_ausgabe_zeichen     As String  ' String fuer die Zeichenausgabe einer Zeile
+Dim str_vorlaufende_nullen  As String  ' String mit 20 Nullen fuer die vorlaufenden 0en.
+Dim zahlen_je_zeile_anzahl  As Integer ' Anzahl der Ausgabezeichen je Zeile
+Dim zahlen_je_zeile_zaehler As Integer ' Aktuelle Zeichenanzahl der aktuellen Zeile
+Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder Dezimalangabe erstellt wird
+    
+    str_my_cr = vbCrLf
+    
+    str_vorlaufende_nullen = "00000000000000000000"
+    
+    str_fkt_ergebnis = LEER_STRING
+    
+    zahlen_je_zeile_anzahl = pZahlenJeZeile
+    
+    zahlen_je_zeile_zaehler = 0
+    
+    akt_position = 1
+    
+    str_ausgabe_position = Right(str_vorlaufende_nullen & akt_position, 6) & " "
+    
+    knz_ausgabe_hexadezimal = m_toggle_mr_stringer_fkt
+    
+    Dim knz_vorlaufende_nullen As Boolean
+    
+    knz_vorlaufende_nullen = pModus = 1
+    
+    '
+    ' Die While-Schleife laeuft ueber die Laenge des Eingabestrings.
+    '
+    While (akt_position <= Len(pString))
+    
+        '
+        ' Das Zeichen an der aktuellen Leseposition ermitteln
+        '
+        akt_zeichen = Mid(pString, akt_position, 1)
+        
+        '
+        ' Pruefung: Hex-Version oder Dezimale-Version ?
+        '
+        ' Je nach Kennzeichenfeld wird eine hexadzimale Zahl oder eine
+        ' dezmiale Zahl vom ASCI-Wert erstellt und dem String der Zahlen
+        ' hinzugefuegt.
+        '
+        ' Die hexadezimalen Zahlen bekommen ein vorlaufendes Leerzeichen,
+        ' damit die Breite mit der dezimalen Version identisch ist.
+        '
+        If (knz_ausgabe_hexadezimal) Then
+            
+                str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & " 0x" & Right("00" & Hex(Asc(akt_zeichen)), 2) & ", "
+            
+        Else
+        
+                str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & Right("   " & Asc(akt_zeichen), 3) & ", "
+            
+        End If
+        
+        '
+        ' Zeichenstring
+        '
+        ' Ist der Asci-Wert kleiner 31 wird fuer das Zeichen ein Punkt
+        ' dem Zeichenstring hinzugefuegt.
+        '
+        ' Ist der Asci-Wert groesser 30 wird das Zeichen normal hinzugefuegt.
+        '
+        If (Asc(akt_zeichen) < 31) Then
+        
+            str_ausgabe_zeichen = str_ausgabe_zeichen & "."
+            
+        Else
+        
+            str_ausgabe_zeichen = str_ausgabe_zeichen & akt_zeichen
+            
+        End If
+        
+        '
+        ' Zahlenzaehler erhoehen
+        '
+        zahlen_je_zeile_zaehler = zahlen_je_zeile_zaehler + 1
+        
+        '
+        ' Pruefung: Zahlengrenze je Zeile erreicht ?
+        '
+        ' Hat der Zahlenzaehler die Grenze der Zahlenanzahl je Zeile erreicht,
+        ' wird dem Ergebnisstring eine neue Zeile hinzugefuegt.
+        '
+        ' Die neue Zeile setzt sich aus dem Positionsstring, dem Zahlenstring und
+        ' dem Zeichenstring zusammen.
+        '
+        If (zahlen_je_zeile_zaehler = zahlen_je_zeile_anzahl) Then
+            
+            str_fkt_ergebnis = str_fkt_ergebnis & str_my_cr & str_ausgabe_position & str_ausgabe_ascii_werte & str_ausgabe_zeichen
+            
+            str_ausgabe_position = Right(str_vorlaufende_nullen & (akt_position + 1), 6) & " "
+            
+            str_ausgabe_ascii_werte = LEER_STRING
+            
+            str_ausgabe_zeichen = LEER_STRING
+            
+            zahlen_je_zeile_zaehler = 0
+        
+        End If
+        
+        '
+        ' Am Ende der While-Schleife wird die Leseposition um 1 erhoeht
+        ' und mit dem naechsten Schleifendurchlauf weitergemacht.
+        
+        akt_position = akt_position + 1
+    
+    Wend
+
+    '
+    ' Ist der Zahlenzaehler nach der While-Schleife groesser als 0, sind
+    ' noch Ausgabedaten vorhanden, welche dem Ergebnis noch hinzugefuegt
+    ' werden muessen.
+    '
+    If (zahlen_je_zeile_zaehler > 0) Then
+        
+        '
+        ' Ist die Zahlenanzahl je Zeile nicht erreicht worden, werden
+        ' die noch fehlenden Position mit Leerzeichen aufgefuellt. Das
+        ' sind 3 Leerzeichen fuer die Maximalausdehung der Zahlen und
+        ' ein Leerzeichen fuer die Trennung der Zahlen.
+        '
+        ' Die Variable "str_ausgabe_zeichen" muss nicht aufgefuellt werden.
+        ' Der Inhalt dieser Variablen wird am Ende des Ergebnisstrings
+        ' hinzugefuegt.
+        '
+        While (zahlen_je_zeile_zaehler < zahlen_je_zeile_anzahl)
+            
+            str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & "   " & " "
+            
+            zahlen_je_zeile_zaehler = zahlen_je_zeile_zaehler + 1
+        
+        Wend
+        
+        str_fkt_ergebnis = str_fkt_ergebnis & str_my_cr & str_ausgabe_position & str_ausgabe_ascii_werte & str_ausgabe_zeichen
+        
+    End If
+
+EndFunktion:
+
+    On Error Resume Next
+
+    str_ausgabe_ascii_werte = LEER_STRING
+    
+    str_ausgabe_zeichen = LEER_STRING
+
+    DoEvents
+
+    startGetHexJDump2 = str_fkt_ergebnis
+
+    Exit Function
+
+errStartGetHexJDump2:
+
+    str_fkt_ergebnis = str_fkt_ergebnis & "Fehler: errStartGetHexJDump2: " & Err & " " & Error & " " & Erl
 
     Resume EndFunktion
 
@@ -8583,7 +8875,7 @@ Dim html_ergebnis_string As String
         '
         ' While-Schleife Konvertierung
         '
-        While (akt_index < anzahl_zeichen)
+        While (akt_index <= anzahl_zeichen)
         
             '
             ' Es wird das Zeichen an der aktuellen Leseposition gelesen
@@ -8611,6 +8903,14 @@ Dim html_ergebnis_string As String
                     If (m_toggle_mr_stringer_fkt) Then
             
                         akt_zeichen = "&amp;"
+                    
+                    End If
+            
+                ElseIf (akt_zeichen = " ") Then
+                
+                    If (m_toggle_mr_stringer_fkt) Then
+            
+                        akt_zeichen = "&nbsp;"
                     
                     End If
             
