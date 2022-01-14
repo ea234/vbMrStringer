@@ -1969,7 +1969,7 @@ Begin VB.Form frmMrStringer
       Top             =   1575
       Width           =   1995
    End
-   Begin VB.HScrollBar scrollTeiler 
+   Begin VB.HScrollBar m_scrollFensterTeiler 
       Height          =   315
       Left            =   2760
       Max             =   90
@@ -2624,9 +2624,9 @@ Private Sub Form_Load()
 
     m_lineResize.X1 = 4
 
-    scrollTeiler.Top = m_lineResize.Y1
+    m_scrollFensterTeiler.Top = m_lineResize.Y1
 
-    scrollTeiler.Left = m_lineResize.X1
+    m_scrollFensterTeiler.Left = m_lineResize.X1
 
     m_txtAusgabe.FontSize = 11
 
@@ -2634,9 +2634,9 @@ Private Sub Form_Load()
 
     m_txtEingabe2.FontSize = m_txtAusgabe.FontSize
 
-    m_txtEingabe.Top = m_lineResize.Y1 + scrollTeiler.Height + 5
+    m_txtEingabe.Top = m_lineResize.Y1 + m_scrollFensterTeiler.Height + 5
 
-    m_txtEingabe2.Top = m_lineResize.Y1 + scrollTeiler.Height + 5
+    m_txtEingabe2.Top = m_lineResize.Y1 + m_scrollFensterTeiler.Height + 5
 
     m_txtAusgabe.Top = m_txtEingabe.Top
 
@@ -2683,11 +2683,11 @@ Dim breite_scroll_prozent As Double
     
     End If
         
-    breite_scroll_prozent = CInt((breite_fenster_gesamt * CInt(scrollTeiler.Value)) * 0.01)
+    breite_scroll_prozent = CInt((breite_fenster_gesamt * CInt(m_scrollFensterTeiler.Value)) * 0.01)
 
     m_frameEinstellungen.Width = breite_fenster_gesamt
     
-    scrollTeiler.Width = breite_fenster_gesamt
+    m_scrollFensterTeiler.Width = breite_fenster_gesamt
     
     m_txtEingabe.Width = breite_scroll_prozent
     
@@ -2699,7 +2699,7 @@ Dim breite_scroll_prozent As Double
     
     If (Me.ScaleHeight > m_lineResize.Y2) Then
     
-        m_txtAusgabe.Height = Me.ScaleHeight - (m_lineResize.Y1 + m_lineResize.X1 + scrollTeiler.Height + 5) ' x1 = Abstand zu unteren Rand
+        m_txtAusgabe.Height = Me.ScaleHeight - (m_lineResize.Y1 + m_lineResize.X1 + m_scrollFensterTeiler.Height + 5) ' x1 = Abstand zu unteren Rand
         
         If (knz_eingabe_volle_hoehe) Then
             
@@ -2724,7 +2724,6 @@ Dim breite_scroll_prozent As Double
     knz_resize_laeuft = False
 
 End Sub
-
 
 '################################################################################
 '
@@ -2776,22 +2775,6 @@ Dim my_cr  As String
     vb_str = vb_str & my_cr & "End Function"
 
     m_txtAusgabe.Text = vb_str
-
-End Sub
-
-Private Sub m_btnStartCsvCr_Click()
-    
-    checkCsvSelektion
-
-    m_txtAusgabe.Text = startMrStringer(FKT_CSV_CR, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
-
-End Sub
-
-
-
-Private Sub m_btnStartString_Click()
-
-    m_txtAusgabe.Text = startMrStringer(FKT_STRING_ERST, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 
@@ -2961,6 +2944,45 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & "00000000000000000000000000000000000000000000000B"
     vb_str = vb_str & vbCrLf & "00000AAA.BBB.CCC0000000000000000000000000000000B"
     vb_str = vb_str & vbCrLf & "00000AAA.BBB.CCC0000000000000000000000000000000B"
+    vb_str = vb_str & vbCrLf & ""
+    vb_str = vb_str & vbCrLf & "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9,"
+    vb_str = vb_str & vbCrLf & ""
+    vb_str = vb_str & vbCrLf & "A"
+    vb_str = vb_str & vbCrLf & "B"
+    vb_str = vb_str & vbCrLf & "C"
+    vb_str = vb_str & vbCrLf & "D"
+    vb_str = vb_str & vbCrLf & "E"
+    vb_str = vb_str & vbCrLf & "F"
+    vb_str = vb_str & vbCrLf & "G"
+    vb_str = vb_str & vbCrLf & "H"
+    vb_str = vb_str & vbCrLf & "I"
+    vb_str = vb_str & vbCrLf & "J"
+    vb_str = vb_str & vbCrLf & "K"
+    vb_str = vb_str & vbCrLf & "L"
+    vb_str = vb_str & vbCrLf & "M"
+    vb_str = vb_str & vbCrLf & "N"
+    vb_str = vb_str & vbCrLf & "O"
+    vb_str = vb_str & vbCrLf & "P"
+    vb_str = vb_str & vbCrLf & "Q"
+    vb_str = vb_str & vbCrLf & "R"
+    vb_str = vb_str & vbCrLf & "S"
+    vb_str = vb_str & vbCrLf & "T"
+    vb_str = vb_str & vbCrLf & "U"
+    vb_str = vb_str & vbCrLf & "V"
+    vb_str = vb_str & vbCrLf & "W"
+    vb_str = vb_str & vbCrLf & "X"
+    vb_str = vb_str & vbCrLf & "Y"
+    vb_str = vb_str & vbCrLf & "Z"
+    vb_str = vb_str & vbCrLf & "0"
+    vb_str = vb_str & vbCrLf & "1"
+    vb_str = vb_str & vbCrLf & "2"
+    vb_str = vb_str & vbCrLf & "3"
+    vb_str = vb_str & vbCrLf & "4"
+    vb_str = vb_str & vbCrLf & "5"
+    vb_str = vb_str & vbCrLf & "6"
+    vb_str = vb_str & vbCrLf & "7"
+    vb_str = vb_str & vbCrLf & "8"
+    vb_str = vb_str & vbCrLf & "9"
 
     m_txtAusgabe.Text = vb_str
 
@@ -3026,19 +3048,13 @@ End Sub
 '
 Private Sub m_btnFormatJavaLeerzeilen_Click()
 
-Dim str_fkt_ergebnis As String
-Dim str_my_cr        As String
-Dim text_clip        As String
-Dim replace_text_1   As String
-Dim replace_text_2   As String
+Dim str_fkt_ergebnis       As String
+Dim str_my_cr              As String
+Dim str_leerzeichen_einzug As String
 
     str_my_cr = vbCrLf
     
     knz_togle_form_gen = Not knz_togle_form_gen
-
-    replace_text_1 = "FkString.getFeldLinksMin("
-    
-    replace_text_2 = ", breite_temp" & IIf(knz_togle_form_gen, "_02", "_01") & " )"
 
     '
     ' Anweisungen fuer den Ausrichter erstellen
@@ -3046,30 +3062,57 @@ Dim replace_text_2   As String
     str_fkt_ergebnis = startMrStringer(FKT_LEERZEILEN_LOESCHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
     
     str_fkt_ergebnis = startMrStringer(FKT_LEERZEILEN_EINFUEGEN, str_fkt_ergebnis, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    
+    '
+    ' Verschiedene Zeilenumbrueche durch den Markierstring 1 ersetzen
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCrLf, MARKIER_STRING_INTERN_1)
+    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCr, MARKIER_STRING_INTERN_1)
+    
+    '
+    ' Einheitlichen Zeilenumbruech setzen
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, str_my_cr)
+    
+    '
+    ' Vor einer oeffnenden Klammer einen Zeilenumbruch setzen
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "{", str_my_cr & "{")
+    
+    '
+    ' Nach einer oeffnenden Klammer einen Zeilenumbruch setzen
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "{" & str_my_cr, "{")
+    
+    '
+    ' While-Schleife fuer Leerzeichen am Start einer Zeile
+    '
+    Dim leerzeichen_zaehler As Integer
 
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCrLf, TRENN_STRING_8)
+    While (leerzeichen_zaehler < 50)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCr, TRENN_STRING_8)
-    
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, vbCrLf)
-    
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "{", vbCrLf & "{")
-    
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "{" & vbCrLf, "{")
-    
-    Dim tab_zaehler As Integer
-
-    While (tab_zaehler < 50)
-    
-        str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCrLf & text_clip & "{", text_clip & "{")
+        '
+        ' Zeilenumbruch vor einer geschweiften Klammer entfernen
+        '
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, str_my_cr & str_leerzeichen_einzug & "{", str_leerzeichen_einzug & "{")
         
-        str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCrLf & text_clip & vbCrLf & "{", vbCrLf & text_clip & "{")
+        '
+        ' Leerzeile mit der aktuellen Leerzeichenanzahl vor einer oeffnenden geschweiften Klammer entfernen
+        '
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, str_my_cr & str_leerzeichen_einzug & str_my_cr & "{", vbCrLf & str_leerzeichen_einzug & "{")
     
-        str_fkt_ergebnis = Replace(str_fkt_ergebnis, vbCrLf & text_clip & "}", text_clip & "}")
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, str_my_cr & str_leerzeichen_einzug & "}", str_leerzeichen_einzug & "}")
         
-        text_clip = text_clip & " "
+        '
+        ' Leerzeichenstring um ein Leerzeichen erweitern
+        '
+        str_leerzeichen_einzug = str_leerzeichen_einzug & LEER_ZEICHEN
         
-        tab_zaehler = tab_zaehler + 1
+        '
+        ' Den Leerzeichenzaehler um eins erhoehen.
+        '
+        leerzeichen_zaehler = leerzeichen_zaehler + 1
         
     Wend
     
@@ -3085,33 +3128,48 @@ Dim str_fkt_ergebnis As String
 Dim replace_text_1   As String
 Dim replace_text_2   As String
 Dim replace_text_3   As String
-
-    replace_text_1 = "propertie_instanz.setProperty( "
     
-    replace_text_2 = ", "
+    knz_togle_form_gen = Not knz_togle_form_gen
+    
+    '
+    ' Einmal mit dem Propertie-Key in Anfuehrungszeichen und einmal ohne.
+    '
+    If (knz_togle_form_gen) Then
+    
+        replace_text_1 = STR_VAR_NAME_PROPERTIES_LOKAL & ".setProperty( """
+    
+        replace_text_2 = """, "
+        
+    Else
+    
+        replace_text_1 = STR_VAR_NAME_PROPERTIES_LOKAL & ".setProperty( "
+    
+        replace_text_2 = ", "
+    
+    End If
 
     replace_text_3 = " );"
-
+    
     '
     ' Eingabe doppeln und dazwischen Trennzeichen setzen
     '
-    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2, MARKIER_STRING_INTERN_3)
     
     '
     ' Nach den Trennzeichen 7 und 8 die eingabe ausrichten lassen
     '
-    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_7)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , MARKIER_STRING_INTERN_1)
     
-    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_8)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , MARKIER_STRING_INTERN_2)
     
     '
     ' Textersetzungen fuer die Propertie-Set-Anweisungen machen
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, replace_text_1)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, replace_text_2)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, replace_text_3)
     
     m_txtAusgabe.Text = str_fkt_ergebnis
 
@@ -3124,15 +3182,8 @@ Private Sub m_btnStartHtmlJoinTabelle_Click()
 Dim str_fkt_ergebnis As String
 Dim str_my_cr        As String
 Dim text_clip        As String
-Dim replace_text_1   As String
-Dim replace_text_2   As String
-Dim replace_text_3   As String
 
     str_my_cr = vbCrLf
-
-    replace_text_1 = "<tr><td>"
-    replace_text_2 = "</td><td>"
-    replace_text_3 = "</td></tr>"
     
     '
     ' 1. Beide Eingaben mit einem Trennstring fuer den Ausrichter zusammenfuegen
@@ -3142,37 +3193,37 @@ Dim replace_text_3   As String
     ' nie in den Ausgangstexten vorkommen. Wuerde man Text 2 nehmen, kann dieses
     ' nicht sichergestellt werden.
     '
-    str_fkt_ergebnis = startJoin(m_txtEingabe.Text, m_txtEingabe2.Text, TRENN_STRING_6)
+    str_fkt_ergebnis = startJoin(m_txtEingabe.Text, m_txtEingabe2.Text, MARKIER_STRING_INTERN_1)
     
     '
     ' 2. Nach dem Trennzeichen den Text ausrichten
     '
-    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_6)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , MARKIER_STRING_INTERN_1)
     
     '
-    ' 3. Das Trennzeichen mit der HTML-Anweisung ersetzen
+    ' 3. Das Trennzeichen mit der HTML-Anweisung fuer TD-End und TD-Start ersetzen
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, "</td><td>")
     
     '
     ' 4. Vorne und Hinten eine Markierung anbringen
     '
-    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, str_fkt_ergebnis, -1, -1, False, "")
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, str_fkt_ergebnis, -1, -1, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2)
 
     '
     ' 5. Nach dem Trennsting 8 den Text ausrichten
     '
-    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_8)
+    'str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , "#8#-TRENN_STRING_8-#8#")
     
     '
     ' 6. Vorne die HTML-Row starten lassen
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, "<tr><td>")
 
     '
     ' 7. Hinten die HTML-Row beenden
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, "</td></tr>")
     
     '
     ' 8. Die erstellten Tabellenzeilen in Tabellen-Tags
@@ -3206,6 +3257,10 @@ Dim str_nachlauf     As String
     str_my_cr = vbCrLf
 
     If (knz_togle_form_gen) Then
+        
+        '
+        ' Java
+        '
     
         replace_text_1 = "str_html_tabelle += str_my_cr + ""<tr><td>"" + """
         
@@ -3218,9 +3273,12 @@ Dim str_nachlauf     As String
         str_nachlauf = str_my_cr & str_my_cr & "str_html_tabelle += ""</table>""; "
         
         str_nachlauf = str_nachlauf & str_my_cr & str_my_cr & "//" & replace_text_1 & replace_text_2 & """&nbsp;""" & replace_text_3
-        
     
     Else
+    
+        '
+        ' Visual Basic
+        '
     
         str_vorlauf = "Dim str_html_tabelle As String" & str_my_cr & "Dim str_my_cr           As String" & str_my_cr & str_my_cr & "str_html_tabelle = ""<table>"" " & str_my_cr & str_my_cr
         
@@ -3238,21 +3296,36 @@ Dim str_nachlauf     As String
         
     str_fkt_ergebnis = m_txtEingabe.Text
     
-    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis, -1, -1)
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis, -1, -1, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2, MARKIER_STRING_INTERN_3)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
+    '
+    ' Korrektur Leerzeilen
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1 & MARKIER_STRING_INTERN_2 & MARKIER_STRING_INTERN_3, LEER_STRING)
 
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    '
+    ' Ersetzungen fuer den Tabellenaufbau
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, replace_text_1)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, replace_text_2)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, replace_text_3)
     
+    '
+    ' Ausrichtung am ersten Tabellenspalten-Ende
+    '
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
     
+    '
+    ' Ausrichtung am zweiten Tabellenspalten-Ende
+    '
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_2)
     
-    m_txtAusgabe.Text = Replace(Replace(str_vorlauf & str_fkt_ergebnis & str_nachlauf, AUSRICHT_STRING_TEMP_1, ""), AUSRICHT_STRING_TEMP_2, "")
+    '
+    ' Entfernung der Ausrichtmarkierungen, Vorlauf und Nachlauf hinzufuegen
+    '
+    m_txtAusgabe.Text = str_vorlauf & Replace(Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, LEER_STRING), AUSRICHT_STRING_TEMP_2, LEER_STRING) & str_nachlauf
 
 End Sub
 
@@ -3260,12 +3333,16 @@ End Sub
 '
 Private Sub m_btnGeneratorJavaVbComment_Click()
 
-Dim str_my_cr        As String
+Dim str_my_cr As String
 
     str_my_cr = vbCrLf
     
     knz_togle_form_gen = Not knz_togle_form_gen
 
+    '
+    ' Eingabetext Auskommentieren in Java und Visual-Basic
+    '
+    
     If (knz_togle_form_gen) Then
     
         m_txtAusgabe.Text = "/*" & str_my_cr & startMrStringer(FKT_MARKIERE_VORNE_FIX, m_txtEingabe.Text, -1, -1, , " * ") & str_my_cr & " */"
@@ -3288,22 +3365,35 @@ Dim str_my_cr        As String
     knz_togle_form_gen = Not knz_togle_form_gen
     
     str_my_cr = vbCrLf
-        
-    str_fkt_ergebnis = Replace(m_txtEingabe.Text, Chr(13), AUSRICHT_STRING_TEMP_1)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, Chr(10), "")
+    '
+    ' Alle Chr(13) Vorkommen werden mit dem Markierstring 1 markiert.
+    '
+    str_fkt_ergebnis = Replace(m_txtEingabe.Text, Chr(13), MARKIER_STRING_INTERN_1)
     
+    '
+    ' Alle Chr(10) Vorkommen werden entfernt
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, Chr(10), LEER_STRING)
+    
+    '
+    ' Bei jedem zweiten Aufruf, werden hintereinanderkommende Chr(13) Vorkommen entfernt.
+    ' (Leerzeilen werden eliminiert. Diese Ersetzung wird 3 mal gemacht)
+    '
     If (knz_togle_form_gen) Then
     
-        str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1 & AUSRICHT_STRING_TEMP_1, AUSRICHT_STRING_TEMP_1)
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1 & MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_1)
         
-        str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1 & AUSRICHT_STRING_TEMP_1, AUSRICHT_STRING_TEMP_1)
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1 & MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_1)
         
-        str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1 & AUSRICHT_STRING_TEMP_1, AUSRICHT_STRING_TEMP_1)
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1 & MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_1)
     
     End If
     
-    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, str_my_cr)
+    '
+    ' Am Ende werden aus dem Markierstrings wieder Zeilenumbrueche gemacht
+    '
+    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, str_my_cr)
     
 End Sub
 
@@ -3311,15 +3401,11 @@ End Sub
 '
 Private Sub m_btnStartJavaProperties_Click()
 
-    checkCsvSelektion
-
 Dim str_fkt_ergebnis As String
 Dim str_my_cr        As String
-Dim text_clip        As String
-Dim replace_text_1   As String
-Dim replace_text_2   As String
 Dim str_vorlauf      As String
-Dim str_nachlauf     As String
+
+    checkCsvSelektion
 
     str_my_cr = vbCrLf
     
@@ -3331,7 +3417,7 @@ Dim str_nachlauf     As String
     
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_2)
     
-    m_txtAusgabe.Text = Replace(Replace(str_vorlauf & str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, ""), AUSRICHT_STRING_TEMP_2, "")
+    m_txtAusgabe.Text = str_vorlauf & Replace(Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, LEER_STRING), AUSRICHT_STRING_TEMP_2, LEER_STRING)
 
 End Sub
 
@@ -3356,13 +3442,13 @@ Dim replace_text_2   As String
     '
     ' Anweisungen fuer den Ausrichter erstellen
     '
-    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2)
 
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, replace_text_1)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, replace_text_2)
 
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, replace_text_1 + replace_text_2, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, replace_text_1 + replace_text_2, LEER_STRING)
 
     '
     ' Anweisungen um die Breite zu ermitteln
@@ -3379,32 +3465,32 @@ Dim replace_text_2   As String
     '
     ' 3. Eine Markierung vorne und hinten anfuegen
     '
-    text_clip = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, text_clip, -1, -1)
+    text_clip = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, text_clip, -1, -1, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2)
 
     '
     ' 4. Entferne die Stellen, an welchen der vordere und
     '    der hintere Trennstring aneinanderkommen.
     '    (Eleminierung von Leerzeilen aus Schritt 1)
     '
-    text_clip = Replace(text_clip, TRENN_STRING_7 + TRENN_STRING_8, "")
+    text_clip = Replace(text_clip, MARKIER_STRING_INTERN_1 + MARKIER_STRING_INTERN_2, LEER_STRING)
     
-    text_clip = startMrStringer(FKT_LEERZEILEN_LOESCHEN, text_clip, -1, -1) + TRENN_STRING_8
+    text_clip = startMrStringer(FKT_LEERZEILEN_LOESCHEN, text_clip, -1, -1) + MARKIER_STRING_INTERN_2
     
     '
     ' Entferne alle Stellen, an welchen sich der Trennstring 3
     ' zweimal nacheinander kommt.
     '
-    text_clip = Replace(text_clip, TRENN_STRING_8 + TRENN_STRING_8, "")
+    text_clip = Replace(text_clip, MARKIER_STRING_INTERN_2 + MARKIER_STRING_INTERN_2, LEER_STRING)
 
     '
     ' Entferne Trennstring 2, da dieser nicht mehr benoetigt wird
     '
-    text_clip = Replace(text_clip, TRENN_STRING_7, "")
+    text_clip = Replace(text_clip, MARKIER_STRING_INTERN_1, "")
     
     '
     ' Ersetze Trennstring 3 mit einem Komma (Parametertrennung)
     '
-    text_clip = Replace(text_clip, TRENN_STRING_8, ",")
+    text_clip = Replace(text_clip, MARKIER_STRING_INTERN_2, ",")
     
     '
     ' Ergebnis
@@ -3421,33 +3507,35 @@ Private Sub m_btnStartHtmlTabelleCsv_Click()
 
 Dim str_fkt_ergebnis As String
 Dim str_my_cr        As String
-Dim text_clip        As String
-Dim replace_text_1   As String
-Dim replace_text_2   As String
-Dim replace_text_3   As String
 Dim str_markierung   As String
 
     str_my_cr = vbCrLf
 
-    replace_text_1 = "<tr><td>"
-    
-    replace_text_2 = "</td><td>"
-    
-    replace_text_3 = "</td></tr>"
-    
     If ((m_txtEingabe.SelStart > 0) And ((m_txtEingabe.SelLength > 0) And (m_txtEingabe.SelLength <= 5))) Then
         
         str_markierung = Mid(m_txtEingabe.Text, m_txtEingabe.SelStart + 1, m_txtEingabe.SelLength)
         
         str_fkt_ergebnis = m_txtEingabe.Text
         
-        str_fkt_ergebnis = Replace(str_fkt_ergebnis, str_markierung, replace_text_2)
-    
-        str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, str_fkt_ergebnis, -1, -1)
-    
-        str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_1)
-    
-        str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
+        '
+        ' In der Mitte die erste Tabellenspalte abschliessen und die Zweite Tabellenspalte beginen lassen
+        '
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, str_markierung, "</td><td>")
+        
+        '
+        ' Vorne und Hinten eine Markierung fuer die spaetere Ersetzung hinzufuegen
+        '
+        str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, str_fkt_ergebnis, -1, -1, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2)
+        
+        '
+        ' Bei der ersten Markierung die Tabellenzeile und die erste Tabellenspalte beginnen lassen
+        '
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, "<tr><td>")
+        
+        '
+        ' Bei der zweiten Markierung die zweite Tabellenspalten und dann die Tabellenzeile enden lassen
+        '
+        str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, "</td></tr>")
         
     Else
     
@@ -3465,34 +3553,49 @@ Private Sub m_btnStartHtmlGeneratorLink_Click()
 
 Dim str_fkt_ergebnis As String
 Dim str_my_cr        As String
-Dim replace_text_1   As String
-Dim replace_text_2   As String
-Dim replace_text_3   As String
 
     str_my_cr = vbCrLf
-
-    replace_text_1 = "<A href="""
-    
-    replace_text_2 = """ " & AUSRICHT_STRING_TEMP_1 & "target=""_blank"" >"
-    
-    replace_text_3 = "</A><BR />"
     
     '
     ' Anweisungen fuer den Ausrichter erstellen
     '
-    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6 + TRENN_STRING_7 + TRENN_STRING_8, "")
-
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2, MARKIER_STRING_INTERN_3)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
-    
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
+    '
+    ' Leerzeilen bereinigen
+    ' Bei Leerzeilen stehen die Markierungsstrings alle hintereinander.
+    ' Diese Zeichenfolge wird hier mit einem Leerstring ersetzt.
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1 & MARKIER_STRING_INTERN_2 & MARKIER_STRING_INTERN_3, LEER_STRING)
 
+    '
+    ' Linkstart setzen
+    ' Alle Markierungen 1 werden zum HTML-String fuer den Linkstart.
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, "<A href=""")
+    
+    '
+    ' Mittelteil
+    ' Alle Markierungen 2 werden mit dem Ausrichterstring und dem Target-Attribut ersetzt.
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, """ " & AUSRICHT_STRING_TEMP_1 & "target=""_blank"" >")
+    
+    '
+    ' Endteil
+    ' Alle Markierungen 3 werden mit dem Link-Abschluss und einem BR-Tag ersetzt.
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, "</A><BR />")
+
+    '
+    ' Ausrichten
+    ' Die Links werden am Ausrichterstring ausgerichtet
+    '
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
 
-    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, "")
+    '
+    ' Der Ausrichterstring wird mit einem Leerstring ersetzt
+    '
+    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, LEER_STRING)
 
 End Sub
 
@@ -3502,11 +3605,11 @@ Private Sub m_btnStartGeneriereHtmlTabelle_Click()
 
 Dim str_fkt_ergebnis As String
 Dim str_my_cr        As String
+Dim str_table_start  As String
+Dim str_table_end    As String
 Dim replace_text_1   As String
 Dim replace_text_2   As String
 Dim replace_text_3   As String
-Dim str_table_start  As String
-Dim str_table_end    As String
 
     str_my_cr = vbCrLf
     
@@ -3514,27 +3617,35 @@ Dim str_table_end    As String
     
     If (knz_togle_form_gen) Then
     
-        str_table_start = "Dim html_table As String" & str_my_cr & str_my_cr & "html_table = html_table & ""<table>""" & str_my_cr & str_my_cr
+        '
+        ' Java
+        '
         
-        str_table_end = str_my_cr & "html_table = html_table & ""</table>"""
-    
-        replace_text_1 = "html_table = html_table & ""<tr><td>"" & """
-        
-        replace_text_2 = "" & TRENN_STRING_6 & """ & ""</td><td>"" & "
-        
-        replace_text_3 = "" & TRENN_STRING_7 & " & ""</td></tr>"""
-
-    Else
-
         str_table_start = "String html_table = """";" & str_my_cr & str_my_cr & "html_table += ""<table>"";" & str_my_cr & str_my_cr
         
         str_table_end = str_my_cr & "html_table += ""</table>"";"
 
         replace_text_1 = "html_table += ""<tr><td>"" + """
         
-        replace_text_2 = "" & TRENN_STRING_6 & """ + ""</td><td>"" + "
+        replace_text_2 = "" & MARKIER_STRING_INTERN_1 & """ + ""</td><td>"" + "
         
-        replace_text_3 = "" & TRENN_STRING_7 & " + ""</td></tr>"";"
+        replace_text_3 = "" & MARKIER_STRING_INTERN_2 & " + ""</td></tr>"";"
+
+    Else
+    
+        '
+        ' Visual-Basic
+        '
+    
+        str_table_start = "Dim html_table As String" & str_my_cr & str_my_cr & "html_table = html_table & ""<table>""" & str_my_cr & str_my_cr
+        
+        str_table_end = str_my_cr & "html_table = html_table & ""</table>"""
+    
+        replace_text_1 = "html_table = html_table & ""<tr><td>"" & """
+        
+        replace_text_2 = "" & MARKIER_STRING_INTERN_1 & """ & ""</td><td>"" & "
+        
+        replace_text_3 = "" & MARKIER_STRING_INTERN_2 & " & ""</td></tr>"""
     
     End If
 
@@ -3546,35 +3657,35 @@ Dim str_table_end    As String
     '
     ' Spalten verdoppeln und markieren
     '
-    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis, -1, -1)
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis, -1, -1, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2, MARKIER_STRING_INTERN_3)
 
     '
     ' Leerzeilen korrigieren (Leerzeile bleibt Leerzeile)
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1 & MARKIER_STRING_INTERN_2 & MARKIER_STRING_INTERN_3, LEER_STRING)
 
     '
     ' Ersetzungen fuer die Erstellung der HTML-Tabelle machen
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, replace_text_1)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, replace_text_2)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, replace_text_3)
     
     '
     ' Ausrichtung der Spalten
     '
-    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_6)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , MARKIER_STRING_INTERN_1)
     
-    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , TRENN_STRING_7)
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , MARKIER_STRING_INTERN_2)
     
     '
     ' Hilfsmarkierungen des Ausrichters entfernen
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, LEER_STRING)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, LEER_STRING)
 
     '
     ' Ergebnis ins Ausgabefeld setzen
@@ -3588,28 +3699,35 @@ End Sub
 Private Sub m_btnStartReplace3_Click()
 
 Dim str_fkt_ergebnis As String
-Dim replace_text_1   As String
-Dim replace_text_2   As String
-Dim replace_text_3   As String
-
-    replace_text_1 = "prop_instanz.setProperty( ModulKonfiguration."
-    replace_text_2 = ", """
-    replace_text_3 = """ );"
 
     '
     ' Anweisungen fuer den Ausrichter erstellen
     '
     str_fkt_ergebnis = startMrStringer(FKT_TRIM_AUFEINANDERFOLGENDE_LEERZEICHEN, m_txtEingabe.Text, -1, -1)
 
-    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis, -1, -1)
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis, -1, -1, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2, MARKIER_STRING_INTERN_3)
 
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
+    '
+    ' Leerzeilen
+    ' Bei Leerzeilen stehen die Markierungsstring alle hintereinander.
+    ' Diese Vorkommen werden durch ein Leerstring ersetzt.
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1 & MARKIER_STRING_INTERN_2 & MARKIER_STRING_INTERN_3, LEER_STRING)
 
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    '
+    ' Startzeichenfolge setzen
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, "prop_instanz.setProperty( ModulKonfiguration.")
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
+    '
+    ' Mittelteil
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, ", """)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
+    '
+    ' Endteil
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, """ );")
     
     m_txtAusgabe.Text = str_fkt_ergebnis
 
@@ -3631,51 +3749,56 @@ Dim replace_text_3     As String
     
     str_fkt_ergebnis_1 = startMrStringer(FKT_TRIM_AUFEINANDERFOLGENDE_LEERZEICHEN, m_txtEingabe.Text, -1, -1)
 
-    str_fkt_ergebnis_1 = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis_1, -1, -1)
+    str_fkt_ergebnis_1 = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, str_fkt_ergebnis_1, -1, -1, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2, MARKIER_STRING_INTERN_3)
 
-    str_fkt_ergebnis_1 = Replace(str_fkt_ergebnis_1, TRENN_STRING_6 & TRENN_STRING_7 & TRENN_STRING_8, "")
-    
+    '
+    ' Leerzeilen
+    ' Bei Leerzeilen stehen die Markierungsstring alle hintereinander.
+    ' Diese Vorkommen werden durch ein Leerstring ersetzt.
+    '
+    str_fkt_ergebnis_1 = Replace(str_fkt_ergebnis_1, MARKIER_STRING_INTERN_1 & MARKIER_STRING_INTERN_2 & MARKIER_STRING_INTERN_3, LEER_STRING)
+
     '
     '#####################################################################################
     '
-    
+
     replace_text_1 = "String "
     replace_text_2 = " = FkHttpServlet.getParameter( pRequest, """
     replace_text_3 = """, null, 15 );"
-     
+
     str_fkt_ergebnis = str_fkt_ergebnis_1
 
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
-    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, replace_text_3)
+
     '
     '#####################################################################################
     '
-    
+
     replace_text_1 = "if ( "
     replace_text_2 = " != null ) { anw_instanz.set( "
-    replace_text_3 = " TRENN_STRING_9); }"
-    
+    replace_text_3 = AUSRICHT_STRING_TEMP_1 & " ); }"
+
     str_fkt_ergebnis = str_fkt_ergebnis & vbCrLf & str_fkt_ergebnis_1
 
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, replace_text_2)
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_3)
-    
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, replace_text_3)
+
     '
     '#####################################################################################
     '
-    
+
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , " = FkHttpServlet.getPa")
-    
+
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , ", null, 15 );")
-    
+
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , "!= null ) { anw_inst")
-    
-    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , "TRENN_STRING_9); }")
-    
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "TRENN_STRING_9); }", "); }")
+
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
+
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, LEER_STRING)
     
     m_txtAusgabe.Text = str_fkt_ergebnis
 
@@ -3689,7 +3812,7 @@ Private Sub m_btnErstelleKonstantenEinfach_Click()
 
 Dim str_fkt_ergebnis As String
     
-    str_fkt_ergebnis = startErstelleKonstantenEinfach(m_txtEingabe.Text, m_txtTrennzeichen1.Text, m_txtTrennzeichen2.Text, m_txtTrennzeichen3.Text, IIf(fkAppMrStringer.getToggleMrStringerFkt(), 1, 2), m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    str_fkt_ergebnis = startErstelleKonstantenEinfach(m_txtEingabe.Text, IIf(fkAppMrStringer.getToggleMrStringerFkt(), 1, 2), m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
 
@@ -3720,15 +3843,15 @@ Dim replace_text_3   As String
     
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
      
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, LEER_STRING)
      
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_6, replace_text_1)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, replace_text_1)
     
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_7, "")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, LEER_STRING)
      
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_8, replace_text_2)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, replace_text_2)
 
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, TRENN_STRING_9, replace_text_3)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_4, replace_text_3)
 
     m_txtAusgabe.Text = str_fkt_ergebnis
 
@@ -3740,11 +3863,11 @@ Private Sub m_btnErstelleKonstantenToProp_Click()
 
 Dim str_fkt_ergebnis As String
     
-    str_fkt_ergebnis = startErstelleKonstantenEinfach(m_txtEingabe.Text, m_txtTrennzeichen1.Text, m_txtTrennzeichen2.Text, m_txtTrennzeichen3.Text, 3, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    str_fkt_ergebnis = startErstelleKonstantenEinfach(m_txtEingabe.Text, 3, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
     str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
 
-    m_txtAusgabe.Text = startMrStringer(FKT_AUSRICHTER_STRING, Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, ""), -1, -1, , " );")
+    m_txtAusgabe.Text = startMrStringer(FKT_AUSRICHTER_STRING, Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, LEER_STRING), -1, -1, , " );")
 
 End Sub
 
@@ -3820,7 +3943,7 @@ Dim zeilen_zaehler        As Long
                     '
                     ' Konstantennamen aus der aktuellen Zeile erstellen
                     '
-                    akt_konstanten_name = "STR_KO_" & UCase(getKlartext(aktuelle_zeile, "_"))
+                    akt_konstanten_name = "STR_KO_" & UCase(getKlartext(aktuelle_zeile, UNTER_STRICH))
                 
                     '
                     ' Konstantendeklaration dem Ergebnisstring hinzufuegen
@@ -3863,6 +3986,57 @@ End Sub
 
 '################################################################################
 '
+Private Sub m_btnErstelleXmlFormat2_Click()
+
+Dim str_fkt_ergebnis As String
+
+    str_fkt_ergebnis = startMrStringer(FKT_ERSTELLE_XML_2, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , "x_attribut")
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , "/>")
+
+    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, "#Xp", "p")
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartXmlJavaWriter_Click()
+
+Dim str_fkt_ergebnis As String
+
+    str_fkt_ergebnis = startMrStringer(FKT_JAVA_XML_WRITER_STRING, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , "#Xp")
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , "TAG_VOR")
+
+    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, "#Xp", "p")
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartXmlNrJava_Click()
+
+Dim str_fkt_ergebnis As String
+Dim save_toggle      As Boolean
+
+    str_fkt_ergebnis = startMrStringer(FKT_JAVA_XML_WRITER_NUMMER, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+    
+    save_toggle = getToggleMrStringerFkt()
+    
+    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
+
+    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, "")
+
+    Call setToggleMrStringerFkt(save_toggle)
+
+End Sub
+
+'################################################################################
+'
 Private Sub m_btnStartFormatJson_Click()
     
     m_txtAusgabe.Text = formatJsonString(m_txtEingabe.Text)
@@ -3873,22 +4047,22 @@ End Sub
 '
 Private Sub m_btnUmlaute_Click()
     
-    Dim str_text As String
+    Dim str_fkt_ergebnis As String
     
-    str_text = m_txtEingabe.Text
+    str_fkt_ergebnis = m_txtEingabe.Text
     
-    str_text = Replace(str_text, "ä", "ae")
-    str_text = Replace(str_text, "Ä", "Ae")
-    str_text = Replace(str_text, "ü", "ue")
-    str_text = Replace(str_text, "Ü", "Ue")
-    str_text = Replace(str_text, "ö", "oe")
-    str_text = Replace(str_text, "Ö", "Oe")
-    str_text = Replace(str_text, "ß", "ss")
-    str_text = Replace(str_text, "è", "e")
-    str_text = Replace(str_text, "é", "e")
-    str_text = Replace(str_text, "€", "EUR")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "ä", "ae")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "Ä", "Ae")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "ü", "ue")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "Ü", "Ue")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "ö", "oe")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "Ö", "Oe")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "ß", "ss")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "è", "e")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "é", "e")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "€", "EUR")
     
-    m_txtAusgabe.Text = str_text
+    m_txtAusgabe.Text = str_fkt_ergebnis
 
 End Sub
 
@@ -4086,25 +4260,6 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnStartXmlNrJava_Click()
-
-Dim str_fkt_ergebnis As String
-Dim save_toggle      As Boolean
-
-    str_fkt_ergebnis = startMrStringer(FKT_JAVA_XML_WRITER_NUMMER, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-    
-    save_toggle = getToggleMrStringerFkt()
-    
-    str_fkt_ergebnis = startMrStringer(FKT_AUSRICHTER_STRING, str_fkt_ergebnis, -1, -1, , AUSRICHT_STRING_TEMP_1)
-
-    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, "")
-
-    Call setToggleMrStringerFkt(save_toggle)
-
-End Sub
-
-'################################################################################
-'
 Private Sub m_btnStrgVIbmLog_Click()
        
     m_txtEingabe.Text = Replace(Clipboard.GetText, Chr(10), Chr(13))
@@ -4172,8 +4327,11 @@ End Sub
 Private Sub m_btnSwitchEingabe_Click()
 
     Dim temp_str As String
+    
     temp_str = m_txtEingabe.Text
+    
     m_txtEingabe.Text = m_txtEingabe2.Text
+    
     m_txtEingabe2.Text = temp_str
 
 End Sub
@@ -4266,7 +4424,7 @@ End Sub
 
 '################################################################################
 '
-Private Sub scrollTeiler_Change()
+Private Sub m_scrollFensterTeiler_Change()
 
     Form_Resize
 
@@ -4274,7 +4432,7 @@ End Sub
 
 '################################################################################
 '
-Private Sub scrollTeiler_Scroll()
+Private Sub m_scrollFensterTeiler_Scroll()
 
     Form_Resize
 
@@ -4394,22 +4552,6 @@ End Sub
 
 '################################################################################
 '
-Private Sub m_btnErstelleXmlFormat2_Click()
-
-Dim str_x As String
-
-    str_x = startMrStringer(FKT_ERSTELLE_XML_2, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-    
-    str_x = startMrStringer(FKT_AUSRICHTER_STRING, str_x, -1, -1, , "x_attribut")
-    
-    str_x = startMrStringer(FKT_AUSRICHTER_STRING, str_x, -1, -1, , "/>")
-
-    m_txtAusgabe.Text = Replace(str_x, "#Xp", "p")
-
-End Sub
-
-'################################################################################
-'
 Private Sub m_btnGrepWort_Click()
 
     If (m_txtEingabe.SelLength > 0) Then
@@ -4437,22 +4579,6 @@ End Sub
 Private Sub m_btnStartClip_Click()
 
     m_txtAusgabe.Text = startMrStringer(FKT_CLIP_POSITION, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-
-End Sub
-
-'################################################################################
-'
-Private Sub m_btnStartXmlJavaWriter_Click()
-
-Dim str_x As String
-
-    str_x = startMrStringer(FKT_JAVA_XML_WRITER_STRING, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
-    
-    str_x = startMrStringer(FKT_AUSRICHTER_STRING, str_x, -1, -1, , "#Xp")
-    
-    str_x = startMrStringer(FKT_AUSRICHTER_STRING, str_x, -1, -1, , "TAG_VOR")
-
-    m_txtAusgabe.Text = Replace(str_x, "#Xp", "p")
 
 End Sub
 
@@ -4748,7 +4874,7 @@ End Sub
 '
 Private Sub m_btnStartSpalte2_Click()
 
-    m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
+    m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False)
 
 End Sub
 
@@ -4882,9 +5008,29 @@ Private Sub m_btnStartGetHexDump_Click()
 
 End Sub
 
+'################################################################################
+'
 Private Sub m_btnDoHexDumpJ_Click()
 
     m_txtAusgabe.Text = startGetHexJDump2(m_txtEingabe.Text, 14, 2)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartCsvCr_Click()
+    
+    checkCsvSelektion
+
+    m_txtAusgabe.Text = startMrStringer(FKT_CSV_CR, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartString_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_STRING_ERST, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 

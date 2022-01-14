@@ -5,7 +5,9 @@ Private Const ART_HTML_QUELLTEXT = 1
 Private Const ART_JSP_ZUWEISUNG = 2
 Private Const ART_JSP_JAVA = 3
 
-Public Sub ttt()
+'########################################################################################
+'
+Public Sub testGeneratorJsp()
 
 Dim vb_str As String
 
@@ -40,7 +42,7 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & "document.getElementById('freigabeNr').value = '<%=inst_freigabe.getFreigabeNummerInt()%>'"
     vb_str = vb_str & vbCrLf & "} else"
     vb_str = vb_str & vbCrLf & "return false"""
-    'vb_str = vb_str & vbCrLf & "></button>"
+    
     Debug.Print startJsp2Java(vb_str)
 
 End Sub

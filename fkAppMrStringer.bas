@@ -108,6 +108,7 @@ Public Const FKT_ZEILEN_ZAEHLER = 83
 Public Const FKT_STRING_ERST = 84
 
 Public Const LEER_STRING = ""
+Public Const LEER_ZEICHEN = " "
 Public Const UNTER_STRICH = "_"
  
 Public Const TRENN_STRING_4 = "#5"
@@ -117,10 +118,32 @@ Public Const TRENN_STRING_7 = "#7"
 Public Const TRENN_STRING_8 = "#8"
 Public Const TRENN_STRING_9 = "#9"
 
-Public Const AUSRICHT_STRING_TEMP_1 = "##AUSRICHT_STRING_TEMP_1##" ' " & AUSRICHT_STRING_TEMP_1 & "
-Public Const AUSRICHT_STRING_TEMP_2 = "##AUSRICHT_STRING_TEMP_2##" ' " & AUSRICHT_STRING_TEMP_2 & "
+'
+' Markierungsstrings
+' Die Markierungsstrings sind nur fuer die interne Verwendung vorhanden.
+' Sie sind tempraere (Hilfs)Markierungsstrings fuer diverse Funktionen.
+' Die Markierungsstrings werden bei ihrer Verwendung selber wieder durch
+' Leerstrings ersetzt.
+'
+' Die Markierungsstrings sind so gestaltet, dass deren Zeichenfolge hoffentlich
+' nie nicht selber schon Bestandteil des Eingabestrings sind. Sollte das
+' doch mal der Fall sein, dann hat man halt mal Pech gehabt.
+'
+Public Const MARKIER_STRING_INTERN_1 = "#1#-MARKIER_STRING_1-#1#"
+Public Const MARKIER_STRING_INTERN_2 = "#2#-MARKIER_STRING_2-#2#"
+Public Const MARKIER_STRING_INTERN_3 = "#3#-MARKIER_STRING_3-#3#"
+Public Const MARKIER_STRING_INTERN_4 = "#4#-MARKIER_STRING_4-#4#"
 
-Private Const MARKIERUNG_DOPPELTE_VORKOMMEN = "#D#"
+'
+' Ausrichterstrings
+' Es handelt sich hierbei um temporaere Hilfsstrings um eben Texte daran
+' ausrichten zu koennen. Die Ausrichterstrings werden nach deren Verwendung
+' durch Leerstrings ersetzt.
+'
+Public Const AUSRICHT_STRING_TEMP_1 = "#A#-AUSRICHT_STRING_TEMP_1-#A#" ' " & AUSRICHT_STRING_TEMP_1 & "
+Public Const AUSRICHT_STRING_TEMP_2 = "#A#-AUSRICHT_STRING_TEMP_2-#A#" ' " & AUSRICHT_STRING_TEMP_2 & "
+
+Private Const MARKIERUNG_DOPPELTE_VORKOMMEN = "#D#-DOPPELT-#D#"
 
 Public Const STR_VAR_NAME_PROPERTIES_LOKAL = "inst_properties" ' " & STR_VAR_NAME_PROPERTIES_LOKAL & "
 
@@ -499,7 +522,18 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 str_fkt_ergebnis = cls_string_array.toString(zeichen_zeilenumbruch, True)
                 
                 knz_schleifen_durchlauf = False
+                                
+            ElseIf (pFunktion = FKT_MARKIERE_VORNE_UND_HINTEN) Then 'ISXF
             
+                temp_string_1 = IIf(Len(pOptString1) = 0, TRENN_STRING_7, pOptString1)
+                temp_string_2 = IIf(Len(pOptString2) = 0, TRENN_STRING_8, pOptString2)
+
+            ElseIf (pFunktion = FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE) Then 'ISXF
+            
+                temp_string_1 = IIf(Len(pOptString1) = 0, TRENN_STRING_6, pOptString1)
+                temp_string_2 = IIf(Len(pOptString2) = 0, TRENN_STRING_7, pOptString2)
+                pOptString3 = IIf(Len(pOptString3) = 0, TRENN_STRING_8, pOptString3)
+
             ElseIf (pFunktion = FKT_SORTIEREN_ZUFALL) Then
             
                 '
@@ -967,7 +1001,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 '
             
                 temp_long_1 = 0
-                temp_double_1 = 0
+                temp_double_1 = 0#
                 temp_double_2 = 0
             
             ElseIf ((pFunktion = FKT_AUSRICHTER_POSITION) Or (pFunktion = FKT_AUSRICHTER_STRING)) Then
@@ -1406,7 +1440,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                         ' Es wird vorne und hinten ein Suchzeichen gesezt.
                         ' Das kann auf die gesamte Zeile oder aber nur auf den Markierungsbereich erfolgen.
                         '
-                        temp_string_3 = TRENN_STRING_7 & akt_zeile_mark & TRENN_STRING_8
+                        temp_string_3 = temp_string_1 & akt_zeile_mark & temp_string_2
                         
                         If (knz_benutze_markierung) Then
                         
@@ -1422,7 +1456,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                         ' Die aktuelle Zeile/Markierung wird gedoppelt. Die sich ergebenden
                         ' beiden Spalten werden durch Trennzeichen voneinander getrennt.
                         '
-                        temp_string_3 = TRENN_STRING_6 & akt_zeile_mark & TRENN_STRING_7 & akt_zeile_mark & TRENN_STRING_8
+                        temp_string_3 = temp_string_1 & akt_zeile_mark & temp_string_2 & akt_zeile_mark & pOptString3
                         
                         If (knz_benutze_markierung) Then
                         
@@ -1600,11 +1634,11 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                         '
                         If (m_toggle_mr_stringer_fkt) Then
                             
-                            temp_string_3 = getKlartext(akt_zeile_mark, LEER_STRING, " ")
+                            temp_string_3 = getKlartext(akt_zeile_mark, LEER_STRING, LEER_ZEICHEN)
                         
                         Else
                             
-                            temp_string_3 = LCase(getKlartext(akt_zeile_mark, UNTER_STRICH, " "))
+                            temp_string_3 = LCase(getKlartext(akt_zeile_mark, UNTER_STRICH, LEER_ZEICHEN))
                         
                         End If
                         
@@ -1739,7 +1773,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                                 '
                                 temp_string_3 = Trim(Replace(temp_string_3, """", LEER_STRING))
                 
-                                Call cls_string_array.setString(zeilen_zaehler, TRENN_STRING_6 & temp_string_2 & TRENN_STRING_7 & AUSRICHT_STRING_TEMP_1 & TRENN_STRING_8 & temp_string_3 & TRENN_STRING_9)
+                                Call cls_string_array.setString(zeilen_zaehler, MARKIER_STRING_INTERN_1 & temp_string_2 & MARKIER_STRING_INTERN_2 & AUSRICHT_STRING_TEMP_1 & MARKIER_STRING_INTERN_3 & temp_string_3 & MARKIER_STRING_INTERN_4)
 
                             End If
 
@@ -4224,9 +4258,9 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
     
     knz_ausgabe_hexadezimal = m_toggle_mr_stringer_fkt
     
-    Dim knz_vorlaufende_nullen As Boolean
+    Dim knz_erstelle_vorlaufende_nullen As Boolean
     
-    knz_vorlaufende_nullen = pModus = 1
+    knz_erstelle_vorlaufende_nullen = pModus = 1
     
     '
     ' Die While-Schleife laeuft ueber die Laenge des Eingabestrings.
@@ -4250,7 +4284,7 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
         '
         If (knz_ausgabe_hexadezimal) Then
             
-            If (knz_vorlaufende_nullen) Then
+            If (knz_erstelle_vorlaufende_nullen) Then
         
                 str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & " " & Right(str_vorlaufende_nullen & Hex(Asc(akt_zeichen)), 2) & " "
                 
@@ -4262,7 +4296,7 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
             
         Else
         
-            If (knz_vorlaufende_nullen) Then
+            If (knz_erstelle_vorlaufende_nullen) Then
         
                 str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & Right(str_vorlaufende_nullen & Asc(akt_zeichen), 3) & " "
                 
@@ -4310,7 +4344,7 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
             
             str_fkt_ergebnis = str_fkt_ergebnis & str_my_cr & str_ausgabe_position & str_ausgabe_ascii_werte & str_ausgabe_zeichen
             
-            str_ausgabe_position = Right(str_vorlaufende_nullen & (akt_position + 1), 6) & " "
+            str_ausgabe_position = Right(str_vorlaufende_nullen & (akt_position + 1), 6) & LEER_ZEICHEN
             
             str_ausgabe_ascii_werte = LEER_STRING
             
@@ -4347,7 +4381,7 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
         '
         While (zahlen_je_zeile_zaehler < zahlen_je_zeile_anzahl)
             
-            str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & "   " & " "
+            str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & "   " & LEER_ZEICHEN
             
             zahlen_je_zeile_zaehler = zahlen_je_zeile_zaehler + 1
         
@@ -4411,13 +4445,13 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
     
     akt_position = 1
     
-    str_ausgabe_position = Right(str_vorlaufende_nullen & akt_position, 6) & " "
+    str_ausgabe_position = Right(str_vorlaufende_nullen & akt_position, 6) & LEER_ZEICHEN
     
     knz_ausgabe_hexadezimal = m_toggle_mr_stringer_fkt
     
-    Dim knz_vorlaufende_nullen As Boolean
+    Dim knz_erstelle_vorlaufende_nullen As Boolean
     
-    knz_vorlaufende_nullen = pModus = 1
+    knz_erstelle_vorlaufende_nullen = pModus = 1
     
     '
     ' Die While-Schleife laeuft ueber die Laenge des Eingabestrings.
@@ -4728,7 +4762,7 @@ Dim akt_anzahl_zeilen  As Long
                         
                             If (InStr(aktuelle_zeile, str_markierung) = 0) Then
                             
-                                Call cls_string_array.setString(akt_zaehler, "")
+                                Call cls_string_array.setString(akt_zaehler, LEER_STRING)
                             
                             End If
                             
@@ -4741,7 +4775,7 @@ Dim akt_anzahl_zeilen  As Long
                                 ' Es bleiben am Ende nur diejenigen Zeilen uebrig, bei welchem kein
                                 ' Suchwort vorkam.
                                 '
-                                Call cls_string_array.setString(akt_zaehler, "")
+                                Call cls_string_array.setString(akt_zaehler, LEER_STRING)
                             
                             End If
                             
@@ -4753,7 +4787,7 @@ Dim akt_anzahl_zeilen  As Long
                     
                 Wend
                 
-                startGrepSuchWorte = Replace(cls_string_array.toString(MY_CHR_13_10, True), str_markierung, "")
+                startGrepSuchWorte = Replace(cls_string_array.toString(MY_CHR_13_10, True), str_markierung, LEER_STRING)
                 
                 Set cls_string_array = Nothing
             
@@ -4904,20 +4938,19 @@ End Function
 
 '################################################################################
 '
-Public Function startErstelleKonstantenEinfach(pString As String, pTrennzeichen1 As String, pTrennzeichen2 As String, pTrennzeichen3 As String, pFunktion As Integer, pSelStart As Long, pSelLength As Long) As String
+Public Function startErstelleKonstantenEinfach(pString As String, pFunktion As Integer, pSelStart As Long, pSelLength As Long) As String
 
 On Error GoTo errStartKonstantenEinfach
 
 Dim cls_string_array              As clsStringArray
 Dim akt_string                    As String
 Dim aktuelle_zeile                As String
-Dim ersatz_gatter_1               As String
-Dim ersatz_gatter_2               As String
-Dim ersatz_gatter_3               As String
-Dim ersatz_gatter_4               As String
+Dim ersatz_string_markierung_1    As String
+Dim ersatz_string_markierung_2    As String
+Dim ersatz_string_markierung_3    As String
+Dim ersatz_string_markierung_4    As String
 Dim inhalt_spalte_1               As String
 Dim inhalt_spalte_2               As String
-Dim pTrennzeichen4                As String
 Dim knz_benutze_markierung        As Boolean
 Dim pos_letztes_chr_vor_sel_start As Long
 Dim pos_trennzeichen              As String
@@ -4928,11 +4961,6 @@ Dim ab_position                   As Long
 Dim bis_position                  As Long
 
     temp_trennzeichen = "##1##2KO"
-    
-    pTrennzeichen1 = "##K_1"
-    pTrennzeichen2 = "##K_2"
-    pTrennzeichen3 = "##K_3"
-    pTrennzeichen4 = "##K_4"
     
     '
     ' Stringarray aus pString erstellen
@@ -5004,14 +5032,17 @@ Dim bis_position                  As Long
                     ' in inhalt_spalte_2 der Variablenwert gespeichert
                     '
                     inhalt_spalte_1 = Left(aktuelle_zeile, pos_trennzeichen - 1)
+                    
                     inhalt_spalte_2 = Right(aktuelle_zeile, Len(aktuelle_zeile) - pos_trennzeichen)
                 
                 Else
+
                     '
                     ' Wurde kein Trennzeichen gefunden, sind beide Strings
                     ' gleich der aktuellen Zeile.
                     '
                     inhalt_spalte_1 = aktuelle_zeile
+                    
                     inhalt_spalte_2 = aktuelle_zeile
                 
                 End If
@@ -5036,7 +5067,7 @@ Dim bis_position                  As Long
                 '
                 inhalt_spalte_2 = Trim(Replace(inhalt_spalte_2, """", ""))
                 
-                Call cls_string_array.setString(zeilen_zaehler, pTrennzeichen1 & inhalt_spalte_1 & pTrennzeichen2 & inhalt_spalte_2 & pTrennzeichen3 & inhalt_spalte_1 & pTrennzeichen4)
+                Call cls_string_array.setString(zeilen_zaehler, MARKIER_STRING_INTERN_1 & inhalt_spalte_1 & MARKIER_STRING_INTERN_2 & inhalt_spalte_2 & MARKIER_STRING_INTERN_3 & inhalt_spalte_1 & MARKIER_STRING_INTERN_4)
             
             End If
             
@@ -5046,35 +5077,35 @@ Dim bis_position                  As Long
 
         If (pFunktion = 1) Then
         
-            ersatz_gatter_1 = "public static final String "
-            ersatz_gatter_2 = " " & AUSRICHT_STRING_TEMP_1 & "= """
-            ersatz_gatter_3 = """; // "" + "
-            ersatz_gatter_4 = " + """
+            ersatz_string_markierung_1 = "public static final String "
+            ersatz_string_markierung_2 = " " & AUSRICHT_STRING_TEMP_1 & "= """
+            ersatz_string_markierung_3 = """; // "" + "
+            ersatz_string_markierung_4 = " + """
 
         ElseIf (pFunktion = 2) Then
         
-            ersatz_gatter_1 = "public const "
-            ersatz_gatter_2 = " " & AUSRICHT_STRING_TEMP_1 & "= """
-            ersatz_gatter_3 = """ ' "" & "
-            ersatz_gatter_4 = " & """
+            ersatz_string_markierung_1 = "public const "
+            ersatz_string_markierung_2 = " " & AUSRICHT_STRING_TEMP_1 & "= """
+            ersatz_string_markierung_3 = """ ' "" & "
+            ersatz_string_markierung_4 = " & """
         
         ElseIf (pFunktion = 3) Then
         
-            ersatz_gatter_1 = "prop_inst.setProperty( """
-            ersatz_gatter_2 = """, " & AUSRICHT_STRING_TEMP_1 & " """
-            ersatz_gatter_3 = """ );"
+            ersatz_string_markierung_1 = "prop_inst.setProperty( """
+            ersatz_string_markierung_2 = """, " & AUSRICHT_STRING_TEMP_1 & " """
+            ersatz_string_markierung_3 = """ );"
         
         End If
         
         akt_string = cls_string_array.toString(MY_CHR_13_10)
         
-        akt_string = Replace(akt_string, pTrennzeichen1, ersatz_gatter_1)
+        akt_string = Replace(akt_string, MARKIER_STRING_INTERN_1, ersatz_string_markierung_1)
         
-        akt_string = Replace(akt_string, pTrennzeichen2, ersatz_gatter_2)
+        akt_string = Replace(akt_string, MARKIER_STRING_INTERN_2, ersatz_string_markierung_2)
         
-        akt_string = Replace(akt_string, pTrennzeichen3, ersatz_gatter_3)
+        akt_string = Replace(akt_string, MARKIER_STRING_INTERN_3, ersatz_string_markierung_3)
         
-        akt_string = Replace(akt_string, pTrennzeichen4, ersatz_gatter_4)
+        akt_string = Replace(akt_string, MARKIER_STRING_INTERN_4, ersatz_string_markierung_4)
           
         startErstelleKonstantenEinfach = akt_string
 
@@ -5193,7 +5224,7 @@ Dim letztes_zeichen  As String
 Dim akt_zeichen      As String
 Dim akt_position     As Long
 
-    trimX = ""
+    trimX = LEER_STRING
     
     If (pString <> LEER_STRING) Then
         
@@ -5258,7 +5289,7 @@ Dim akt_position     As Long
         ' Pruefung, ob das Ergebnis auf ein Leerzeichen endet.
         ' Das Ergebnis endet auf ein Leerzeichen, wenn das letzte hinzugefuegte Zeichen ein Leerzeichen war.
         '
-        If (letztes_zeichen = " ") Then
+        If (letztes_zeichen = LEER_ZEICHEN) Then
         
             If (Len(str_fkt_ergebnis) < 2) Then
           
@@ -11519,7 +11550,7 @@ Dim knz_while_aktiv  As Boolean
 
 errGetErweiterung:
 
-    getErweiterung = ""
+    getErweiterung = LEER_STRING
 
     Exit Function
 

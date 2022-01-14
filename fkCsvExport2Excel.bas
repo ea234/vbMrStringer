@@ -9,11 +9,9 @@ Public Function startCsv2Excel(pString As String, pTrennzeichen As String) As Bo
 
 On Error GoTo errStartCsv2Excel
 
-Dim pExcelObjekt      As clsExcel  ' Instanz mit den Excel-Funktionen
-
-Dim excel_sheet_name  As String    ' Name des zu erstellenden Tabellenblattes
-Dim knz_fehlerfrei    As Boolean   ' Kennzeichen, ob die Erstellung fehlerfrei gemacht wurde
-
+Dim pExcelObjekt      As clsExcel       ' Instanz mit den Excel-Funktionen
+Dim excel_sheet_name  As String         ' Name des zu erstellenden Tabellenblattes
+Dim knz_fehlerfrei    As Boolean        ' Kennzeichen, ob die Erstellung fehlerfrei gemacht wurde
 Dim cls_string_array  As clsStringArray ' Stringarray fuer die zu exportierenden Daten
 
     startCsv2Excel = False
@@ -101,6 +99,12 @@ Dim cls_string_array  As clsStringArray ' Stringarray fuer die zu exportierenden
             ' Anzahl der insgesamt vorhandenen Zeilen aus dem String-Array ermitteln
             '
             zeilen_anzahl = cls_string_array.getAnzahlStrings
+            
+            If (zeilen_anzahl > 32123) Then
+            
+                zeilen_anzahl = 32123
+                
+            End If
         
             '
             ' Zeilenzaehler auf 1 stellen.
@@ -111,6 +115,7 @@ Dim cls_string_array  As clsStringArray ' Stringarray fuer die zu exportierenden
             ' Schleifendurchlauf von 1 bis zu der Anzahl der vorhandenen Zeilen.
             '
             While (zeilen_zaehler <= zeilen_anzahl)
+            
                 '
                 ' Aktuelle Zeile
                 ' Die aktuelle Zeile wird per Index aus dem Zeilenobjekt gelesen
@@ -164,7 +169,7 @@ EndFunktion:
 
 errStartCsv2Excel:
 
-    '##sss("Fehler: errStartCsv2Excel: " & Err & " " & Error & " " & Erl)
+    'call Debug.Print("Fehler: errStartCsv2Excel: " & Err & " " & Error & " " & Erl)
 
     knz_fehlerfrei = False
 
