@@ -10,6 +10,114 @@ Begin VB.Form frmMrStringer
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   1828
    StartUpPosition =   3  'Windows-Standard
+   Begin VB.CommandButton m_btnSetCsvPos 
+      Caption         =   "CSVP"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24720
+      TabIndex        =   145
+      ToolTipText     =   "CSV-Zeichen an Cursorpos"
+      Top             =   9480
+      Width           =   1065
+   End
+   Begin VB.CommandButton m_btnStartNotesKopiereFelder 
+      Caption         =   "D. Notes"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   144
+      ToolTipText     =   "NotesFelder kopieren"
+      Top             =   8925
+      Width           =   1065
+   End
+   Begin VB.CommandButton m_btnGrepPlusMinus 
+      Caption         =   "G+-"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   143
+      ToolTipText     =   "Macht einen Grep + und Grep - (Trennung von Inhalten)"
+      Top             =   8400
+      Width           =   1065
+   End
+   Begin VB.CommandButton m_btnStartHtmlGeneratorDiv 
+      Caption         =   "HTML D"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   25905
+      TabIndex        =   142
+      ToolTipText     =   "HTML-DIV für Markierung"
+      Top             =   5775
+      Width           =   1140
+   End
+   Begin VB.CommandButton m_btnStartHtmlLink2 
+      Caption         =   "LINK2"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   141
+      ToolTipText     =   "HTML-Links nur für Zeilen in welchen das Wort  HTTP vorkommt"
+      Top             =   7350
+      Width           =   1065
+   End
+   Begin VB.CommandButton m_btnStartJquery01 
+      Caption         =   "JQRY"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   24750
+      TabIndex        =   140
+      ToolTipText     =   "JQuery Anweisungen Set und Get"
+      Top             =   6825
+      Width           =   1065
+   End
    Begin VB.CommandButton m_btnStartJavaPropertieSet 
       Caption         =   "PROP"
       BeginProperty Font 
@@ -23,7 +131,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   148
+      TabIndex        =   139
       ToolTipText     =   "Java Properties Set"
       Top             =   6300
       Width           =   1065
@@ -41,7 +149,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   147
+      TabIndex        =   138
       ToolTipText     =   "Erstellt einen Hex-Dump"
       Top             =   5775
       Width           =   1065
@@ -59,7 +167,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   146
+      TabIndex        =   137
       ToolTipText     =   "Erstellt einen Hex-Dump"
       Top             =   5250
       Width           =   1065
@@ -77,7 +185,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   145
+      TabIndex        =   136
       ToolTipText     =   "Zeilenumbruch vor oder nach CSV-Trennzeichen setzen"
       Top             =   4725
       Width           =   1035
@@ -95,7 +203,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   144
+      TabIndex        =   135
       ToolTipText     =   "Generator Konverter VB"
       Top             =   4200
       Width           =   1065
@@ -113,7 +221,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   143
+      TabIndex        =   134
       ToolTipText     =   "Generator Java VB Kommentar"
       Top             =   3675
       Width           =   1065
@@ -131,7 +239,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   20700
-      TabIndex        =   142
+      TabIndex        =   133
       ToolTipText     =   "Konstanten ueber Split-Funktion erstellen"
       Top             =   600
       Width           =   990
@@ -149,7 +257,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   141
+      TabIndex        =   132
       ToolTipText     =   "Url-Decoded"
       Top             =   3150
       Width           =   1065
@@ -167,7 +275,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   140
+      TabIndex        =   131
       ToolTipText     =   "Url-Decoded"
       Top             =   2625
       Width           =   1065
@@ -185,7 +293,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   139
+      TabIndex        =   130
       ToolTipText     =   "Format Java Leerzeilen"
       Top             =   2100
       Width           =   1065
@@ -203,7 +311,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   23700
-      TabIndex        =   138
+      TabIndex        =   129
       ToolTipText     =   "Setzt das aktuelle CSV-Zeichen vorne oder hinten"
       Top             =   60
       Width           =   465
@@ -221,7 +329,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   137
+      TabIndex        =   128
       ToolTipText     =   "Anfuehrungszeichen maskieren"
       Top             =   9975
       Width           =   1140
@@ -239,7 +347,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   136
+      TabIndex        =   127
       ToolTipText     =   "JSP nach Java Funktion"
       Top             =   9450
       Width           =   1140
@@ -257,7 +365,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   135
+      TabIndex        =   126
       ToolTipText     =   "Java-Properties setzen. Trennung bei Markierung"
       Top             =   8925
       Width           =   1140
@@ -275,9 +383,9 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   134
+      TabIndex        =   125
       ToolTipText     =   "Debugausgabe als HTML-Tabelle "
-      Top             =   6300
+      Top             =   6825
       Width           =   1140
    End
    Begin VB.CommandButton m_startHtmlUrlEncoded 
@@ -293,7 +401,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   133
+      TabIndex        =   124
       ToolTipText     =   "Url-Encoding"
       Top             =   8400
       Width           =   1140
@@ -311,9 +419,9 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   132
+      TabIndex        =   123
       ToolTipText     =   "Erstellt eine HTML-Tabelle mit Selektion als Trennzeichen"
-      Top             =   5775
+      Top             =   6300
       Width           =   1140
    End
    Begin VB.CommandButton m_btnStartHtmlJoinTabelle 
@@ -329,7 +437,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   131
+      TabIndex        =   122
       ToolTipText     =   "Join als HTML-Tabelle"
       Top             =   5250
       Width           =   1140
@@ -347,7 +455,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   130
+      TabIndex        =   121
       ToolTipText     =   "Zufallswerte auf Grundlage des Textes"
       Top             =   7875
       Width           =   1140
@@ -365,7 +473,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   129
+      TabIndex        =   120
       ToolTipText     =   "Leerzeile einfuegen, wenn sich der Text aendert"
       Top             =   7350
       Width           =   1140
@@ -382,10 +490,10 @@ Begin VB.Form frmMrStringer
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   25905
-      TabIndex        =   128
-      Top             =   6825
-      Width           =   1140
+      Left            =   24750
+      TabIndex        =   119
+      Top             =   7875
+      Width           =   1065
    End
    Begin VB.CommandButton m_btnStartGetHexDump 
       Caption         =   "HEX D"
@@ -400,7 +508,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24750
-      TabIndex        =   127
+      TabIndex        =   118
       ToolTipText     =   "Erstellt einen Hex-Dump"
       Top             =   1575
       Width           =   1065
@@ -418,7 +526,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   126
+      TabIndex        =   117
       ToolTipText     =   "Erstellt HTML-Link Elemente"
       Top             =   4200
       Width           =   1140
@@ -436,7 +544,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   125
+      TabIndex        =   116
       ToolTipText     =   "Eingabe in ein Excel-Sheet schreiben"
       Top             =   3675
       Width           =   1140
@@ -454,7 +562,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   17775
-      TabIndex        =   124
+      TabIndex        =   115
       Top             =   1095
       Width           =   945
    End
@@ -471,7 +579,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   123
+      TabIndex        =   114
       ToolTipText     =   "http-Parameter auslesen und in bean setzen"
       Top             =   3150
       Width           =   1140
@@ -489,7 +597,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   122
+      TabIndex        =   113
       Top             =   2625
       Width           =   1140
    End
@@ -506,7 +614,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   121
+      TabIndex        =   112
       Top             =   2100
       Width           =   1140
    End
@@ -523,7 +631,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   23325
-      TabIndex        =   120
+      TabIndex        =   111
       ToolTipText     =   "Setzt eine Zeilenmarkierung (0 und 1)"
       Top             =   1095
       Width           =   615
@@ -541,7 +649,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   22650
-      TabIndex        =   119
+      TabIndex        =   110
       ToolTipText     =   "CSV-Trennzeichen an Cursorpos setzen"
       Top             =   60
       Width           =   1035
@@ -559,7 +667,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   4800
-      TabIndex        =   118
+      TabIndex        =   109
       Top             =   1095
       Width           =   585
    End
@@ -576,7 +684,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   4125
-      TabIndex        =   117
+      TabIndex        =   108
       ToolTipText     =   "Marktiert im Text das ausgewählte Wort (vorne oder hinten)"
       Top             =   1095
       Width           =   615
@@ -594,7 +702,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   116
+      TabIndex        =   107
       Top             =   1575
       Width           =   1140
    End
@@ -611,7 +719,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25050
-      TabIndex        =   115
+      TabIndex        =   106
       Top             =   600
       Width           =   1140
    End
@@ -628,7 +736,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   23400
-      TabIndex        =   114
+      TabIndex        =   105
       ToolTipText     =   "Ersetzt deutsche Umlaute"
       Top             =   1575
       Width           =   1260
@@ -646,7 +754,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   21450
-      TabIndex        =   113
+      TabIndex        =   104
       ToolTipText     =   "CSV-Trennzeichen an Cursorpos setzen"
       Top             =   60
       Width           =   1110
@@ -664,7 +772,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24150
-      TabIndex        =   112
+      TabIndex        =   103
       ToolTipText     =   "Konstanten in Properties "
       Top             =   600
       Width           =   795
@@ -682,7 +790,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   8250
-      TabIndex        =   111
+      TabIndex        =   102
       ToolTipText     =   "Leerzeilen einfuegen"
       Top             =   1095
       Width           =   765
@@ -700,7 +808,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25905
-      TabIndex        =   110
+      TabIndex        =   101
       ToolTipText     =   "Html-Quotes"
       Top             =   4725
       Width           =   1140
@@ -718,7 +826,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   14130
-      TabIndex        =   109
+      TabIndex        =   100
       ToolTipText     =   "Eingabebereinigung - es bleiben nur ASCII-Zeichen erhalten"
       Top             =   1575
       Width           =   1080
@@ -736,7 +844,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2190
-      TabIndex        =   106
+      TabIndex        =   99
       Top             =   1095
       Width           =   555
    End
@@ -753,7 +861,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   15255
-      TabIndex        =   105
+      TabIndex        =   98
       Top             =   1575
       Width           =   1080
    End
@@ -770,7 +878,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24990
-      TabIndex        =   104
+      TabIndex        =   97
       ToolTipText     =   "Debug NotesFelder"
       Top             =   1095
       Width           =   1215
@@ -788,7 +896,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   11430
-      TabIndex        =   103
+      TabIndex        =   96
       ToolTipText     =   "Pretty-Print auf einen JSON-String"
       Top             =   1575
       Width           =   1380
@@ -806,7 +914,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   1395
-      TabIndex        =   102
+      TabIndex        =   95
       Top             =   1095
       Width           =   735
    End
@@ -823,7 +931,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   16380
-      TabIndex        =   101
+      TabIndex        =   94
       ToolTipText     =   "Startet Calc.exe"
       Top             =   1575
       Width           =   1230
@@ -841,7 +949,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   17655
-      TabIndex        =   100
+      TabIndex        =   93
       Top             =   1575
       Width           =   1230
    End
@@ -858,7 +966,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   18930
-      TabIndex        =   99
+      TabIndex        =   92
       Top             =   1575
       Width           =   1155
    End
@@ -875,7 +983,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   12855
-      TabIndex        =   98
+      TabIndex        =   91
       Top             =   1575
       Width           =   1230
    End
@@ -892,7 +1000,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   21675
-      TabIndex        =   97
+      TabIndex        =   90
       Top             =   1575
       Width           =   1605
    End
@@ -909,7 +1017,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   20130
-      TabIndex        =   96
+      TabIndex        =   89
       ToolTipText     =   "Zusammenfassung von Eingabezeilen zu einer"
       Top             =   1575
       Width           =   1455
@@ -927,7 +1035,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   3675
-      TabIndex        =   95
+      TabIndex        =   88
       Top             =   600
       Width           =   615
    End
@@ -944,7 +1052,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   26250
-      TabIndex        =   94
+      TabIndex        =   87
       Top             =   600
       Width           =   795
    End
@@ -961,7 +1069,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   9105
-      TabIndex        =   93
+      TabIndex        =   86
       Top             =   1095
       Width           =   795
    End
@@ -978,7 +1086,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   75
-      TabIndex        =   92
+      TabIndex        =   85
       Top             =   1095
       Width           =   615
    End
@@ -995,7 +1103,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   735
-      TabIndex        =   91
+      TabIndex        =   84
       Top             =   1095
       Width           =   615
    End
@@ -1012,7 +1120,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   26865
-      TabIndex        =   90
+      TabIndex        =   83
       Top             =   60
       Width           =   315
    End
@@ -1029,7 +1137,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   7290
-      TabIndex        =   89
+      TabIndex        =   82
       Top             =   1095
       Width           =   915
    End
@@ -1046,7 +1154,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   22455
-      TabIndex        =   88
+      TabIndex        =   81
       ToolTipText     =   "Long Datum erstellen"
       Top             =   600
       Width           =   870
@@ -1064,7 +1172,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   9945
-      TabIndex        =   87
+      TabIndex        =   80
       Top             =   1095
       Width           =   675
    End
@@ -1081,7 +1189,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   10665
-      TabIndex        =   86
+      TabIndex        =   79
       Top             =   1095
       Width           =   615
    End
@@ -1098,7 +1206,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   11340
-      TabIndex        =   85
+      TabIndex        =   78
       Top             =   1095
       Width           =   615
    End
@@ -1115,7 +1223,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   12030
-      TabIndex        =   84
+      TabIndex        =   77
       Top             =   1095
       Width           =   915
    End
@@ -1132,7 +1240,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   9195
-      TabIndex        =   83
+      TabIndex        =   76
       Top             =   60
       Width           =   915
    End
@@ -1149,7 +1257,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   7695
-      TabIndex        =   82
+      TabIndex        =   75
       ToolTipText     =   "Kopiert den Text der Eingabebox in die Zwisschenablage"
       Top             =   1575
       Width           =   1755
@@ -1167,7 +1275,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   11775
-      TabIndex        =   81
+      TabIndex        =   74
       Top             =   60
       Width           =   615
    End
@@ -1184,7 +1292,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   11115
-      TabIndex        =   80
+      TabIndex        =   73
       Top             =   60
       Width           =   615
    End
@@ -1201,7 +1309,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   18810
-      TabIndex        =   79
+      TabIndex        =   72
       ToolTipText     =   "Macht eine Rot13-Umstellung auf die Eingabe"
       Top             =   1095
       Width           =   1080
@@ -1219,7 +1327,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   13095
-      TabIndex        =   78
+      TabIndex        =   71
       Top             =   60
       Width           =   795
    End
@@ -1236,7 +1344,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   3435
-      TabIndex        =   77
+      TabIndex        =   70
       Top             =   1095
       Width           =   615
    End
@@ -1253,7 +1361,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   19995
-      TabIndex        =   76
+      TabIndex        =   69
       Top             =   60
       Width           =   1335
    End
@@ -1270,7 +1378,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2175
-      TabIndex        =   75
+      TabIndex        =   68
       Top             =   600
       Width           =   735
    End
@@ -1287,7 +1395,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   26250
-      TabIndex        =   74
+      TabIndex        =   67
       Top             =   1095
       Width           =   795
    End
@@ -1304,7 +1412,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   19980
-      TabIndex        =   73
+      TabIndex        =   66
       Top             =   1095
       Width           =   1230
    End
@@ -1321,7 +1429,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   8235
-      TabIndex        =   72
+      TabIndex        =   65
       Top             =   60
       Width           =   915
    End
@@ -1338,7 +1446,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   8430
-      TabIndex        =   71
+      TabIndex        =   64
       ToolTipText     =   "Text 2 an Cursor"
       Top             =   600
       Width           =   1035
@@ -1356,7 +1464,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   9525
-      TabIndex        =   70
+      TabIndex        =   63
       ToolTipText     =   "Replace Suchworte"
       Top             =   600
       Width           =   1035
@@ -1374,7 +1482,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   6285
-      TabIndex        =   69
+      TabIndex        =   62
       Top             =   1095
       Width           =   915
    End
@@ -1391,7 +1499,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   3135
-      TabIndex        =   68
+      TabIndex        =   61
       ToolTipText     =   "Setzt ein Suchbegriff am Wortende"
       Top             =   60
       Width           =   375
@@ -1409,7 +1517,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2055
-      TabIndex        =   67
+      TabIndex        =   60
       ToolTipText     =   "Setzt am Wortanfang den Suchbegriff"
       Top             =   60
       Width           =   375
@@ -1427,7 +1535,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   19650
-      TabIndex        =   66
+      TabIndex        =   59
       Top             =   600
       Width           =   975
    End
@@ -1444,7 +1552,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   7275
-      TabIndex        =   65
+      TabIndex        =   58
       ToolTipText     =   "Sortieren nach Laenge"
       Top             =   60
       Width           =   915
@@ -1462,7 +1570,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24030
-      TabIndex        =   64
+      TabIndex        =   57
       ToolTipText     =   "Erstellt Notes setString- und getString-Anweisungen"
       Top             =   1095
       Width           =   915
@@ -1480,7 +1588,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   7470
-      TabIndex        =   63
+      TabIndex        =   56
       Top             =   600
       Width           =   915
    End
@@ -1497,13 +1605,13 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   12915
-      TabIndex        =   62
+      TabIndex        =   55
       ToolTipText     =   "Erstellt die Anweisungen für die Erstellung eines Json-Strings"
       Top             =   600
       Width           =   915
    End
    Begin VB.CommandButton m_btnStartDirEinlesen 
-      Caption         =   "Dir"
+      Caption         =   "&Dir"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   12
@@ -1515,7 +1623,8 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   23400
-      TabIndex        =   61
+      TabIndex        =   54
+      ToolTipText     =   "Verzeichnisse einlesen"
       Top             =   600
       Width           =   615
    End
@@ -1532,7 +1641,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   5700
-      TabIndex        =   60
+      TabIndex        =   53
       ToolTipText     =   "Dreht die Eingabe oder Markierung um"
       Top             =   600
       Width           =   915
@@ -1550,7 +1659,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   16935
-      TabIndex        =   59
+      TabIndex        =   52
       Top             =   600
       Width           =   615
    End
@@ -1567,7 +1676,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   4395
-      TabIndex        =   58
+      TabIndex        =   51
       ToolTipText     =   "Ausrichtung mit der Markierung"
       Top             =   600
       Width           =   1275
@@ -1585,7 +1694,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   10155
-      TabIndex        =   57
+      TabIndex        =   50
       Top             =   60
       Width           =   915
    End
@@ -1602,7 +1711,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25785
-      TabIndex        =   56
+      TabIndex        =   49
       Top             =   60
       Width           =   315
    End
@@ -1619,7 +1728,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   26145
-      TabIndex        =   55
+      TabIndex        =   48
       Top             =   60
       Width           =   315
    End
@@ -1636,7 +1745,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   18555
-      TabIndex        =   54
+      TabIndex        =   47
       Top             =   600
       Width           =   1035
    End
@@ -1653,7 +1762,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   22620
-      TabIndex        =   53
+      TabIndex        =   46
       ToolTipText     =   "Zählt die Zeilen"
       Top             =   1095
       Width           =   615
@@ -1671,7 +1780,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2955
-      TabIndex        =   52
+      TabIndex        =   45
       Top             =   600
       Width           =   615
    End
@@ -1688,7 +1797,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   3615
-      TabIndex        =   51
+      TabIndex        =   44
       ToolTipText     =   "Teilt den Text am Cursor oder an der Markierung"
       Top             =   60
       Width           =   735
@@ -1706,7 +1815,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   10590
-      TabIndex        =   50
+      TabIndex        =   43
       ToolTipText     =   "Erstellt eine Debugausgabe für Java und VB"
       Top             =   600
       Width           =   1095
@@ -1724,7 +1833,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   15195
-      TabIndex        =   49
+      TabIndex        =   42
       Top             =   600
       Width           =   675
    End
@@ -1741,7 +1850,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2475
-      TabIndex        =   48
+      TabIndex        =   41
       ToolTipText     =   "Setzt ein Suchwort an der Cursorposition"
       Top             =   75
       Width           =   615
@@ -1759,7 +1868,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   2805
-      TabIndex        =   47
+      TabIndex        =   40
       Top             =   1095
       Width           =   585
    End
@@ -1776,7 +1885,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   21795
-      TabIndex        =   46
+      TabIndex        =   39
       Top             =   600
       Width           =   615
    End
@@ -1793,7 +1902,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   12435
-      TabIndex        =   45
+      TabIndex        =   38
       Top             =   60
       Width           =   615
    End
@@ -1810,7 +1919,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25425
-      TabIndex        =   44
+      TabIndex        =   37
       Top             =   60
       Width           =   315
    End
@@ -1827,7 +1936,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   26505
-      TabIndex        =   43
+      TabIndex        =   36
       Top             =   60
       Width           =   315
    End
@@ -1844,7 +1953,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   25065
-      TabIndex        =   42
+      TabIndex        =   35
       Top             =   60
       Width           =   315
    End
@@ -1861,7 +1970,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   24705
-      TabIndex        =   41
+      TabIndex        =   34
       Top             =   60
       Width           =   315
    End
@@ -1878,7 +1987,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   5505
-      TabIndex        =   40
+      TabIndex        =   33
       Top             =   1095
       Width           =   735
    End
@@ -1895,7 +2004,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   75
-      TabIndex        =   39
+      TabIndex        =   32
       ToolTipText     =   "Setzt vorne oder hinten einen Suchbegriff"
       Top             =   60
       Width           =   615
@@ -1913,7 +2022,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   18615
-      TabIndex        =   38
+      TabIndex        =   31
       Top             =   60
       Width           =   1335
    End
@@ -1930,7 +2039,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   16935
-      TabIndex        =   37
+      TabIndex        =   30
       Top             =   60
       Width           =   1635
    End
@@ -1947,7 +2056,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   15255
-      TabIndex        =   36
+      TabIndex        =   29
       Top             =   60
       Width           =   1635
    End
@@ -1964,7 +2073,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   4575
-      TabIndex        =   35
+      TabIndex        =   28
       ToolTipText     =   "Eingaben der beiden Eingabeboxen tauschen"
       Top             =   1575
       Width           =   1995
@@ -1992,7 +2101,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   1395
-      TabIndex        =   34
+      TabIndex        =   27
       Top             =   600
       Width           =   735
    End
@@ -2009,7 +2118,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   6675
-      TabIndex        =   33
+      TabIndex        =   26
       ToolTipText     =   "Toggle um die 2te Eingabebox sichtbar zu machen"
       Top             =   1575
       Width           =   915
@@ -2028,7 +2137,7 @@ Begin VB.Form frmMrStringer
       Left            =   3240
       MultiLine       =   -1  'True
       ScrollBars      =   3  'Beides
-      TabIndex        =   32
+      TabIndex        =   25
       Top             =   2460
       Visible         =   0   'False
       Width           =   2835
@@ -2046,7 +2155,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   13935
-      TabIndex        =   31
+      TabIndex        =   24
       Top             =   60
       Width           =   1275
    End
@@ -2063,7 +2172,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   735
-      TabIndex        =   30
+      TabIndex        =   23
       ToolTipText     =   "Aufnahme aller Zeilen ohne dem markiertem Wort"
       Top             =   600
       Width           =   615
@@ -2081,7 +2190,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   75
-      TabIndex        =   29
+      TabIndex        =   22
       ToolTipText     =   "Aufnahme aller Zeilen mit dem markiertem Wort"
       Top             =   600
       Width           =   615
@@ -2099,7 +2208,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   6690
-      TabIndex        =   28
+      TabIndex        =   21
       Top             =   600
       Width           =   735
    End
@@ -2116,7 +2225,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   16650
-      TabIndex        =   27
+      TabIndex        =   20
       Top             =   1095
       Width           =   1020
    End
@@ -2132,7 +2241,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   375
       Left            =   24225
-      TabIndex        =   26
+      TabIndex        =   19
       Text            =   ","
       Top             =   60
       Width           =   435
@@ -2150,7 +2259,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   17595
-      TabIndex        =   25
+      TabIndex        =   18
       Top             =   600
       Width           =   915
    End
@@ -2167,7 +2276,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   5355
-      TabIndex        =   24
+      TabIndex        =   17
       ToolTipText     =   "Entfernt das markierte Wort im gesamten Text"
       Top             =   60
       Width           =   915
@@ -2185,7 +2294,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   4395
-      TabIndex        =   23
+      TabIndex        =   16
       Top             =   60
       Width           =   915
    End
@@ -2202,7 +2311,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   6315
-      TabIndex        =   22
+      TabIndex        =   15
       ToolTipText     =   "Sortierung auf- oder absteigend"
       Top             =   60
       Width           =   915
@@ -2220,7 +2329,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   60
-      TabIndex        =   21
+      TabIndex        =   14
       ToolTipText     =   "Setzt den Text aus der Zwischenablage in die Eingabebox"
       Top             =   1575
       Width           =   1755
@@ -2238,7 +2347,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   15915
-      TabIndex        =   20
+      TabIndex        =   13
       Top             =   600
       Width           =   975
    End
@@ -2255,7 +2364,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   14010
-      TabIndex        =   19
+      TabIndex        =   12
       Top             =   1095
       Width           =   975
    End
@@ -2272,7 +2381,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   12990
-      TabIndex        =   18
+      TabIndex        =   11
       Top             =   1095
       Width           =   975
    End
@@ -2289,7 +2398,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   11730
-      TabIndex        =   17
+      TabIndex        =   10
       ToolTipText     =   "Erstellt aus der Eingabe einen Java- oder VB-String"
       Top             =   600
       Width           =   1155
@@ -2307,7 +2416,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   1860
-      TabIndex        =   16
+      TabIndex        =   9
       Top             =   1575
       Width           =   2595
    End
@@ -2324,7 +2433,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   15075
-      TabIndex        =   15
+      TabIndex        =   8
       Top             =   1095
       Width           =   1515
    End
@@ -2341,7 +2450,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   21300
-      TabIndex        =   14
+      TabIndex        =   7
       Top             =   1095
       Width           =   1230
    End
@@ -2358,7 +2467,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   13875
-      TabIndex        =   13
+      TabIndex        =   6
       Top             =   600
       Width           =   1275
    End
@@ -2375,7 +2484,7 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   9555
-      TabIndex        =   12
+      TabIndex        =   5
       ToolTipText     =   "Kopiert den Text der Ausgabebox in die Zwischenablage"
       Top             =   1575
       Width           =   1755
@@ -2393,156 +2502,10 @@ Begin VB.Form frmMrStringer
       EndProperty
       Height          =   435
       Left            =   735
-      TabIndex        =   11
+      TabIndex        =   4
       ToolTipText     =   "Setzt vorne und hinten einen Suchbegriff"
       Top             =   60
       Width           =   615
-   End
-   Begin VB.Frame m_frameEinstellungen 
-      BorderStyle     =   0  'Kein
-      Caption         =   "m_lblStringBufferStart"
-      Height          =   3735
-      Left            =   10500
-      TabIndex        =   4
-      Top             =   4425
-      Visible         =   0   'False
-      Width           =   11715
-      Begin VB.TextBox m_txtTrennzeichen4 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   1830
-         TabIndex        =   107
-         Text            =   "#0"
-         Top             =   1575
-         Width           =   1455
-      End
-      Begin VB.TextBox m_txtTrennzeichen3 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   1800
-         TabIndex        =   10
-         Text            =   "#3"
-         Top             =   1080
-         Width           =   1455
-      End
-      Begin VB.TextBox m_txtTrennzeichen2 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   1800
-         TabIndex        =   8
-         Text            =   "#2"
-         Top             =   600
-         Width           =   1455
-      End
-      Begin VB.TextBox m_txtTrennzeichen1 
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   1800
-         TabIndex        =   6
-         Text            =   "#1"
-         Top             =   120
-         Width           =   1455
-      End
-      Begin VB.Label Label1 
-         Caption         =   "Trennzeichen 4"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   150
-         TabIndex        =   108
-         Top             =   1575
-         Width           =   1695
-      End
-      Begin VB.Label m_lblTrennzeichen3 
-         Caption         =   "Trennzeichen 3"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   120
-         TabIndex        =   9
-         Top             =   1080
-         Width           =   1695
-      End
-      Begin VB.Label m_lblTrennzeichen2 
-         Caption         =   "Trennzeichen 2"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   120
-         TabIndex        =   7
-         Top             =   600
-         Width           =   1695
-      End
-      Begin VB.Label m_lblTrennzeichen1 
-         Caption         =   "Trennzeichen 1"
-         BeginProperty Font 
-            Name            =   "Arial"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   120
-         TabIndex        =   5
-         Top             =   120
-         Width           =   1695
-      End
    End
    Begin VB.TextBox m_txtAusgabe 
       BeginProperty Font 
@@ -2644,10 +2607,6 @@ Private Sub Form_Load()
 
     m_txtEingabe2.Left = m_lineResize.X1
 
-    m_frameEinstellungen.Top = m_txtEingabe.Top
-
-    m_frameEinstellungen.Top = m_lineResize.X1
-
     knz_resize_laeuft = False
 
     knz_eingabe_volle_hoehe = True
@@ -2684,8 +2643,6 @@ Dim breite_scroll_prozent As Double
     End If
         
     breite_scroll_prozent = CInt((breite_fenster_gesamt * CInt(m_scrollFensterTeiler.Value)) * 0.01)
-
-    m_frameEinstellungen.Width = breite_fenster_gesamt
     
     m_scrollFensterTeiler.Width = breite_fenster_gesamt
     
@@ -2722,6 +2679,13 @@ Dim breite_scroll_prozent As Double
     End If
 
     knz_resize_laeuft = False
+
+End Sub
+
+Private Sub m_btnSetCsvPos_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_CSV_SET_TRENNZEICHEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, m_txtCsvZeichen.Text)
+
 
 End Sub
 
@@ -2780,6 +2744,46 @@ End Sub
 
 '################################################################################
 '
+Private Sub m_btnStartHtmlGeneratorDiv_Click()
+
+Dim str_fkt_ergebnis As String
+Dim str_my_cr        As String
+
+    str_my_cr = vbCrLf
+    
+    '
+    ' Anweisungen fuer den Ausrichter erstellen
+    '
+    str_fkt_ergebnis = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False, MARKIER_STRING_INTERN_1, MARKIER_STRING_INTERN_2, MARKIER_STRING_INTERN_3)
+    
+    '
+    ' Leerzeilen bereinigen
+    ' Bei Leerzeilen stehen die Markierungsstrings alle hintereinander.
+    ' Diese Zeichenfolge wird hier mit einem Leerstring ersetzt.
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1 & MARKIER_STRING_INTERN_2 & MARKIER_STRING_INTERN_3, LEER_STRING)
+
+    '
+    ' Linkstart setzen
+    ' Alle Markierungen 1 werden zum HTML-String fuer den Linkstart.
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, "<div style=""user-select:all;display:inline"" >")
+    
+    '
+    ' Mittelteil
+    ' Alle Markierungen 2 werden mit dem Ausrichterstring und dem Target-Attribut ersetzt.
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_2, "</div><br />")
+
+    '
+    ' Der Ausrichterstring wird mit einem Leerstring ersetzt
+    '
+    m_txtAusgabe.Text = Replace(str_fkt_ergebnis, AUSRICHT_STRING_TEMP_1, LEER_STRING)
+    
+End Sub
+
+'################################################################################
+'
 Private Sub m_btnStartTestUmdrehen_Click()
     
 Dim vb_str As String
@@ -2820,6 +2824,8 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """GW""         = Liefert alle Wörter welche mit der Makierung anfangen"
     vb_str = vb_str & vbCrLf & "                 - Ist keine Makierung vorhanden, werden alle Wörter aufgelistet"
     vb_str = vb_str & vbCrLf & """GZ""         = Grep Zahlen"
+    vb_str = vb_str & vbCrLf & """G+-""        = Zuerst wird ein Grep + und dann ein Grep - durchgefuehrt."
+    vb_str = vb_str & vbCrLf & "                 - Es koennen hiermit Inhalte getrennt werden."
     vb_str = vb_str & vbCrLf & """,""          = Trennzeichen Komma setzen"
     vb_str = vb_str & vbCrLf & """.""          = Trennzeichen Punkt setzen"
     vb_str = vb_str & vbCrLf & """:""          = Trennzeichen Doppelpunkt setzen"
@@ -2875,6 +2881,7 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """HTML Q""     = setzt Html-Qoute-Zeichen"
     vb_str = vb_str & vbCrLf & """HTML L""     = HTML-Link: Erstellt aus Eingabe 1 jeweils einen HTML-Link"
     vb_str = vb_str & vbCrLf & """HTML J""     = HTML-Join: Erstellt aus Eingabe 1 und Eingabe 2 eine HTML-Tabelle"
+    vb_str = vb_str & vbCrLf & """HTML D""     = HTML-DIV: Div mit dem Style ""selectall"". HTML-Markierung"
     vb_str = vb_str & vbCrLf & """TABL D""     = HTML-Table-Debugausgabe: Variablen toString als HTML-Tabelle"
     vb_str = vb_str & vbCrLf & ""
     vb_str = vb_str & vbCrLf & """XML 2""      = XML-Darstellung 2"
@@ -2912,7 +2919,7 @@ Dim vb_str As String
     vb_str = vb_str & vbCrLf & """StrLen""     = gibt die Zeilenlängen aus"
     vb_str = vb_str & vbCrLf & """// cmnt""    = Eingabe als Java oder VB Kommentar"
     vb_str = vb_str & vbCrLf & """CNV VB""     = CSV-Generator fuer einen Konverter fuer VB"
-    
+    vb_str = vb_str & vbCrLf & """LINK2""      = Generator HTML-Link fuer Zeilen welche HTTP oder HTTPS enhalten."
     vb_str = vb_str & vbCrLf & ""
     vb_str = vb_str & vbCrLf & """?""          = Zeigt den Hilfetext an"
     vb_str = vb_str & vbCrLf & ""
@@ -3369,12 +3376,19 @@ Dim str_my_cr        As String
     '
     ' Alle Chr(13) Vorkommen werden mit dem Markierstring 1 markiert.
     '
+    str_fkt_ergebnis = Replace(m_txtEingabe.Text, Chr(13) & Chr(10), MARKIER_STRING_INTERN_1)
+    
+    str_fkt_ergebnis = Replace(m_txtEingabe.Text, Chr(10) & Chr(13), MARKIER_STRING_INTERN_1)
+    
+    '
+    ' Alle Chr(13) Vorkommen werden mit dem Markierstring 1 markiert.
+    '
     str_fkt_ergebnis = Replace(m_txtEingabe.Text, Chr(13), MARKIER_STRING_INTERN_1)
     
     '
     ' Alle Chr(10) Vorkommen werden entfernt
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, Chr(10), LEER_STRING)
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, Chr(10), MARKIER_STRING_INTERN_1)
     
     '
     ' Bei jedem zweiten Aufruf, werden hintereinanderkommende Chr(13) Vorkommen entfernt.
@@ -3549,6 +3563,14 @@ End Sub
 
 '################################################################################
 '
+Private Sub m_btnStartHtmlLink2_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_GENERATOR_HTML_LINK, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+
+End Sub
+
+'################################################################################
+'
 Private Sub m_btnStartHtmlGeneratorLink_Click()
 
 Dim str_fkt_ergebnis As String
@@ -3572,7 +3594,7 @@ Dim str_my_cr        As String
     ' Linkstart setzen
     ' Alle Markierungen 1 werden zum HTML-String fuer den Linkstart.
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, "<A href=""")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_1, "<a href=""")
     
     '
     ' Mittelteil
@@ -3584,7 +3606,12 @@ Dim str_my_cr        As String
     ' Endteil
     ' Alle Markierungen 3 werden mit dem Link-Abschluss und einem BR-Tag ersetzt.
     '
-    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, "</A><BR />")
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, MARKIER_STRING_INTERN_3, "</a><br />")
+
+    '
+    ' Vermeidung, dass das Ergebnis bei der Anzeige mit einem abschliessendem Slash endet
+    '
+    str_fkt_ergebnis = Replace(str_fkt_ergebnis, "/</a>", "</a>")
 
     '
     ' Ausrichten
@@ -4252,6 +4279,14 @@ End Sub
 
 '################################################################################
 '
+Private Sub m_btnStartNotesKopiereFelder_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_NOTES_KOPIERE_FELD_WERTE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+
+End Sub
+
+'################################################################################
+'
 Private Sub m_btnStartSumme_Click()
 
     m_txtAusgabe.Text = startMrStringer(FKT_CALC_SUMME, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
@@ -4302,7 +4337,7 @@ End Sub
 '
 Private Sub m_btnJoinX_Click()
 
-    m_txtAusgabe.Text = startJoin(m_txtEingabe.Text, m_txtEingabe2.Text, m_txtTrennzeichen3.Text, True)
+    m_txtAusgabe.Text = startJoin(m_txtEingabe.Text, m_txtEingabe2.Text, TRENN_STRING_4, True)
 
 End Sub
 
@@ -4402,7 +4437,7 @@ End Sub
 '
 Private Sub m_btnStartJoin_Click()
 
-    m_txtAusgabe.Text = startJoin(m_txtEingabe.Text, m_txtEingabe2.Text, m_txtTrennzeichen3.Text)
+    m_txtAusgabe.Text = startJoin(m_txtEingabe.Text, m_txtEingabe2.Text, TRENN_STRING_4)
 
 End Sub
 
@@ -4885,6 +4920,7 @@ Private Sub m_btnStartSpalte3_Click()
     m_txtAusgabe.Text = startMrStringer(FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
+
 '################################################################################
 '
 Private Sub m_btnStartReplaceX_Click()
@@ -4925,6 +4961,32 @@ End Sub
 Private Sub m_btnStartSortDatum_Click()
 
     m_txtAusgabe.Text = startMrStringer(FKT_SORTIEREN_DATUM, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnGrepPlusMinus_Click()
+
+Dim str_fkt_ergebnis As String
+    
+    knz_togle_form_gen = Not knz_togle_form_gen
+    
+    If (knz_togle_form_gen) Then
+    
+        str_fkt_ergebnis = startMrStringer(FKT_GREP_PLUS_MINUS, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, True)
+        
+        str_fkt_ergebnis = str_fkt_ergebnis & vbCrLf & vbCrLf & startMrStringer(FKT_GREP_PLUS_MINUS, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False)
+        
+    Else
+        
+        str_fkt_ergebnis = startMrStringer(FKT_GREP_PLUS_MINUS, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, False)
+        
+        str_fkt_ergebnis = str_fkt_ergebnis & vbCrLf & vbCrLf & startMrStringer(FKT_GREP_PLUS_MINUS, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength, True)
+    
+    End If
+    
+    m_txtAusgabe.Text = str_fkt_ergebnis
 
 End Sub
 
@@ -4997,6 +5059,14 @@ End Sub
 Private Sub m_btnStartGetAscii_Click()
 
     m_txtAusgabe.Text = startGetAsciiPrint(m_txtEingabe.Text)
+
+End Sub
+
+'################################################################################
+'
+Private Sub m_btnStartJquery01_Click()
+
+    m_txtAusgabe.Text = startMrStringer(FKT_JQUERY_01, m_txtEingabe.Text, m_txtEingabe.SelStart, m_txtEingabe.SelLength)
 
 End Sub
 

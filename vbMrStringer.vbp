@@ -1,6 +1,6 @@
 Type=Exe
 Form=frmMrStringer.frm
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Class=clsStringArray; clsStringArray.cls
 Module=fkAppMrStringer; fkAppMrStringer.bas
 Class=clsExcel; clsExcel.cls
@@ -11,7 +11,7 @@ Startup="frmMrStringer"
 HelpFile=""
 Title="vbMrStringer"
 ExeName32="vbMrStringer.exe"
-Path32="..\.."
+Path32="..\..\.."
 Command32=""
 Name="vbMrStringer"
 HelpContextID="0"

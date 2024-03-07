@@ -19,8 +19,6 @@ Private m_toggle_mr_stringer_fkt As Boolean ' Umschalter fuer die Doppelbelegung
 Private m_zaehler_debug_print    As Integer ' Zaehler fuer fuer die Funktion "Debug-String-Ausgabe"
 Private m_zaehler_string_it      As Integer ' Zaehler fuer fuer die Funktion "String-It"
 
-Public Const FKT_CSV_VB_KONVERTER = 125
-
 Public Const FKT_AUSRICHTER_POSITION = 1
 Public Const FKT_AUSRICHTER_STRING = 2
 Public Const FKT_BLOCK_ZUFALL = 3
@@ -31,81 +29,86 @@ Public Const FKT_CLIP_GET_TEXT = 7
 Public Const FKT_CLIP_POSITION = 8
 Public Const FKT_CMD_RENAME = 9
 Public Const FKT_CSV_2_ZEILE = 10
-Public Const FKT_CSV_CR = 201
-Public Const FKT_CSV_JAVA_CASE = 11
+Public Const FKT_CSV_CR = 11
 Public Const FKT_CSV_ERSTELLE_CSV = 12
-Public Const FKT_CSV_JAVA_PROP = 13
-Public Const FKT_CSV_REPLACE_MARKIERUNG_MIT_CSV = 14
-Public Const FKT_CSV_SWAP = 15
-Public Const FKT_DUPLIZIERUNG = 16
-Public Const FKT_ERSTELLE_BLOCK = 17
-Public Const FKT_ERSTELLE_NAMEN = 18
-Public Const FKT_ERSTELLE_XML = 19
-Public Const FKT_ERSTELLE_XML_2 = 20
-Public Const FKT_EXTRAHIERE_WORTE = 21
-Public Const FKT_FORMAT_TXT = 22
-Public Const FKT_GENERATOR_DEBUG_AUSGABE = 23
-Public Const FKT_GENERATOR_IF_JAVA_SCRIPT = 24
-Public Const FKT_GENERATOR_IF_JAVA_VB = 25
-Public Const FKT_GENERATOR_SET_NULL = 26
-Public Const FKT_GENERATOR_STRING_IT = 27
-Public Const FKT_GENERATOR_VARIABLEN_DEKLARATION = 28
-Public Const FKT_GENERATOR_VB_CHECK_LEER_STRING = 29
-Public Const FKT_GETTER_SETTER_JAVA = 30
-Public Const FKT_GETTER_SETTER_JAVA_SCRIPT = 31
-Public Const FKT_GETTER_SETTER_VB = 32
-Public Const FKT_GET_DIR = 33
-Public Const FKT_GET_DOPPELTE_VORKOMMEN = 34
-Public Const FKT_GET_EINMALIGE_VORKOMMEN = 35
-Public Const FKT_GET_UNIQUE = 36
-Public Const FKT_GREP_DUPLIZIERE_MARKZEILEN = 37
-Public Const FKT_GREP_MARK = 38
-Public Const FKT_GREP_PLUS_MINUS = 39
-Public Const FKT_GREP_WORT = 40
-Public Const FKT_GREP_ZAHLEN = 41
-Public Const FKT_GROUP_NACH_STRING = 42
-Public Const FKT_HEX_DUMP = 43
-Public Const FKT_JAVA_GENERATOR = 44
-Public Const FKT_JAVA_XML_WRITER_NUMMER = 45
-Public Const FKT_JAVA_XML_WRITER_STRING = 46
-Public Const FKT_JSON_LESEN_SCHREIBEN = 47
-Public Const FKT_KONSTANTEN_UEBER_SPLIT = 48
-Public Const FKT_LEERZEILEN_EINFUEGEN = 49
-Public Const FKT_LEERZEILEN_LOESCHEN = 50
-Public Const FKT_MAKE_LONG_DATUM = 51
-Public Const FKT_MARKIERE_CSV_VORNE_ODER_HINTEN = 52
-Public Const FKT_MARKIERE_DOPPELT_PLUS_1_ZEILE = 53
-Public Const FKT_MARKIERE_DOPPELT_PLUS_1_ZEILE_MINUS = 54
-Public Const FKT_MARKIERE_STR_VORNE_UND_HINTEN = 55
-Public Const FKT_MARKIERE_VORNE_FIX = 56
-Public Const FKT_MARKIERE_VORNE_ODER_HINTEN = 57
-Public Const FKT_MARKIERE_VORNE_UND_HINTEN = 58
-Public Const FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE = 59
-Public Const FKT_MARKIERE_WORT = 60
-Public Const FKT_MASKIERE_ANFZEICHEN = 61
-Public Const FKT_NOTES_DEBUG_FELD_WERTE = 62
-Public Const FKT_NOTES_LESEN_SCHREIBEN = 63
-Public Const FKT_SET_TRENNZEICHEN = 64
-Public Const FKT_SET_TRENNZEICHEN_VOR = 65
-Public Const FKT_SET_TRENNZEICHEN_ZURUECK = 66
-Public Const FKT_SINGLETON_JAVA = 67
-Public Const FKT_SORTIEREN_ALPHABETH = 68
-Public Const FKT_SORTIEREN_DATUM = 69
-Public Const FKT_SORTIEREN_LAENGE = 70
-Public Const FKT_SORTIEREN_ZUFALL = 71
-Public Const FKT_STRING_LAENGE_AUSGEBEN = 72
-Public Const FKT_STRING_LIT = 73
-Public Const FKT_STRING_REMOVE = 74
-Public Const FKT_STRING_SPLIT = 75
-Public Const FKT_STRING_UMDREHEN = 76
-Public Const FKT_STRING_VERSCHIEBEN = 77
-Public Const FKT_TRIM_AUFEINANDERFOLGENDE_LEERZEICHEN = 78
-Public Const FKT_TRIM_STRING_VORNE_UND_HINTEN = 79
-Public Const FKT_UCASE_LCASE = 80
-Public Const FKT_ZEILEN_ADD = 81
-Public Const FKT_ZEILEN_BOOLEAN = 82
-Public Const FKT_ZEILEN_ZAEHLER = 83
-Public Const FKT_STRING_ERST = 84
+Public Const FKT_CSV_JAVA_CASE = 13
+Public Const FKT_CSV_JAVA_PROP = 14
+Public Const FKT_CSV_REPLACE_MARKIERUNG_MIT_CSV = 15
+Public Const FKT_CSV_SWAP = 16
+Public Const FKT_CSV_VB_KONVERTER = 17
+Public Const FKT_DUPLIZIERUNG = 18
+Public Const FKT_ERSTELLE_BLOCK = 19
+Public Const FKT_ERSTELLE_NAMEN = 20
+Public Const FKT_ERSTELLE_XML = 21
+Public Const FKT_ERSTELLE_XML_2 = 22
+Public Const FKT_EXTRAHIERE_WORTE = 23
+Public Const FKT_FORMAT_TXT = 24
+Public Const FKT_GENERATOR_DEBUG_AUSGABE = 25
+Public Const FKT_GENERATOR_HTML_LINK = 26
+Public Const FKT_GENERATOR_IF_JAVA_SCRIPT = 27
+Public Const FKT_GENERATOR_IF_JAVA_VB = 28
+Public Const FKT_GENERATOR_SET_NULL = 29
+Public Const FKT_GENERATOR_STRING_IT = 30
+Public Const FKT_GENERATOR_VARIABLEN_DEKLARATION = 31
+Public Const FKT_GENERATOR_VB_CHECK_LEER_STRING = 32
+Public Const FKT_GETTER_SETTER_JAVA = 33
+Public Const FKT_GETTER_SETTER_JAVA_SCRIPT = 34
+Public Const FKT_GETTER_SETTER_VB = 35
+Public Const FKT_GET_DIR = 36
+Public Const FKT_GET_DOPPELTE_VORKOMMEN = 37
+Public Const FKT_GET_EINMALIGE_VORKOMMEN = 38
+Public Const FKT_GET_UNIQUE = 39
+Public Const FKT_GREP_DUPLIZIERE_MARKZEILEN = 40
+Public Const FKT_GREP_MARK = 41
+Public Const FKT_GREP_PLUS_MINUS = 42
+Public Const FKT_GREP_WORT = 43
+Public Const FKT_GREP_ZAHLEN = 44
+Public Const FKT_GROUP_NACH_STRING = 45
+Public Const FKT_HEX_DUMP = 46
+Public Const FKT_JAVA_GENERATOR = 47
+Public Const FKT_JAVA_XML_WRITER_NUMMER = 48
+Public Const FKT_JAVA_XML_WRITER_STRING = 49
+Public Const FKT_JQUERY_01 = 50
+Public Const FKT_JSON_LESEN_SCHREIBEN = 51
+Public Const FKT_KONSTANTEN_UEBER_SPLIT = 52
+Public Const FKT_LEERZEILEN_EINFUEGEN = 53
+Public Const FKT_LEERZEILEN_LOESCHEN = 54
+Public Const FKT_MAKE_LONG_DATUM = 55
+Public Const FKT_MARKIERE_CSV_VORNE_ODER_HINTEN = 56
+Public Const FKT_MARKIERE_DOPPELT_PLUS_1_ZEILE = 57
+Public Const FKT_MARKIERE_DOPPELT_PLUS_1_ZEILE_MINUS = 58
+Public Const FKT_MARKIERE_STR_VORNE_UND_HINTEN = 59
+Public Const FKT_MARKIERE_VORNE_FIX = 60
+Public Const FKT_MARKIERE_VORNE_ODER_HINTEN = 61
+Public Const FKT_MARKIERE_VORNE_UND_HINTEN = 62
+Public Const FKT_MARKIERE_VORNE_UND_HINTEN_UND_DOPPLE = 63
+Public Const FKT_MARKIERE_WORT = 64
+Public Const FKT_MASKIERE_ANFZEICHEN = 65
+Public Const FKT_NOTES_DEBUG_FELD_WERTE = 66
+Public Const FKT_NOTES_KOPIERE_FELD_WERTE = 67
+Public Const FKT_NOTES_LESEN_SCHREIBEN = 68
+Public Const FKT_SET_TRENNZEICHEN = 69
+Public Const FKT_SET_TRENNZEICHEN_VOR = 70
+Public Const FKT_SET_TRENNZEICHEN_ZURUECK = 71
+Public Const FKT_SINGLETON_JAVA = 72
+Public Const FKT_SORTIEREN_ALPHABETH = 73
+Public Const FKT_SORTIEREN_DATUM = 74
+Public Const FKT_SORTIEREN_LAENGE = 75
+Public Const FKT_SORTIEREN_ZUFALL = 76
+Public Const FKT_STRING_ERST = 77
+Public Const FKT_STRING_LAENGE_AUSGEBEN = 78
+Public Const FKT_STRING_LIT = 79
+Public Const FKT_STRING_REMOVE = 80
+Public Const FKT_STRING_SPLIT = 81
+Public Const FKT_STRING_UMDREHEN = 82
+Public Const FKT_STRING_VERSCHIEBEN = 83
+Public Const FKT_TRIM_AUFEINANDERFOLGENDE_LEERZEICHEN = 84
+Public Const FKT_TRIM_STRING_VORNE_UND_HINTEN = 85
+Public Const FKT_UCASE_LCASE = 86
+Public Const FKT_ZEILEN_ADD = 87
+Public Const FKT_ZEILEN_BOOLEAN = 88
+Public Const FKT_ZEILEN_ZAEHLER = 89
+Public Const FKT_CSV_SET_TRENNZEICHEN = 90
 
 Public Const LEER_STRING = ""
 Public Const LEER_ZEICHEN = " "
@@ -126,8 +129,8 @@ Public Const TRENN_STRING_9 = "#9"
 ' Leerstrings ersetzt.
 '
 ' Die Markierungsstrings sind so gestaltet, dass deren Zeichenfolge hoffentlich
-' nie nicht selber schon Bestandteil des Eingabestrings sind. Sollte das
-' doch mal der Fall sein, dann hat man halt mal Pech gehabt.
+' nicht selber schon Bestandteil des Eingabestrings sind. Sollte das doch mal
+' der Fall sein, dann hat man halt mal Pech gehabt.
 '
 Public Const MARKIER_STRING_INTERN_1 = "#1#-MARKIER_STRING_1-#1#"
 Public Const MARKIER_STRING_INTERN_2 = "#2#-MARKIER_STRING_2-#2#"
@@ -136,12 +139,11 @@ Public Const MARKIER_STRING_INTERN_4 = "#4#-MARKIER_STRING_4-#4#"
 
 '
 ' Ausrichterstrings
-' Es handelt sich hierbei um temporaere Hilfsstrings um eben Texte daran
-' ausrichten zu koennen. Die Ausrichterstrings werden nach deren Verwendung
-' durch Leerstrings ersetzt.
+' Es handelt sich um temporaere Hilfsstrings um Texte daran ausrichten zu koennen.
+' Die Ausrichterstrings werden nach deren Verwendung durch Leerstrings ersetzt.
 '
-Public Const AUSRICHT_STRING_TEMP_1 = "#A#-AUSRICHT_STRING_TEMP_1-#A#" ' " & AUSRICHT_STRING_TEMP_1 & "
-Public Const AUSRICHT_STRING_TEMP_2 = "#A#-AUSRICHT_STRING_TEMP_2-#A#" ' " & AUSRICHT_STRING_TEMP_2 & "
+Public Const AUSRICHT_STRING_TEMP_1 = "#A#-AUSRICHT_STRING_TEMP_1-#C#" ' " & AUSRICHT_STRING_TEMP_1 & "
+Public Const AUSRICHT_STRING_TEMP_2 = "#B#-AUSRICHT_STRING_TEMP_2-#D#" ' " & AUSRICHT_STRING_TEMP_2 & "
 
 Private Const MARKIERUNG_DOPPELTE_VORKOMMEN = "#D#-DOPPELT-#D#"
 
@@ -280,11 +282,11 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 str_fkt_ergebnis = Replace(pString, pOptString1, MY_CHR_13_10 & pOptString1)
             
             Else
-                
+
                 str_fkt_ergebnis = Replace(pString, pOptString1, MY_CHR_13_10)
-            
+
             End If
-            
+
         End If
     
     ElseIf (pFunktion = FKT_CSV_CR) Then
@@ -294,10 +296,8 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
         ' Eigentlich aehnlich der Funktion "FKT_CSV_2_ZEILE", welche aber das
         ' Trennzeichen selber einmal mit ins Ergebnis aufnimmt oder nicht.
         '
-        If (pOptString1 = LEER_STRING) Then
+        If (pOptString1 <> LEER_STRING) Then
         
-        Else
-            
             If (m_toggle_mr_stringer_fkt) Then
                 
                 str_fkt_ergebnis = Replace(pString, pOptString1, pOptString1 & MY_CHR_13_10)
@@ -532,6 +532,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
             
                 temp_string_1 = IIf(Len(pOptString1) = 0, TRENN_STRING_6, pOptString1)
                 temp_string_2 = IIf(Len(pOptString2) = 0, TRENN_STRING_7, pOptString2)
+                
                 pOptString3 = IIf(Len(pOptString3) = 0, TRENN_STRING_8, pOptString3)
 
             ElseIf (pFunktion = FKT_SORTIEREN_ZUFALL) Then
@@ -939,7 +940,12 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                     m_zaehler_debug_print = 1
                 
                 End If
+                
+                temp_long_2 = pSelStart
+                
 
+
+            
             ElseIf ((pFunktion = FKT_SET_TRENNZEICHEN) Or (pFunktion = FKT_SET_TRENNZEICHEN_VOR) Or (pFunktion = FKT_SET_TRENNZEICHEN_ZURUECK)) Then
                 
                 '
@@ -949,6 +955,10 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 ' Trennstring uebergeben werden. Ist der Parameter ein Leerstring,
                 ' wird abwechselnd ein internes Trennzeichen genommen.
                 '
+                
+                temp_string_3 = IIf(Len(pOptString1) = 0, IIf(m_toggle_mr_stringer_fkt, TRENN_STRING_6, TRENN_STRING_9), pOptString1)
+
+            ElseIf (pFunktion = FKT_CSV_SET_TRENNZEICHEN) Then
                 
                 temp_string_3 = IIf(Len(pOptString1) = 0, IIf(m_toggle_mr_stringer_fkt, TRENN_STRING_6, TRENN_STRING_9), pOptString1)
 
@@ -1111,7 +1121,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                 '
                 If (m_toggle_mr_stringer_fkt) Then
                 
-                    temp_long_1 = 0 ' Keine fuehrenden 0en
+                    temp_long_1 = 0 ' Keine fuehrenden Nullen
                     
                 ElseIf ((pSelLength >= 1) And (pSelLength <= 100)) Then
                     
@@ -1650,6 +1660,22 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                         
                         Call cls_string_array.setString(zeilen_zaehler, temp_string_3)
                     
+                    ElseIf (pFunktion = FKT_CSV_SET_TRENNZEICHEN) Then
+                    
+                        temp_long_2 = ab_position
+                    
+                        If (Len(aktuelle_zeile) < ab_position) Then
+
+                            aktuelle_zeile = aktuelle_zeile & getStringXmal(" ", (ab_position - Len(aktuelle_zeile)) + 2)
+                            
+                        End If
+                
+                        temp_string_1 = Left(aktuelle_zeile, temp_long_2 - 1)
+                            
+                        temp_string_2 = Mid(aktuelle_zeile, temp_long_2, Len(aktuelle_zeile))
+                            
+                        Call cls_string_array.setString(zeilen_zaehler, temp_string_1 & temp_string_3 & temp_string_2)
+                    
                     ElseIf ((pFunktion = FKT_SET_TRENNZEICHEN) Or (pFunktion = FKT_SET_TRENNZEICHEN_VOR) Or (pFunktion = FKT_SET_TRENNZEICHEN_ZURUECK)) Then
                         '
                         ' Funktion "Trennzeichen setzen"
@@ -1720,7 +1746,36 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                         '
                         Call cls_string_array.setString(zeilen_zaehler, getRemoveAbBis(aktuelle_zeile, ab_position, bis_position))
                     
-                    ElseIf (pFunktion = FKT_CLIP_GET_TEXT) Then
+                    ElseIf (pFunktion = FKT_GENERATOR_HTML_LINK) Then
+                    
+                        '
+                        ' Funktion "Generator fuer HTML-Links"
+                        '
+                        ' Erstellt einen HTML-Link fuer Zeilen in denen das Wort HTTP vorkommt
+                        '
+                        'If (aktuelle_zeile <> LEER_STRING) Then
+                        
+                            temp_long_1 = InStr(LCase(aktuelle_zeile), "http:/")
+                            
+                            If (temp_long_1 <= POSITION_0) Then
+                            
+                                temp_long_1 = InStr(LCase(aktuelle_zeile), "https:/")
+                            
+                            End If
+                            
+                            If (temp_long_1 > POSITION_0) Then
+                                
+                                Call cls_string_array.setString(zeilen_zaehler, "<A href=""" & aktuelle_zeile & "target=""_blank"" >" & aktuelle_zeile & "</A><br />")
+                               
+                            Else
+                              
+                                Call cls_string_array.setString(zeilen_zaehler, aktuelle_zeile & "<br />")
+                              
+                            End If
+                        
+                        'End If
+
+                   ElseIf (pFunktion = FKT_CLIP_GET_TEXT) Then
                         
                         '
                         ' Funktion "Clip Get Text"
@@ -2066,7 +2121,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                                 
                             ElseIf (m_zaehler_debug_print = 3) Then
                             
-                                Call cls_string_array.setString(zeilen_zaehler, "temp_str = temp_str & chr(13) & """ & Replace(akt_zeile_mark, """", """""") & " =>"" & " & Replace(akt_zeile_mark, """", "") & " & ""<"" ")
+                                Call cls_string_array.setString(zeilen_zaehler, "temp_str = temp_str & chr(13) & chr(10) & """ & Replace(akt_zeile_mark, """", """""") & " =>"" & " & Replace(akt_zeile_mark, """", "") & " & ""<"" ")
                             
                             ElseIf (m_zaehler_debug_print = 4) Then
                             
@@ -2121,7 +2176,7 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                         
                         End If
                         
-                    ElseIf ((pFunktion = FKT_SINGLETON_JAVA) Or (pFunktion = FKT_GETTER_SETTER_JAVA) Or (pFunktion = FKT_GETTER_SETTER_VB) Or (pFunktion = FKT_GETTER_SETTER_JAVA_SCRIPT)) Then
+                    ElseIf ((pFunktion = FKT_SINGLETON_JAVA) Or (pFunktion = FKT_GETTER_SETTER_JAVA) Or (pFunktion = FKT_GETTER_SETTER_VB) Or (pFunktion = FKT_GETTER_SETTER_JAVA_SCRIPT) Or (pFunktion = FKT_JQUERY_01)) Then
                         '
                         ' Funktion "Getter Setter Java" oder "Getter Setter VB"
                         '
@@ -2284,6 +2339,10 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                                 str_fkt_ergebnis = str_fkt_ergebnis & zeichen_zeilenumbruch & zeichen_zeilenumbruch & "    " & temp_string_1 & " = p" & temp_string_2
                                 str_fkt_ergebnis = str_fkt_ergebnis & zeichen_zeilenumbruch & zeichen_zeilenumbruch & "End Sub"
                                 
+                            ElseIf (pFunktion = FKT_JQUERY_01) Then
+                                
+                                str_fkt_ergebnis = str_fkt_ergebnis & zeichen_zeilenumbruch & " $( ""#txt" & temp_string_2 & """ ).val( " & temp_string_1 & " );"
+                            
                             ElseIf (pFunktion = FKT_GETTER_SETTER_JAVA_SCRIPT) Then
                                 
                                 If (m_toggle_mr_stringer_fkt) Then
@@ -2993,9 +3052,27 @@ Dim knz_schleifen_durchlauf As Boolean        ' Kennzeichen, ob ein Schleifendur
                                 
                                 Else
                                 
-                                    Call cls_string_array.setString(zeilen_zaehler, "temp_str = temp_str & chr(13) & """ & Replace(temp_string_1, """", """""") & " =>"" & " & temp_string_2 & " & ""<"" ")
+                                    Call cls_string_array.setString(zeilen_zaehler, "temp_str = temp_str & chr(13) & chr(10) & """ & Replace(temp_string_1, """", """""") & " =>"" & " & temp_string_2 & " & ""<"" ")
                                 
                                 End If
+                            
+                            End If
+
+                        End If
+                    
+                    ElseIf (pFunktion = FKT_NOTES_KOPIERE_FELD_WERTE) Then
+                    
+                        If (Trim(aktuelle_zeile) <> LEER_STRING) Then
+                        
+                            temp_string_1 = Trim(akt_zeile_mark)
+                            
+                            If (temp_string_1 <> LEER_STRING) Then
+                                
+                                temp_string_2 = "notesDokumentStringGet( notes_dokument_quelle, """ & temp_string_1 & """ )"
+                                
+                                temp_string_3 = "Call notesDokumentStringSet( notes_dokument_ziel, """ & temp_string_1 & """, " & temp_string_2 & " )"
+
+                                Call cls_string_array.setString(zeilen_zaehler, temp_string_3)
                             
                             End If
 
@@ -3416,7 +3493,7 @@ Dim zeilen_index_2     As Long
         While (((zeilen_index_1 <= zeilen_anzahl_1) Or (zeilen_index_2 <= zeilen_anzahl_2)) And (zeilen_index_1 < 31213))
         
             '
-            ' Ergebnisaufbau ist, dass der erste Text aus Array 1 kommt und der zweite aus Array 2.
+            ' Der Ergebnisaufbau ist, dass der erste Text aus Array 1 kommt und der zweite aus Array 2.
             '
             
             str_fkt_ergebnis = str_fkt_ergebnis & str_my_cr & cls_string_array_1.getString(zeilen_index_1) & pTrennzeichen & cls_string_array_2.getString(zeilen_index_2)
@@ -3497,13 +3574,15 @@ End Function
 '
 Public Function formatJsonString(pJsonString As String) As String
 
-Dim str_fkt_ergebnis As String  ' Ergebnisstring fuer die Rueckgabe
-Dim str_tab_einzug   As String  ' Der als Tabulator-Einzug zu benutzende String
-Dim str_my_cr        As String  ' Das in dieser Funktion verwendete Zeilenumbruchszeichen
-Dim akt_zeichen      As String  ' aktuelle Zeichen in der While-Schleife
-Dim akt_position     As Integer ' aktuelle Leseposition der While-Schleife
-Dim einzug_anzahl    As Integer ' Die Anzahl der TABs fuer den Einzug der Elemente
-Dim knz_in_string    As Boolean ' Kennzeichen, ob sich der Leseprozess im String befindet
+Dim str_fkt_ergebnis  As String  ' Ergebnisstring fuer die Rueckgabe
+Dim str_tab_einzug    As String  ' Der als Tabulator-Einzug zu benutzende String
+Dim str_my_cr         As String  ' Das in dieser Funktion verwendete Zeilenumbruchszeichen
+Dim akt_zeichen       As String  ' aktuelle Zeichen in der While-Schleife
+Dim akt_position      As Integer ' aktuelle Leseposition der While-Schleife
+Dim einzug_anzahl     As Integer ' Die Anzahl der TABs fuer den Einzug der Elemente
+Dim knz_in_string     As Boolean ' Kennzeichen, ob sich der Leseprozess im String befindet
+Dim index_klammer_auf As Integer ' Position der letzten oeffnenenden Klammer
+
 
     '
     ' Das in dieser Funktion verwendete Zeilenumbruchszeichen
@@ -3520,6 +3599,8 @@ Dim knz_in_string    As Boolean ' Kennzeichen, ob sich der Leseprozess im String
     ' Die aktuelle Lesepositon wird auf das erste Zeichen gestellt.
     '
     akt_position = 1
+    
+    index_klammer_auf = -2
 
     '
     ' While-Schleife ueber alle Zeichen der Eingabe
@@ -3559,6 +3640,21 @@ Dim knz_in_string    As Boolean ' Kennzeichen, ob sich der Leseprozess im String
             '
             ' Linefeed ueberlesen
             '
+        
+        ElseIf (akt_zeichen = vbTab) Then
+        
+            '
+            ' Tabulator
+            ' Ein Tabulatorzeichen wird uebernommen, wenn sich der Leseprozess in
+            ' einem String befindet.
+            '
+            ' Ausserhalb eines String, wird ein Tabulatorzeichen ueberlesen.
+            '
+            If (knz_in_string) Then
+            
+                str_fkt_ergebnis = str_fkt_ergebnis & akt_zeichen
+            
+            End If
         
         ElseIf (akt_zeichen = ":") Then
         
@@ -3633,6 +3729,8 @@ Dim knz_in_string    As Boolean ' Kennzeichen, ob sich der Leseprozess im String
             str_fkt_ergebnis = str_fkt_ergebnis & str_my_cr
             
             str_fkt_ergebnis = str_fkt_ergebnis & getStringXmal(str_tab_einzug, einzug_anzahl)
+            
+            index_klammer_auf = akt_position
 
         ElseIf ((akt_zeichen = "}") Or (akt_zeichen = "]")) Then
             
@@ -3663,9 +3761,25 @@ Dim knz_in_string    As Boolean ' Kennzeichen, ob sich der Leseprozess im String
                 
             End If
             
-            str_fkt_ergebnis = str_fkt_ergebnis & str_my_cr
+            '
+            ' Behandlung von leeren Klammern
+            ' Folgt auf einer oeffneneden Klammer sofort eine schliessende Klammer,
+            ' wird keine zusaetzliche Leerzeile eingefuegt. In diesem Fall muessen
+            ' die Leerzeichen fuer den Einzug noch aus dem bisherigem Ergebnis wieder
+            ' entfernt werden. Dieses Verfahren funktioniert nicht, wenn zwischen
+            ' den Klammern noch ein Leerzeichen kommt.
+            '
+            If (index_klammer_auf + 1 = akt_position) Then
             
-            str_fkt_ergebnis = str_fkt_ergebnis & getStringXmal(str_tab_einzug, einzug_anzahl)
+                str_fkt_ergebnis = Left(str_fkt_ergebnis, Len(str_fkt_ergebnis) - 2)
+              
+            Else
+            
+                str_fkt_ergebnis = str_fkt_ergebnis & str_my_cr
+                
+                str_fkt_ergebnis = str_fkt_ergebnis & getStringXmal(str_tab_einzug, einzug_anzahl)
+                
+            End If
 
             str_fkt_ergebnis = str_fkt_ergebnis & akt_zeichen
             
@@ -3742,28 +3856,28 @@ Public Function formatXML(pString As String) As String
         
     End If
     
-Dim tag_art_start                   As Integer ' Tag-Art fuer ein Start-Tag
-Dim tag_art_ende_normal             As Integer ' Tag-Art fuer ein End-Tag <tag />
-Dim tag_art_start_ende__kommentar   As Integer ' Tag-Art fuer ein kombiniertes Start-End-Tag (... oder Kommentaren)
-Dim knz_tag_art                     As Integer ' Kennzeichen fuer die aktuelle Tag-Art
-Dim knz_letzte_tag_art              As Integer ' Kennzeichen fuer die letzte Tag-Art
-Dim eingabe_str                     As String  ' der konvertierte Eingabestring (enthaelt keine Zeilenumbrueche)
-Dim start_zeichen                   As String  ' Das Startzeichen "<"
-Dim end_zeichen                     As String  ' Das Endzeichen ">"
-Dim str_fkt_ergebnis                As String  ' Der Stringbuffer fuer die Aufnahme des Ergebnisses
-Dim lese_position_start             As Long    ' Die aktuelle Startleseposition
-Dim lese_position_ende              As Long    ' Die aktuelle Endleseposition
-Dim letztes_end_tag_ende            As Long    ' Die Position wo das letzte Tag endete
-Dim pos_akt_xml_start_zeichen       As Long    ' Die aktuelle Position des Startzeichens
-Dim pos_akt_xml_end_zeichen         As Long    ' Die aktuelle Position des Endzeichens
-Dim zaehler_while_schleife          As Long    ' Endlosschleifenverhinderungszaehler
-Dim len_eingabe_str                 As Long    ' Laenge des Eingabestrings
-Dim einrueck_zaehler                As Integer ' aktuelle Einrueckbreite
-Dim einrueck_breite                 As Integer ' Einrueckeinheitenbreite
-Dim knz_trennen                     As Boolean ' Kennzeichen ob getrennt werden soll
-Dim str_debug                       As String  ' Ein optionaler Debug-String
-Dim akt_teil_string                 As String
-Dim pos_next_slash                  As Long
+Dim tag_art_start                 As Integer ' Tag-Art fuer ein Start-Tag
+Dim tag_art_ende_normal           As Integer ' Tag-Art fuer ein End-Tag <tag />
+Dim tag_art_start_ende__kommentar As Integer ' Tag-Art fuer ein kombiniertes Start-End-Tag (... oder Kommentaren)
+Dim knz_tag_art                   As Integer ' Kennzeichen fuer die aktuelle Tag-Art
+Dim knz_letzte_tag_art            As Integer ' Kennzeichen fuer die letzte Tag-Art
+Dim eingabe_str                   As String  ' der konvertierte Eingabestring (enthaelt keine Zeilenumbrueche)
+Dim start_zeichen                 As String  ' Das Startzeichen "<"
+Dim end_zeichen                   As String  ' Das Endzeichen ">"
+Dim str_fkt_ergebnis              As String  ' Der Stringbuffer fuer die Aufnahme des Ergebnisses
+Dim lese_position_start           As Long    ' Die aktuelle Startleseposition
+Dim lese_position_ende            As Long    ' Die aktuelle Endleseposition
+Dim letztes_end_tag_ende          As Long    ' Die Position wo das letzte Tag endete
+Dim pos_akt_xml_start_zeichen     As Long    ' Die aktuelle Position des Startzeichens
+Dim pos_akt_xml_end_zeichen       As Long    ' Die aktuelle Position des Endzeichens
+Dim zaehler_while_schleife        As Long    ' Endlosschleifenverhinderungszaehler
+Dim len_eingabe_str               As Long    ' Laenge des Eingabestrings
+Dim einrueck_zaehler              As Integer ' aktuelle Einrueckbreite
+Dim einrueck_breite               As Integer ' Einrueckeinheitenbreite
+Dim knz_trennen                   As Boolean ' Kennzeichen ob getrennt werden soll
+Dim str_debug                     As String  ' Ein optionaler Debug-String
+Dim akt_teil_string               As String
+Dim pos_next_slash                As Long
 
     '
     ' Alle Kombinationen aus Zeilenumbruechen aus dem Eingabestring entfernen
@@ -4432,6 +4546,8 @@ Dim str_vorlaufende_nullen  As String  ' String mit 20 Nullen fuer die vorlaufen
 Dim zahlen_je_zeile_anzahl  As Integer ' Anzahl der Ausgabezeichen je Zeile
 Dim zahlen_je_zeile_zaehler As Integer ' Aktuelle Zeichenanzahl der aktuellen Zeile
 Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder Dezimalangabe erstellt wird
+
+Dim knz_erstelle_vorlaufende_nullen As Boolean
     
     str_my_cr = vbCrLf
     
@@ -4448,8 +4564,6 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
     str_ausgabe_position = Right(str_vorlaufende_nullen & akt_position, 6) & LEER_ZEICHEN
     
     knz_ausgabe_hexadezimal = m_toggle_mr_stringer_fkt
-    
-    Dim knz_erstelle_vorlaufende_nullen As Boolean
     
     knz_erstelle_vorlaufende_nullen = pModus = 1
     
@@ -4475,11 +4589,11 @@ Dim knz_ausgabe_hexadezimal As Boolean ' Steuert, ob die Ausgabe als Hex- oder D
         '
         If (knz_ausgabe_hexadezimal) Then
             
-                str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & " 0x" & Right("00" & Hex(Asc(akt_zeichen)), 2) & ", "
+            str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & " 0x" & Right("00" & Hex(Asc(akt_zeichen)), 2) & ", "
             
         Else
         
-                str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & Right("   " & Asc(akt_zeichen), 3) & ", "
+            str_ausgabe_ascii_werte = str_ausgabe_ascii_werte & Right("   " & Asc(akt_zeichen), 3) & ", "
             
         End If
         
@@ -5840,6 +5954,7 @@ Dim letztes_zeichen         As String
             '
             ' Am Ende der While-Schleife wird der Leseprozess um eine Position weitergeschaltet
             akt_position = akt_position + 1
+        
         Wend
     
         getStringLitKonst = str_fkt_ergebnis
@@ -6188,14 +6303,14 @@ End Function
 '
 Public Function getGrepSuchwort(ByVal pEingabeString As String, ByVal pSuchString As String, ByVal pTrennzeichen As String) As String
 
-Dim akt_position_wort_start   As Long   ' aktuelle Startposition (gleichzeitig aktuelle Position des Leseprozesses)
-Dim akt_position_wort_ende    As Long   ' aktuelle Endposition
-Dim laenge_eingabe            As Long   ' Laenge des Eingabestrings
-Dim laenge_such_string        As Long   ' Laenge des Suchstrings
-Dim str_akt_trennzeichen      As String
-Dim str_fkt_ergebnis          As String ' String fuer das Funktionsergebnis
-Dim zeichen_wortbestandteil   As String ' Gueltige Zeichen fuer ein Wort
-Dim knz_wortende_gefunden     As Integer
+Dim akt_position_wort_start As Long   ' aktuelle Startposition (gleichzeitig aktuelle Position des Leseprozesses)
+Dim akt_position_wort_ende  As Long   ' aktuelle Endposition
+Dim laenge_eingabe          As Long   ' Laenge des Eingabestrings
+Dim laenge_such_string      As Long   ' Laenge des Suchstrings
+Dim str_akt_trennzeichen    As String
+Dim str_fkt_ergebnis        As String ' String fuer das Funktionsergebnis
+Dim zeichen_wortbestandteil As String ' Gueltige Zeichen fuer ein Wort
+Dim knz_wortende_gefunden   As Integer
 
 '
 ' Einzig denkbarer Fehler ist, wenn der Zaehler fuer die aktuelle Position groesser
@@ -6815,7 +6930,6 @@ On Error Resume Next
     vb_str = Replace(vb_str, "#-2-#", """'")
     vb_str = Replace(vb_str, "#-3-#", "= '")
     vb_str = Replace(vb_str, "#-4-#", "' )")
-    
     
     vb_str = Replace(vb_str, " ByVal ", " ")
     vb_str = Replace(vb_str, "&", "+")
@@ -7693,7 +7807,6 @@ Dim ergebnis_string_zeile      As String
 Dim ergebnis_wort_trennzeichen As String
 Dim ergebnis_max_zeilenlaenge  As Long
 Dim ergebnis_wort_min_laenge   As Long
-
 Dim parser_akt_position        As Long
 Dim parser_akt_zeichen         As String
 Dim parser_temp_wort           As String
@@ -7762,7 +7875,8 @@ Dim parser_wort_trennzeichen   As String
             ' Sind die beiden Bedingungen erfuellt, wird das Wort dem Ergebnisstring
             ' hinzugefuegt. Dabei wird auf die Mindestlaenge einer Ergebniszeile
             ' geprueft und gegebenenfalls wird ein Zeilenumbruch hinzugefuegt.
-        
+            '
+            
             If (Len((parser_temp_wort)) >= ergebnis_wort_min_laenge) Then
                 
                 If (InStr(ergebnis_string_gesamt, parser_temp_wort & ergebnis_wort_trennzeichen) = 0) Then
@@ -10196,8 +10310,6 @@ endGetAnzahlVorkommen:
 
 End Function
 
-
-
 '##############################################################################
 '
 Public Function renameYoutube(pDateiName As String, pKnzReplaceLeerzeichen As Boolean) As String
@@ -10488,7 +10600,6 @@ Dim temp_string       As String
     datei_name_neu = Replace(datei_name_neu, "_25fps_", "")
     datei_name_neu = Replace(datei_name_neu, "_24fps_", "")
 
-'(720p_30fps_192kbit_AAC)
     '
     ' Aufloesungsinformationen entfernen
     '
@@ -10615,7 +10726,6 @@ Dim temp_string       As String
         
     Wend
     
-    
     zaehler_1 = 1990
     
     While (zaehler_1 < 2030)
@@ -10739,9 +10849,7 @@ Dim temp_string       As String
     datei_name_neu = Replace(datei_name_neu, " Ft. ", " ft ")
     datei_name_neu = Replace(datei_name_neu, " FT. ", " ft ")
     
-    
     If (pKnzReplaceLeerzeichen) Then
-    
     
         datei_name_neu = Replace(datei_name_neu, " - ", "__")
         
@@ -10752,6 +10860,12 @@ Dim temp_string       As String
         'datei_name_neu = renameWorteEnglish(datei_name_neu)
 
     End If
+    
+    datei_name_neu = Replace(datei_name_neu, "_Q&A", "_Q_and_A")
+    datei_name_neu = Replace(datei_name_neu, "_Q_&_A", "_Q_and_A")
+
+    datei_name_neu = Replace(datei_name_neu, "_q&a", "_Q_and_A")
+    datei_name_neu = Replace(datei_name_neu, "_q_&_a", "_Q_and_A")
     
     renameYoutube = datei_name_neu
 
@@ -11154,8 +11268,6 @@ Dim akt_teil_string  As String  ' Der aktuelle Teilstring aus den CSV-Werten
 
     datei_name_neu = "##MARKIERUNG_1##_" & pString & "_##MARKIERUNG_2##"
     
-    datei_name_neu = Replace(datei_name_neu, "_a_", "_A_")
-
     csv_trennzeichen = csv_trennzeichen & ""
     csv_trennzeichen = csv_trennzeichen & "an, as, at, be, by, do, go, if, im, in,"
     csv_trennzeichen = csv_trennzeichen & "is, it, me, mr, my, no, of, ol, on, or,"
